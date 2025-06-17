@@ -13,7 +13,7 @@
 	</header>
 	<main>
 	<h2>Login</h2>
-		<form>
+		<form id = "login">
 			<label>ID
         <input type="text" name="id">
       </label>
@@ -28,6 +28,22 @@
   </form>
 </main>
 <footer>
-</footer>       
+</footer>    
+<script>
+	'use strict';
+	const form = document.getElementById('login');
+	const error = document.getElementById('errormessage');
+	const idInput = form.id;
+	const pwInput = form.pw;
+
+	form.onsubmit = function() {
+  	if (!idInput.value || !pwInput.value) {
+	    error.textContent = "※ユーザーIDとパスワードを入力してください";
+	    return false; 
+	 }
+ 	 error.textContent = null;
+	};  
+</script>
 </body>
+
 </html>

@@ -54,5 +54,3 @@ public class LoginServlet extends HttpServlet {
 	}
 
 }
-
-//test用
