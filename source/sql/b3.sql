@@ -1,7 +1,7 @@
 
 /*データベース作成*/
-CREATE DATABASE Ramen;
-use ramen;
+CREATE DATABASE b3;
+use b3;
 
 /*ユーザーテーブル作成*/
 CREATE TABLE users (
