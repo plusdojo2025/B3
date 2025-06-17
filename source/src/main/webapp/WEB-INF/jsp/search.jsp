@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/B3/css/search.css">
 
 
-<title>カスタム2つまみスライダー</title>
+
   <style>
     .slider-container {
       width: 300px;
@@ -59,32 +59,35 @@
 	<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
 <!-- エラーメッセージ -->	
-	<form id="search_form" method="POST" action="/webapp/SearchServlet">
+	<form id="search_form" method="POST" action="/B3/SearchServlet">
 		<table>
 			
-					<label for="name">商品名
-					<input type="text" name="name" id="name">
-					</label>
+		<label for="name">商品名
+		<input type="text" name="name" id="name">
+		</label>
 				
-					<label for="brand_name">ブランド
-					<input type="text" name="brand_name" id="brand_name">
-					</label>
+		<br>
+		<label for="brand_name">ブランド
+		<input type="text" name="brand_name" id="brand_name">
+		</label>
 			
-					<label>イメージタグ
-					<input type="text" name="image_tag" id="image_tag">
-					</label>
-				
-					<label>シンプル	
-						<div class="slider-container">
-						  <div class="slider-track"></div>
-						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="20" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="80" oninput="updateSlider()">
-						</div>
-						<div class="values">
-						  選択範囲: <span id="rangeValue">20 - 80</span>
-						</div>
-					</label>
+		<br>
+		<label>イメージタグ
+		<input type="text" name="image_tag" id="image_tag">
+		</label>
+			
+		<br>	
+		<label>シンプル	
+		<div class="slider-container">
+		<div class="slider-track"></div>
+		<div class="slider-range" id="sliderRange"></div>
+	  	<input type="range" id="minRange" min="0" max="100" value="20" oninput="updateSlider()">
+		<input type="range" id="maxRange" min="0" max="100" value="80" oninput="updateSlider()">
+		</div>
+		<div class="values">
+		  選択範囲: <span id="rangeValue">20 - 80</span>
+		</div>
+		</label>
 				
 					<label>フレッシュ	
 						<div class="slider-container">
