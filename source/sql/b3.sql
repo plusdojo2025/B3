@@ -8,7 +8,6 @@ CREATE TABLE users (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_name varchar(100) NOT NULL,
     password varchar(100),
-    mail_address varchar(100),
     created_at timestamp,
     updated_at timestamp
 );
