@@ -19,37 +19,26 @@ CREATE TABLE perfumes(
     brand_name varchar(100),
     price int,
     perfume_img varchar(200),
-     created_at timestamp,
+    day DATE,
+    favourite BOOLEAN,
+    color VARCHAR(7),
+    strength INT,
+    memo VARCHAR(100),
+    created_at timestamp,
     updated_at timestamp
 );
-/*stockテーブル作成*/
-CREATE TABLE stock (
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    perfume_id INT, 
-    day DATE,
-    memo VARCHAR(100),
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP ,
-    FOREIGN KEY(user_id) 
-    REFERENCES users(ID),
-    FOREIGN KEY (perfume_id) 
-    REFERENCES perfumes(ID)
-);
+
 
 /* perfume_imagesテーブル作成*/
 CREATE TABLE perfume_images (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     perfume_id INT,
-    user_id INT,
-    favourite BOOLEAN,
-    color VARCHAR(7),
-    strength INT,
-    memo VARCHAR(100),
+    item VARCHAR(10),
+    small_category VARCHAR(10),
      created_at TIMESTAMP,
     updated_at TIMESTAMP ,
     FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
-    FOREIGN KEY (user_id) REFERENCES users(ID)
+    
 );
 
 
@@ -67,6 +56,7 @@ CREATE TABLE perfume_log (
     top_note VARCHAR(100),
     middle_note VARCHAR(100),
     last_note VARCHAR(100),
+    thoughts VARCHAR(100),
     created_at TIMESTAMP,
     updated_at TIMESTAMP ,
     FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
@@ -75,56 +65,7 @@ CREATE TABLE perfume_log (
 
 
 
-/*  sweet_imagesテーブル作成*/
-CREATE TABLE sweet_images(
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    perfume_id INT,
-    user_id INT,
-    sweet_id INT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP ,
-    FOREIGN KEY (perfume_id)
-    REFERENCES perfumes(id),
-    FOREIGN KEY (user_id)
-    REFERENCES users(ID)
-   
-);
 
-/*  fresh_imagesテーブル作成*/
-CREATE TABLE fresh_images (
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    perfume_id INT,
-    user_id INT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
-    FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
-    FOREIGN KEY (user_id) REFERENCES users(ID)
-   
-);
-
-
-/* perfume_relax_imagesテーブル作成*/
-CREATE TABLE perfume_relax_images (
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    perfume_id INT,
-    user_id INT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
-    FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
-    FOREIGN KEY (user_id) REFERENCES users(ID)
-   
-);
-
-/* perfume_spicy_imagesテーブル作成*/
-CREATE TABLE perfume_spicy_images (
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    perfume_id INT,
-    user_id INT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
-    FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
-    FOREIGN KEY (user_id) REFERENCES users(ID)  
-);
 /* big_categoryテーブル作成*/
 CREATE TABLE big_category(
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -135,11 +76,13 @@ CREATE TABLE big_category(
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );
-/* small_categoryテーブル作成*/
-CREATE TABLE small_category(
+/* details_categoryテーブル作成*/
+CREATE TABLE detail_category(
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     genre VARCHAR(10),
-    name VARCHAR(20),
+    big_id INT,
+    FOREIGN KEY (big_id) 
+    REFERENCES big_categpry(ID),
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );

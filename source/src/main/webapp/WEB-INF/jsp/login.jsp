@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Parfüm Note | Login</title>
-<link rel="stylesheet" href="/B3/css/login.css">
+
 </head>
 <body>
 	<header>
@@ -13,7 +14,7 @@
 	</header>
 	<main>
 	<h2>Login</h2>
-		<form id = "login" method="POST" action="/b3/LoginServlet">
+		<form id = "login"  action="<c:url value='LoginServlet' />" method="POST" >
 			<label>ID
         <input type="text" name="id">
       </label>
@@ -22,7 +23,7 @@
         <input type="password" name="pw">
       </label>
       <br>
-      <input type="submit" name="submit" value="ログイン">
+      <input type="submit" name="subimt" value="ログイン">
       <input type="reset" name="reset" value="リセット">
       <p id="errormessage"></p>
   </form>
