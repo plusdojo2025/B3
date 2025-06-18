@@ -3,10 +3,10 @@
 <div>
 <img src="/B3/img/logo.png">
 <nav>
-<a href="/B3/ListServlet">Home</a>
-<a href="Calenderservlet">Log</a>
-<a href="SerchServlet">Search</a>
-<a href="B3/ChartServlet">MyType</a>
-<a href="/B3/LoginServlet">Logout</a>
+<a href="<c:url value='/ListServlet' />">Home</a>
+<a href="<c:url value='/CalenderServlet' />">Log</a>
+<a href="<c:url value='/SearcherServlet' />">Search</a>
+<a href="<c:url value='/CalenderServlet' />">MyType</a>
+<a href="<c:url value='/LoginServlet' />">Logout</a>
 </nav>
 </div>
