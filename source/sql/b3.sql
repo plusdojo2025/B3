@@ -90,13 +90,16 @@ CREATE TABLE detail_category(
 /* scrollballテーブル作成*/
 CREATE TABLE scrollbar(
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    perfume_id INT,
     simple_complex INT,
     fresh_sweet INT,
     light_heavy INT,
     male_women INT,
     mild_spicy INT,
+    FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
     created_at TIMESTAMP,
     updated_at TIMESTAMP
+    
 );
 
 Show tables;
