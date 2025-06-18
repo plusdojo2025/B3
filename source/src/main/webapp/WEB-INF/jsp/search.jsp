@@ -1,60 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Parfüm Note | Search</title>
-<link rel="stylesheet" href="/B3/css/search.css">
 
-
+  <meta charset="UTF-8">
+  <title>Parfüm Note | Search</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/B3/css/search.css">
 
   <style>
-    .slider-container {
-      width: 300px;
-      position: relative;
-      height: 10px;
-      margin: 50px 0;
+    .slider-group {
+      margin-bottom: 20px;
     }
-    .slider-track {
-      position: absolute;
-      width: 100%;
-      height: 10px;
-      background: #ccc; /* 薄い灰色 */
-      border-radius: 5px;
-      top:
-    }
-    .slider-range {
-      position: absolute;
-      height: 10px;
-      background: #888; /* 中くらいの灰色 */
-      border-radius: 5px;
-      z-index: 2;
-    }
-    input[type=range] {
-      position: absolute;
-      width: 100%;
-      pointer-events: none;
-      -webkit-appearance: none;
-      background: none;
-      z-index: 3;
-    }
-    input[type=range]::-webkit-slider-thumb {
-      pointer-events: all;
-      -webkit-appearance: none;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      background: transparent;
-      border: none;
-    }
-    .values {
-      margin-top: 20px;
+    label {
+      display: block;
+      margin-bottom: 5px;
     }
   </style>
-
 </head>
 <body>
+
 	<header>
 	<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
@@ -143,42 +109,6 @@
 		</table>
 	</form>	
 	
+
 </body>
-
-<script>
-<!-- エラーメッセージ -->	
-'use strict';
-document.getElementById('login_form').onsubmit = function(event) {
-    const searchNAME = document.getElementById('name').value;
-    const searchBRAND_NAME = document.getElementById('brand_name').value;
-    const errorMessage = document.getElementById('error_message');
-
-    if (searchNAME === '' && searchBRAND_NAME === '') {
-        event.preventDefault();
-        window.alert('項目を入力してください。');
-    }
-};
-
-<!-- スライダーバー -->	
-function updateSlider() {
-    const minSlider = document.getElementById('minRange');
-    const maxSlider = document.getElementById('maxRange');
-    const sliderRange = document.getElementById('sliderRange');
-    const rangeValue = document.getElementById('rangeValue');
-    let min = parseInt(minSlider.value);
-    let max = parseInt(maxSlider.value);
-    // 値の入れ替え防止
-    if (min > max) {
-      [min, max] = [max, min];
-    }
-    rangeValue.textContent = `${min} - ${max}`;
-    const percentMin = (min / 100) * 100;
-    const percentMax = (max / 100) * 100;
-    sliderRange.style.left = percentMin + "%";
-    sliderRange.style.width = (percentMax - percentMin) + "%";
-  }
-  updateSlider();
-
-
-</script>
 </html>
