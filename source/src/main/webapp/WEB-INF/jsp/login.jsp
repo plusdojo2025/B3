@@ -13,7 +13,7 @@
 	</header>
 	<main>
 	<h2>Login</h2>
-		<form id = "login">
+		<form id = "login" method="POST" action="/b3/LoginServlet">
 			<label>ID
         <input type="text" name="id">
       </label>

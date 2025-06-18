@@ -32,7 +32,7 @@
         	</label>
       	<br>
       		<label>画像
-        		<input type="file" name="image"　accept="image/*　>
+        		<input type="file" name="image"　accept="image/*"　>
       		</label>
       		<p id="errormessage"></p>
       	<br>
