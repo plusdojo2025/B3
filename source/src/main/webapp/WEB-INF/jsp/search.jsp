@@ -47,11 +47,11 @@
 		<div class="slider-container">
 		<div class="slider-track"></div>
 		<div class="slider-range" id="sliderRange"></div>
-	  	<input type="range" id="minRange" min="0" max="100" value="20" oninput="updateSlider()">
-		<input type="range" id="maxRange" min="0" max="100" value="80" oninput="updateSlider()">
+	  	<input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
+		<input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
 		</div>
 		<div class="values">
-		  選択範囲: <span id="rangeValue">20 - 80</span>
+		  選択範囲: <span id="rangeValue">0 - 100</span>
 		</div>
 		</label>
 				
@@ -59,11 +59,11 @@
 						<div class="slider-container">
 						  <div class="slider-track"></div>
 						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="20" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="80" oninput="updateSlider()">
+						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
+						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
 						</div>
 						<div class="values">
-						  選択範囲: <span id="rangeValue">20 - 80</span>
+						  選択範囲: <span id="rangeValue">0 - 100</span>
 						</div>
 					</label>
 				
@@ -71,11 +71,11 @@
 						<div class="slider-container">
 						  <div class="slider-track"></div>
 						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="20" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="80" oninput="updateSlider()">
+						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
+						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
 						</div>
 						<div class="values">
-						  選択範囲: <span id="rangeValue">20 - 80</span>
+						  選択範囲: <span id="rangeValue">0 - 100</span>
 						</div>
 					</label>
 				
@@ -83,11 +83,11 @@
 						<div class="slider-container">
 						  <div class="slider-track"></div>
 						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="20" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="80" oninput="updateSlider()">
+						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
+						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
 						</div>
 						<div class="values">
-						  選択範囲: <span id="rangeValue">20 - 80</span>
+						  選択範囲: <span id="rangeValue">0 - 100</span>
 						</div>
 					</label>
 				
@@ -95,11 +95,11 @@
 						<div class="slider-container">
 						  <div class="slider-track"></div>
 						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="20" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="80" oninput="updateSlider()">
+						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
+						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
 						</div>
 						<div class="values">
-						  選択範囲: <span id="rangeValue">20 - 80</span>
+						  選択範囲: <span id="rangeValue">0 - 100</span>
 						</div>
 					</label>
 				
