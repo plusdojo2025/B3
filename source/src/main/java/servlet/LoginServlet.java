@@ -57,13 +57,14 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("id", new LoginUser(id));
 					
 					// メニューサーブレットにリダイレクトする
-					response.sendRedirect("/b3/ListServlet");
+//					response.sendRedirect("/B3/ListServlet");
+					response.sendRedirect(request.getContextPath()+"/ListServlet");
 				} else { // ログイン失敗
 					// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-					request.setAttribute("result", new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/b3/LoginServlet"));
+					request.setAttribute("result", new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/B3/LoginServlet"));
 
 					// 結果ページにフォワードする
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
 					dispatcher.forward(request, response);
 				}
 				
