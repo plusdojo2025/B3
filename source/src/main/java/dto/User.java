@@ -30,5 +30,5 @@ public class User implements Serializable {
 		this.password = password;
 		
 	}
-//DAO DA0
+//DAO DA0 DAO
 }
