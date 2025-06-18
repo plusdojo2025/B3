@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Perfume_logDAO;
+import dto.Perfume_log;
+
 /**
  * Servlet implementation class LogAfterServlet
  */
@@ -58,7 +61,19 @@ public class LogAfterServlet extends HttpServlet {
 		int perfume_id = Integer.parseInt(perfume_id_s);
 		
 		String middle_note = request.getParameter("middle_note");
+		
 		String last_note = request.getParameter("last_note");
+		
+		String thoughts = request.getParameter("thoughts");
+		
+		
+		// 登録処理を行う
+		Perfume_log plog = new Perfume_log(perfume_id, middle_note, last_note, thoughts);
+		
+		Perfume_logDAO logDao = new Perfume_logDAO();
+				
+		boolean result = logDao.insert(plog);
+				
+		doGet(request, response);
 	}
-
 }
