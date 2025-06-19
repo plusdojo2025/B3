@@ -8,7 +8,7 @@ public class Big_category implements Serializable {
     private int id;              
     private String sweet;           
     private String fresh;           
-    private String spicyt;             
+    private String spicy;             
 	private String relax;           
     private Timestamp created_at;   
     private Timestamp updated_at;
@@ -32,10 +32,10 @@ public class Big_category implements Serializable {
 		this.fresh = fresh;
 	}
 	public String getSpicyt() {
-		return spicyt;
+		return spicy;
 	}
-	public void setSpicyt(String spicyt) {
-		this.spicyt = spicyt;
+	public void setSpicyt(String spicy) {
+		this.spicy = spicy;
 	}
 	public String getRelax() {
 		return relax;
@@ -56,13 +56,13 @@ public class Big_category implements Serializable {
 		this.updated_at = updated_at;
 	} 
 	
-	public Big_category(int id, String sweet, String fresh, String spicyt, String relax, Timestamp created_at,
+	public Big_category(int id, String sweet, String fresh, String spicy, String relax, Timestamp created_at,
 			Timestamp updated_at) {
 		super();
 		this.id = id;
 		this.sweet = sweet;
 		this.fresh = fresh;
-		this.spicyt = spicyt;
+		this.spicy = spicy;
 		this.relax = relax;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
