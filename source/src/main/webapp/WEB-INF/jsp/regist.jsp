@@ -13,7 +13,18 @@
     gap: 10px;
     margin-bottom: 10px; /* スライダーごとの間隔 */
 }
-</style>
+
+    .heart {
+      font-size: 50px;
+      color: gray;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .heart.active {
+      color: red;
+    }
+  </style>
+
 </head>
 <body>
 	<header>
@@ -56,7 +67,8 @@
       		<label for="color">色を選んでください:</label>
 				<input type="color" id="color" name="color" value="#FFFFFF">
       	<br>
-      		//お気に入り
+      		お気に入り
+      		<span id="heart" class="heart">&#10084;</span>
       	<br>
       	<input type="submit" name="delete" value="削除">
       	
@@ -102,4 +114,10 @@
   </form>
 </main>
 </body>
+  <script>
+    const heart = document.getElementById("heart");
+    heart.addEventListener("click", () => {
+      heart.classList.toggle("active");
+    });
+  </script>
 </html>
