@@ -68,7 +68,7 @@
 				<input type="color" id="color" name="color" value="#FFFFFF">
       	<br>
       		お気に入り
-      		<span id="heart" class="heart">&#10084;</span>
+      		<span id="heart" class="heart" name="favourite">&#10084;</span>
       	<br>
       	<input type="submit" name="delete" value="削除">
       	
