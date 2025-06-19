@@ -31,10 +31,10 @@ public class Big_category implements Serializable {
 	public void setFresh(String fresh) {
 		this.fresh = fresh;
 	}
-	public String getSpicyt() {
+	public String getSpicy() {
 		return spicy;
 	}
-	public void setSpicyt(String spicy) {
+	public void setSpicy(String spicy) {
 		this.spicy = spicy;
 	}
 	public String getRelax() {
