@@ -50,8 +50,21 @@ public class RegistServlet extends HttpServlet {
 		String image = request.getParameter("image");
 		String strength = request.getParameter("strength");
 		String color = request.getParameter("color");
+		String favourite=request.getParameter("favourite");
+		boolean fav = Boolean.parseBoolean(favourite);
+		String complex=request.getParameter("complex");
+		String sweet=request.getParameter("sweet");
+		String heavy=request.getParameter("heavy");
+		String women=request.getParameter("women");
+		String spicy=request.getParameter("spicy");
 		
-		
+		PerfumesDAO pDAO = new PerfumesDAO();
+		if(pDAO.insert(new p(name, brand, price, purchased_date, image, strength, color, favourite),
+				new s(complex, sweet, heavy, women, spicy))) {
+			
+		}else {
+			
+		}
 		//PefumesDAOを実体化して、その中の香水を追加するメソッドを実行する
 		//insert into perfumes (name,brand....) valeues (?,?,,,);
 		
