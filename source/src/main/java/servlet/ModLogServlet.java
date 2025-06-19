@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.time.LocalTime;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.Perfume_logDAO;
+import dto.Perfume_log;
+import dto.Result;
 
 /**
  * Servlet implementation class ModLogServlet
@@ -21,6 +24,7 @@ public class ModLogServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+
     public ModLogServlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -55,11 +59,7 @@ public class ModLogServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-		String id_s = request.getParameter("id");
-		int id = Integer.parseInt(id_s);
-		
-		String user_id_s = request.getParameter("user_id");
-		int user_id = Integer.parseInt(user_id_s);
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		String perfume_id_s = request.getParameter("perfume_id");
 		int perfume_id = Integer.parseInt(perfume_id_s);
@@ -69,8 +69,7 @@ public class ModLogServlet extends HttpServlet {
 		
 		String weather = request.getParameter("weather");
 
-		String time_s = request.getParameter("applied_time");
-		LocalTime applied_time = LocalTime.parse(time_s);
+		String applied_time = request.getParameter("applied_time");
 		
 		String push_count_s = request.getParameter("push_count");
 		int push_count = Integer.parseInt(push_count_s);
@@ -86,7 +85,7 @@ public class ModLogServlet extends HttpServlet {
 		
 		String last_note = request.getParameter("last_note");
 		
-		String thoughts = request.getParameter("thoughts");
+		String thoughts = request.getParameter("thoughts");	
 		
 		String applied_area = "";
 		if (applied_areas != null) {
@@ -94,6 +93,34 @@ public class ModLogServlet extends HttpServlet {
 		}
 		
 		
+		// 更新または削除を行う	
+		Perfume_logDAO plog = new Perfume_logDAO();
+		if (request.getParameter("submit").equals("更新")) {
+			if (plog.update(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+					push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 更新成功
+				request.setAttribute("result", new Result("更新成功", "住民のデータを更新しました", "/webapp/MenuServlet"));
+			} else { // 更新失敗
+				request.setAttribute("result", new Result("更新失敗", "住民のデータを更新できませんでした", "/webapp/MenuServlet"));
+			}
+			
+		} else {
+			if (plog.delete(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+				push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 削除成功
+				request.setAttribute("result", new Result("削除成功", "住民のデータを削除しました。", "/webapp/MenuServlet"));
+			} else { // 削除失敗
+				request.setAttribute("result", new Result("削除失敗", "住民のデータを削除できませんでした。", "/webapp/MenuServlet"));
+			}
+		}
+		
+		//ボツだと思うけど一応残しておく先生スタイル
+//		Perfume_log plog = new Perfume_log(id, user_id, perfume_id, temperature, weather, applied_time, 
+//				push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts, created_at, updated_at);
+//		
+//		Perfume_logDAO logDao = new Perfume_logDAO();
+//		boolean result = logDao.update(plog);
+//		doGet(request, response);
+//	}
+
 	}
 
 	

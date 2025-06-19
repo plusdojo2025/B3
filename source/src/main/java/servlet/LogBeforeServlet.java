@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.time.LocalTime;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.Perfume_logDAO;
 import dto.Perfume_log;
+import dto.Result;
 
 /**
  * Servlet implementation class LogBeforeServlet
@@ -61,9 +61,6 @@ public class LogBeforeServlet extends HttpServlet {
 		String id_s = request.getParameter("id");
 		int id = Integer.parseInt(id_s);
 		
-		String user_id_s = request.getParameter("user_id");
-		int user_id = Integer.parseInt(user_id_s);
-		
 		String perfume_id_s = request.getParameter("perfume_id");
 		int perfume_id = Integer.parseInt(perfume_id_s);
 		
@@ -72,8 +69,7 @@ public class LogBeforeServlet extends HttpServlet {
 		
 		String weather = request.getParameter("weather");
 
-		String time_s = request.getParameter("applied_time");
-		LocalTime applied_time = LocalTime.parse(time_s);
+		String applied_time = request.getParameter("applied_time");
 		
 		String push_count_s = request.getParameter("push_count");
 		int push_count = Integer.parseInt(push_count_s);
@@ -85,9 +81,6 @@ public class LogBeforeServlet extends HttpServlet {
 
 		String top_note = request.getParameter("top_note");
 		
-		// 作成日時と変更日時を追加しないといけない！！！！
-		// みんなでTimestampの書き方を揃えた方がいいらしいのであとでみんな書く！！！
-		
 		String applied_area = "";
 		if (applied_areas != null) {
 		    applied_area = String.join(",", applied_areas);  // カンマ区切りで1つの文字列にまとめる
@@ -95,37 +88,38 @@ public class LogBeforeServlet extends HttpServlet {
 		
 		
 		// 登録処理を行う
-		Perfume_log plog = new Perfume_log(id, user_id, perfume_id, temperature, weather, applied_time, 
-				push_count, usage_scene, applied_area, top_note);
-		// 作成日時と変更日時を追加しないといけない！！！！
+		Perfume_logDAO plog = new Perfume_logDAO();
+		if (plog.insert(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+			push_count, usage_scene, applied_area, top_note))) { 
+			
+			// 🍥🍚🍛🍜要検討！！！！！！！！！！！！！！！！！
+			// 登録成功↓ここから下は必要なのか
+			request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/webapp/MenuServlet"));
+		}
+		else { 
+			// 登録失敗
+			request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/webapp/MenuServlet"));
+		}
 		
-		Perfume_logDAO logDao = new Perfume_logDAO();
+		// カレンダーにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+		dispatcher.forward(request, response);
 		
-		boolean result = logDao.insert(plog);
-		
-		doGet(request, response);
-	}
-//		Perfume_logDAO logDao = new Perfume_logDAO();
-//		if (logDao.insert(new Log(perfume_id, temperature, weather, applied_time, 
-//			push_count, applied_area, top_note ))) { 
-//			
-//			// 🍥🍚🍛🍜要検討！！！！！！！！！！！！！！！！！
-////			// 登録成功↓ここから下は必要なのか
-////			request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/webapp/MenuServlet"));
-////		}
-////		else { 
-////			// 登録失敗
-////			request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/webapp/MenuServlet"));
-////		}
-//		
-//		// カレンダーにフォワードする
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+//		// 使用後にフォワードする
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
 //		dispatcher.forward(request, response);
+//		// 「記録」と「使用後へ」のボタンで処理が違うと思うけど、わからない
+		
+//ボツだと思うけど一応残しておく先生スタイル（使用前登録）
+//		Perfume_log plog = new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+//				push_count, usage_scene, applied_area, top_note);
 //		
-////		// 使用後にフォワードする
-////		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
-////		dispatcher.forward(request, response);
-////		// 「記録」と「使用後へ」のボタンで処理が違うと思うけど、わからない
+//		Perfume_logDAO logDao = new Perfume_logDAO();
+//		
+//		boolean result = logDao.insert(plog);
+//		
+//		doGet(request, response);
 //	}
+	}
 
 }
