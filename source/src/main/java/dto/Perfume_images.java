@@ -8,6 +8,8 @@ public class Perfume_images implements Serializable {
 	    private String genre;      
 	    private Integer big_id; 
 	    private String detail;
+	    private String created_at;
+	    private String updated_at;
 	    
 	  //ゲッターセッター
 		public String getGenre() {
