@@ -26,42 +26,36 @@ public class Big_categoryDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			
 			// SQL文を完成させる
-			if (bigc.getId() != 0) {
-				pStmt.setInt(1, bigc.getId());
-			} else {
-				pStmt.setInt(1, 0);
-			}
-		
 			if (bigc.getSweet() != null) {
-				pStmt.setString(2, bigc.getSweet());
+				pStmt.setString(1, bigc.getSweet());
+			} else {
+				pStmt.setString(1, "");
+			}
+			if (bigc.getFresh() != null) {
+				pStmt.setString(2, bigc.getFresh());
 			} else {
 				pStmt.setString(2, "");
 			}
-			if (bigc.getFresh() != null) {
-				pStmt.setString(3, bigc.getFresh());
-			} else {
-				pStmt.setString(3, "");
-			}
 			if (bigc.getSpicy() != null) {
-				pStmt.setString(4, bigc.getSpicy());
+				pStmt.setString(3, bigc.getSpicy());
 			} else {
-			    pStmt.setString(4, "");
+			    pStmt.setString(3, "");
 			}
 			
 			if (bigc.getRelax() != null) {
-				pStmt.setString(5, bigc.getRelax());
+				pStmt.setString(4, bigc.getRelax());
 			} else {
-				pStmt.setString(5, "");
+				pStmt.setString(4, "");
 			}
 			if (bigc.getCreated_at() != null) {
-				pStmt.setTimestamp(6, bigc.getCreated_at());
+				pStmt.setTimestamp(5, bigc.getCreated_at());
 			} else {
-				pStmt.setNull(6, java.sql.Types.TIMESTAMP);
+				pStmt.setNull(5, java.sql.Types.TIMESTAMP);
 			}
 			if (bigc.getUpdated_at() != null) {
-				pStmt.setTimestamp(7, bigc.getUpdated_at());
+				pStmt.setTimestamp(6, bigc.getUpdated_at());
 			} else {
-				pStmt.setNull(7, java.sql.Types.TIMESTAMP);
+				pStmt.setNull(6, java.sql.Types.TIMESTAMP);
 			}
 	
 			// SQL文を実行する
