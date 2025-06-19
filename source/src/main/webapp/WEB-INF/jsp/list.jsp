@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/B3/css/list.css">
 </head>
 <body>
+list.jsp
 	<header>
 		<jsp:include page="/WEB-INF/jsp/header.jsp" /> <!-- ヘッダー -->
 	</header>

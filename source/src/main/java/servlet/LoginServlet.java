@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 					request.setAttribute("result", new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/B3/LoginServlet"));
 
 					// 結果ページにフォワードする
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 					dispatcher.forward(request, response);
 				}
 				

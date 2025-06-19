@@ -157,9 +157,10 @@
       	<input type="reset" name="reset" value="リセット">
       	<hr>
       	
+    
       
       	<p>さわやかさ</p>
-      	<label　   class for="genre" class="section" data-section="甘さ">ジャンル</label>
+      	<label　 for="genre" >ジャンル</label>
 				<select name="genre" id="genre">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
     				<option value="スイーツ">スイーツ</option>
@@ -321,7 +322,7 @@
       	<p>登録済みのタグ</p>
       	<br>
       	<br>
-
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const genreSelect = document.getElementById('genre');
