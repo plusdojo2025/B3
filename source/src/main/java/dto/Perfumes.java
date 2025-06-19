@@ -15,6 +15,11 @@ public class Perfumes implements Serializable {
 		private LocalDate day;
 		private Boolean favourite;
 		private String color;
+		private int strength;
+		private String memo;
+		private LocalDateTime created_at;
+		private LocalDateTime updated_at;
+		
 		public Perfumes() {
 			super();
 			// TODO 自動生成されたコンストラクター・スタブ
@@ -108,8 +113,8 @@ public class Perfumes implements Serializable {
 		public void setUpdated_at(LocalDateTime updated_at) {
 			this.updated_at = updated_at;
 		}
-		private int strength;
-		private String memo;
-		private LocalDateTime created_at;
-		private LocalDateTime updated_at;
+	
+
+
+
 }
