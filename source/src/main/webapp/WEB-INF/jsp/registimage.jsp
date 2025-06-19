@@ -160,10 +160,10 @@
     
       
       	<p>さわやかさ</p>
-      	<label　 for="genre" >ジャンル</label>
-				<select name="genre" id="genre">
+      	<label　 for="genre_fresh" >ジャンル</label>
+				<select name="genre" id="genre_fresh">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
-    				<option value="スイーツ">スイーツ</option>
+    				<option value="スイーツ1">スイーツ</option>
     				<option value="果物">果物</option>
     				<option value="飲み物">飲み物</option>
     				<option value="スパイス">スパイス</option>
@@ -171,7 +171,7 @@
     				<option value="植物">植物</option>
 				</select>
 			
-			<div id="sweets-options" style="display: none;">
+			<div id="sweets-options1" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
     				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
@@ -326,6 +326,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const genreSelect = document.getElementById('genre');
+    const genreSelect_fresh = document.getElementById('genre_fresh');
     
     const genreMap = {
     	'スイーツ': 'sweets-options',
@@ -335,6 +336,14 @@ document.addEventListener('DOMContentLoaded', function () {
         'シーン': 'scene-options',
         '植物': 'plant-options'
     };
+    const genreMap1 = {
+        	'スイーツ1': 'sweets-options1',
+            '果物': 'fruit-options',
+            '飲み物': 'drink-options',
+            'スパイス': 'spices-options',
+            'シーン': 'scene-options',
+            '植物': 'plant-options'
+        };
     
 
     genreSelect.addEventListener('change', function () {
@@ -348,6 +357,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // 選択されたジャンルに対応するブロックだけ表示する
         if (genreMap[selectedGenre]) {
             document.getElementById(genreMap[selectedGenre]).style.display = 'block';
+        }
+    });
+    genreSelect_fresh.addEventListener('change', function () {
+        const selectedGenre = genreSelect_fresh.value;
+
+        // すべてのオプションブロックを一旦非表示にする
+        Object.values(genreMap1).forEach(function (id) {
+            document.getElementById(id).style.display = 'none';
+        });
+
+        // 選択されたジャンルに対応するブロックだけ表示する
+        if (genreMap1[selectedGenre]) {
+            document.getElementById(genreMap1[selectedGenre]).style.display = 'block';
         }
     });
 });
