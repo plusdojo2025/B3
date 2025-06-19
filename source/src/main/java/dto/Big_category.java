@@ -11,7 +11,7 @@ public class Big_category implements Serializable {
     private String spicyt;          
     private String relax;           
     private Timestamp created_at;   
-    private Timestamp cupdated_at;  
+    private Timestamp updated_at;  
     
     // 各フィールドのgetterとsetter
     public int getId() {
@@ -63,11 +63,11 @@ public class Big_category implements Serializable {
     }
 
     public Timestamp getCupdated_at() {
-        return cupdated_at;
+        return updated_at;
     }
 
     public void setCupdated_at(Timestamp cupdated_at) {
-        this.cupdated_at = cupdated_at;
+        this.updated_at = cupdated_at;
     }
 
     // 引数ありコンストラクタ
@@ -79,11 +79,7 @@ public class Big_category implements Serializable {
         this.spicyt = spicyt;
         this.relax = relax;
         this.created_at = created_at;
-        this.cupdated_at = cupdated_at;
+        this.updated_at = cupdated_at;
     }
 
-    public Big_category() {
-    	super();
-    }
 }
-
