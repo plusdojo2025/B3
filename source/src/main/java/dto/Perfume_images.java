@@ -41,5 +41,7 @@ public class Perfume_images implements Serializable {
 			// TODO 自動生成されたコンストラクター・スタブ
 		}     
 		
-		
+	}
 }
+		
+

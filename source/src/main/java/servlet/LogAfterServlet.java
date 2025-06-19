@@ -65,10 +65,12 @@ public class LogAfterServlet extends HttpServlet {
 		String last_note = request.getParameter("last_note");
 		
 		String thoughts = request.getParameter("thoughts");
-		
+		// 作成日時と変更日時を追加しないといけない！！！！
+		// みんなでTimestampの書き方を揃えた方がいいらしいのであとでみんな書く！！！
 		
 		// 登録処理を行う
 		Perfume_log plog = new Perfume_log(perfume_id, middle_note, last_note, thoughts);
+		// 作成日時と変更日時を追加しないといけない！！！！
 		
 		Perfume_logDAO logDao = new Perfume_logDAO();
 				

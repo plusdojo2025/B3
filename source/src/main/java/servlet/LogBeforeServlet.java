@@ -3,11 +3,13 @@ package servlet;
 import java.io.IOException;
 import java.time.LocalTime;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Perfume_logDAO;
 import dto.Perfume_log;
@@ -32,30 +34,36 @@ public class LogBeforeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		// ログインしていない場合
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/B3/LoginServlet");
-//			return;
-//		}
-//		
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logbefore.jsp");
-//		dispatcher.forward(request, response);
-//	}
-//
-//	/**
-//	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-//	 */
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/B3/LoginServlet");
-//			return;
-//		}
+		// ログインしていない場合
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/B3/LoginServlet");
+			return;
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logbefore.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/B3/LoginServlet");
+			return;
+		}
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
+		String id_s = request.getParameter("id");
+		int id = Integer.parseInt(id_s);
+		
+		String user_id_s = request.getParameter("user_id");
+		int user_id = Integer.parseInt(user_id_s);
+		
 		String perfume_id_s = request.getParameter("perfume_id");
 		int perfume_id = Integer.parseInt(perfume_id_s);
 		
@@ -70,10 +78,15 @@ public class LogBeforeServlet extends HttpServlet {
 		String push_count_s = request.getParameter("push_count");
 		int push_count = Integer.parseInt(push_count_s);
 		
+		String usage_scene_s = request.getParameter("usage_scene");
+		int usage_scene = Integer.parseInt(usage_scene_s);
+		
 		String[] applied_areas = request.getParameterValues("applied_area");
 
 		String top_note = request.getParameter("top_note");
 		
+		// 作成日時と変更日時を追加しないといけない！！！！
+		// みんなでTimestampの書き方を揃えた方がいいらしいのであとでみんな書く！！！
 		
 		String applied_area = "";
 		if (applied_areas != null) {
@@ -82,8 +95,9 @@ public class LogBeforeServlet extends HttpServlet {
 		
 		
 		// 登録処理を行う
-		Perfume_log plog = new Perfume_log(perfume_id, temperature, weather, applied_time, 
-				push_count, applied_area, top_note);
+		Perfume_log plog = new Perfume_log(id, user_id, perfume_id, temperature, weather, applied_time, 
+				push_count, usage_scene, applied_area, top_note);
+		// 作成日時と変更日時を追加しないといけない！！！！
 		
 		Perfume_logDAO logDao = new Perfume_logDAO();
 		
