@@ -53,6 +53,14 @@
 			<option value="3">3</option>
 			<option value="4">4</option>
 	</select>
+	
+	<label for="usage_scene">場面</label>
+	<select name="usage_scene">
+			<option value="1">仕事</option>
+			<option value="2">友人と遊ぶ</option>
+			<option value="3">デート</option>
+			<option value="4">ひとりで出かける</option>
+	</select>
 		
 	<p>つけた箇所<br>
 		<label><input type="checkbox" name="applied_area" value="head">頭</label>
