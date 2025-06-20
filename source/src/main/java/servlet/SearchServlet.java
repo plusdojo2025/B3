@@ -2,6 +2,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.PerfumesDAO;
 /*
 import dao.BcDAO;
 import dto.Bc;
@@ -47,9 +51,16 @@ public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		/*こっから下編集*/
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+				HttpSession session = request.getSession();
+				if (session.getAttribute("id") == null) {
+					response.sendRedirect("/b3/LoginServlet");
+					return;
+				}
 	
 	
-	/*こっから下編集
 	//リクエストパラメータを取得する
 	request.setCharacterEncoding("UTF-8");
 	String name = request.getParameter("name");
@@ -62,16 +73,16 @@ public class SearchServlet extends HttpServlet {
 	String mild_spicy = request.getParameter("mild_spicy");
 	
 	//検索処理を行う　赤線のところ変える
-	BcDAO bDao = new BcDAO();
-	List<Bc> cardList = bDao.select(new Bc(name, brand_name, image_tag, simple_complex,
+	PerfumesDAO pDao = new PerfumesDAO();
+	List<Pf> perfumesList = pDao.select(new Pf(name, brand_name, image_tag, simple_complex,
 			fresh_sweet, light_heavy, male_women, mild_spicy));
 	
 	// 検索結果をリクエストスコープに格納する  （これいるのかわからない）
-			request.setAttribute("cardList", cardList);
+			request.setAttribute("perfumesList", perfumesList);
 
 	// 結果ページにフォワードする　　（かっこの中書き換える）
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
 	dispatcher.forward(request, response);
-	*/
+	
 	}
 }
