@@ -21,10 +21,9 @@ public class Perfume_logDAO {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
-			// character~のところは変える必要あるのか
 
 			// SQL文を準備する
-			String sql = "INSERT INTO perfume_log VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO perfume_log VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -33,78 +32,62 @@ public class Perfume_logDAO {
 			} else {
 				pStmt.setInt(1, 0);
 			}
-			if (plog.getUser_id() != 0) {
-				pStmt.setInt(2, plog.getUser_id());
+			if (plog.getPerfume_id() != 0) {
+				pStmt.setInt(2, plog.getPerfume_id());
 			} else {
 				pStmt.setInt(2, 0);
 			}
-			if (plog.getPerfume_id() != 0) {
-				pStmt.setInt(3, plog.getPerfume_id());
-			} else {
-				pStmt.setInt(3, 0);
-			}
 			if (plog.getTemperature() != 0) {
-				pStmt.setFloat(4, plog.getTemperature());
+				pStmt.setFloat(3, plog.getTemperature());
 			} else {
-				pStmt.setFloat(4, 0);
+				pStmt.setFloat(3, 0);
 			}
 			if (plog.getWeather() != null) {
-				pStmt.setString(5, plog.getWeather());
+				pStmt.setString(4, plog.getWeather());
+			} else {
+				pStmt.setString(4, "");
+			}
+			if (plog.getApplied_time() != null) {
+				pStmt.setString(5, plog.getApplied_time());
 			} else {
 				pStmt.setString(5, "");
 			}
-			if (plog.getApplied_time() != null) {
-				pStmt.setTime(6, java.sql.Time.valueOf(plog.getApplied_time()));
-			} else {
-			    pStmt.setTime(6, null);
-			}
 			
 			if (plog.getPush_count() != 0) {
-				pStmt.setInt(7, plog.getPush_count());
+				pStmt.setInt(6, plog.getPush_count());
+			} else {
+				pStmt.setInt(6, 0);
+			}
+			if (plog.getUsage_scene() != 0) {
+				pStmt.setInt(7, plog.getUsage_scene());
 			} else {
 				pStmt.setInt(7, 0);
 			}
-			if (plog.getUsage_scene() != 0) {
-				pStmt.setInt(8, plog.getUsage_scene());
-			} else {
-				pStmt.setInt(8, 0);
-			}
 			if (plog.getApplied_area() != null) {
-				pStmt.setString(9, plog.getApplied_area());
+				pStmt.setString(8, plog.getApplied_area());
+			} else {
+				pStmt.setString(8, "");
+			}
+			if (plog.getTop_note() != null) {
+				pStmt.setString(9, plog.getTop_note());
 			} else {
 				pStmt.setString(9, "");
 			}
-			if (plog.getTop_note() != null) {
-				pStmt.setString(10, plog.getTop_note());
+			if (plog.getMiddle_note() != null) {
+				pStmt.setString(10, plog.getMiddle_note());
 			} else {
 				pStmt.setString(10, "");
 			}
-			if (plog.getMiddle_note() != null) {
-				pStmt.setString(11, plog.getMiddle_note());
+			if (plog.getLast_note() != null) {
+				pStmt.setString(11, plog.getLast_note());
 			} else {
 				pStmt.setString(11, "");
 			}
-			if (plog.getLast_note() != null) {
-				pStmt.setString(12, plog.getLast_note());
+			if (plog.getThoughts() != null) {
+				pStmt.setString(12, plog.getThoughts());
 			} else {
 				pStmt.setString(12, "");
 			}
-			if (plog.getThoughts() != null) {
-				pStmt.setString(13, plog.getThoughts());
-			} else {
-				pStmt.setString(13, "");
-			}
-			if (plog.getCreated_at() != null) {
-				pStmt.setTimestamp(14, plog.getCreated_at());
-			} else {
-				pStmt.setTimestamp(14, null);
-			}
-			if (plog.getUpdated_at() != null) {
-				pStmt.setTimestamp(15, plog.getUpdated_at());
-			} else {
-				pStmt.setTimestamp(15, null);
-			}
-			
 			
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -146,7 +129,7 @@ public class Perfume_logDAO {
 					"root", "password");
 
 			// SQL文を準備する
-			String sql = "UPDATE perfume_log SET user_id=?, perfume_id=?, temperature=?, weather=?, applied_time=?, push_count=?,"
+			String sql = "UPDATE perfume_log SET perfume_id=?, temperature=?, weather=?, applied_time=?, push_count=?,"
 					+ "applied_area=?, top_note=?, middle_note=?, last_note=? WHERE id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -156,78 +139,63 @@ public class Perfume_logDAO {
 			} else {
 				pStmt.setInt(1, 0);
 			}
-			if (plog.getUser_id() != 0) {
-				pStmt.setInt(2, plog.getUser_id());
+			if (plog.getPerfume_id() != 0) {
+				pStmt.setInt(2, plog.getPerfume_id());
 			} else {
 				pStmt.setInt(2, 0);
 			}
-			if (plog.getPerfume_id() != 0) {
-				pStmt.setInt(3, plog.getPerfume_id());
-			} else {
-				pStmt.setInt(3, 0);
-			}
 			if (plog.getTemperature() != 0) {
-				pStmt.setFloat(4, plog.getTemperature());
+				pStmt.setFloat(3, plog.getTemperature());
 			} else {
-				pStmt.setFloat(4, 0);
+				pStmt.setFloat(3, 0);
 			}
 			if (plog.getWeather() != null) {
-				pStmt.setString(5, plog.getWeather());
+				pStmt.setString(4, plog.getWeather());
+			} else {
+				pStmt.setString(4, "");
+			}
+			if (plog.getApplied_time() != null) {
+				pStmt.setString(5, plog.getApplied_time());
 			} else {
 				pStmt.setString(5, "");
 			}
-			if (plog.getApplied_time() != null) {
-				pStmt.setTime(6, java.sql.Time.valueOf(plog.getApplied_time()));
-			} else {
-			    pStmt.setTime(6, null);
-			}
 			
 			if (plog.getPush_count() != 0) {
-				pStmt.setInt(7, plog.getPush_count());
+				pStmt.setInt(6, plog.getPush_count());
+			} else {
+				pStmt.setInt(6, 0);
+			}
+			if (plog.getUsage_scene() != 0) {
+				pStmt.setInt(7, plog.getUsage_scene());
 			} else {
 				pStmt.setInt(7, 0);
 			}
-			if (plog.getUsage_scene() != 0) {
-				pStmt.setInt(8, plog.getUsage_scene());
-			} else {
-				pStmt.setInt(8, 0);
-			}
 			if (plog.getApplied_area() != null) {
-				pStmt.setString(9, plog.getApplied_area());
+				pStmt.setString(8, plog.getApplied_area());
+			} else {
+				pStmt.setString(8, "");
+			}
+			if (plog.getTop_note() != null) {
+				pStmt.setString(9, plog.getTop_note());
 			} else {
 				pStmt.setString(9, "");
 			}
-			if (plog.getTop_note() != null) {
-				pStmt.setString(10, plog.getTop_note());
+			if (plog.getMiddle_note() != null) {
+				pStmt.setString(10, plog.getMiddle_note());
 			} else {
 				pStmt.setString(10, "");
 			}
-			if (plog.getMiddle_note() != null) {
-				pStmt.setString(11, plog.getMiddle_note());
+			if (plog.getLast_note() != null) {
+				pStmt.setString(11, plog.getLast_note());
 			} else {
 				pStmt.setString(11, "");
 			}
-			if (plog.getLast_note() != null) {
-				pStmt.setString(12, plog.getLast_note());
+			if (plog.getThoughts() != null) {
+				pStmt.setString(12, plog.getThoughts());
 			} else {
 				pStmt.setString(12, "");
 			}
-			if (plog.getThoughts() != null) {
-				pStmt.setString(13, plog.getThoughts());
-			} else {
-				pStmt.setString(13, "");
-			}
-			if (plog.getCreated_at() != null) {
-				pStmt.setTimestamp(14, plog.getCreated_at());
-			} else {
-				pStmt.setTimestamp(14, null);
-			}
-			if (plog.getUpdated_at() != null) {
-				pStmt.setTimestamp(15, plog.getUpdated_at());
-			} else {
-				pStmt.setTimestamp(15, null);
-			}
-
+			
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -251,7 +219,7 @@ public class Perfume_logDAO {
 		return result;
 	}
 	
-	// ▶メソッド３　｜引数cardで指定された番号のレコードを削除し、成功したらtrueを返す
+	// ▶メソッド３　｜引数で指定された番号のレコードを削除し、成功したらtrueを返す
 	public boolean delete(Perfume_log plog) {
 		Connection conn = null;
 		boolean result = false;

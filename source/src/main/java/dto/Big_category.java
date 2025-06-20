@@ -6,10 +6,7 @@ import java.sql.Timestamp;
 public class Big_category implements Serializable {
 
     private int id;              
-    private String sweet;           
-    private String fresh;           
-    private String spicy;             
-	private String relax;           
+    private String scent_type;                   
     private Timestamp created_at;   
     private Timestamp updated_at;
     
@@ -19,29 +16,11 @@ public class Big_category implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getSweet() {
-		return sweet;
+	public String getScent_type() {
+		return scent_type;
 	}
-	public void setSweet(String sweet) {
-		this.sweet = sweet;
-	}
-	public String getFresh() {
-		return fresh;
-	}
-	public void setFresh(String fresh) {
-		this.fresh = fresh;
-	}
-	public String getSpicy() {
-		return spicy;
-	}
-	public void setSpicy(String spicy) {
-		this.spicy = spicy;
-	}
-	public String getRelax() {
-		return relax;
-	}
-	public void setRelax(String relax) {
-		this.relax = relax;
+	public void setScent_type(String scent_type) {
+		this.scent_type = scent_type;
 	}
 	public Timestamp getCreated_at() {
 		return created_at;
@@ -54,18 +33,15 @@ public class Big_category implements Serializable {
 	}
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
-	} 
+	}
 	
-	public Big_category(int id, String sweet, String fresh, String spicy, String relax, Timestamp created_at,
-			Timestamp updated_at) {
+	public Big_category(int id, String scent_type, Timestamp created_at, Timestamp updated_at) {
 		super();
 		this.id = id;
-		this.sweet = sweet;
-		this.fresh = fresh;
-		this.spicy = spicy;
-		this.relax = relax;
+		this.scent_type = scent_type;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
 	}
+    
     
 }

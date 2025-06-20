@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.Perfume_logDAO;
 import dto.Perfume_log;
+import dto.Result;
 
 /**
  * Servlet implementation class LogAfterServlet
@@ -23,6 +24,7 @@ public class LogAfterServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+
     public LogAfterServlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -57,6 +59,8 @@ public class LogAfterServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
+		int id = Integer.parseInt(request.getParameter("id"));
+		
 		String perfume_id_s = request.getParameter("perfume_id");
 		int perfume_id = Integer.parseInt(perfume_id_s);
 		
@@ -65,17 +69,30 @@ public class LogAfterServlet extends HttpServlet {
 		String last_note = request.getParameter("last_note");
 		
 		String thoughts = request.getParameter("thoughts");
-		// 作成日時と変更日時を追加しないといけない！！！！
-		// みんなでTimestampの書き方を揃えた方がいいらしいのであとでみんな書く！！！
 		
-		// 登録処理を行う
-		Perfume_log plog = new Perfume_log(perfume_id, middle_note, last_note, thoughts);
-		// 作成日時と変更日時を追加しないといけない！！！！
+		// 更新または削除を行う	
+		Perfume_logDAO plog = new Perfume_logDAO();
+		if (request.getParameter("submit").equals("更新")) {
+			if (plog.update(new Perfume_log(id, perfume_id, middle_note, last_note, thoughts))) { // 更新成功
+				request.setAttribute("result", new Result("更新成功", "住民のデータを更新しました", "/webapp/MenuServlet"));
+			} else { // 更新失敗
+				request.setAttribute("result", new Result("更新失敗", "住民のデータを更新できませんでした", "/webapp/MenuServlet"));
+			}
+		} else {
+			if (plog.delete(new Perfume_log(id, perfume_id, middle_note, last_note, thoughts))) { // 削除成功
+				request.setAttribute("result", new Result("削除成功", "住民のデータを削除しました。", "/webapp/MenuServlet"));
+			} else { // 削除失敗
+				request.setAttribute("result", new Result("削除失敗", "住民のデータを削除できませんでした。", "/webapp/MenuServlet"));
+			}
+		}
 		
-		Perfume_logDAO logDao = new Perfume_logDAO();
-				
-		boolean result = logDao.insert(plog);
-				
-		doGet(request, response);
+		//ボツだと思うけど一応残しておく先生スタイル
+//		Perfume_log plog = new Perfume_log(id,
+//		middle_note, last_note, thoughts);
+//		
+//		Perfume_logDAO logDao = new Perfume_logDAO();
+//		boolean result = logDao.update(plog);
+//		doGet(request, response);
+//	}
 	}
 }
