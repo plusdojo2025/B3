@@ -153,11 +153,19 @@ public class Perfume_log implements Serializable {
 		this.last_note = last_note;
 		this.thoughts = thoughts;
 	}
+
+	//▶　コンストラクタ（グラフ化）
+	public Perfume_log(int id, int perfume_id) {
+		super();
+		this.id = id;
+		this.perfume_id = perfume_id;
+	}
 	
 	//▶　引数のないコンストラクタ
     public Perfume_log() {
 		super();
 	}
+
 	
 	
 

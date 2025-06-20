@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Parfüm Note | Log</title>
+<link rel="stylesheet" href="/B3/css/common.css">
 </head>
 <body>
 	<header>
