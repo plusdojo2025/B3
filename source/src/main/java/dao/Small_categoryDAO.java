@@ -27,7 +27,7 @@ public class Small_categoryDAO {
 					"root", "password");
 
 			// SQL文を準備する
-			String sql = "SELECT id, genre, detail, created_at, updated_at FROM Detail_category "
+			String sql = "SELECT id, genre, detail, created_at, updated_at FROM Small_category "
 					+ "WHERE genre LIKE ? AND detail LIKE ? ORDER BY id";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
