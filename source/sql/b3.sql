@@ -8,7 +8,6 @@ CREATE TABLE users (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_name varchar(100) NOT NULL,
     password varchar(100),
-    mail_address varchar(100),
     created_at timestamp,
     updated_at timestamp
 );
@@ -28,17 +27,36 @@ CREATE TABLE perfumes(
     created_at timestamp,
     updated_at timestamp
 );
-
+/* scrollballテーブル作成*/
+CREATE TABLE scrollbar(
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    perfume_id INT,
+    simple_complex INT,
+    fresh_sweet INT,
+    light_heavy INT,
+    male_women INT,
+    mild_spicy INT,
+    FOREIGN KEY (perfume_id)
+    REFERENCES perfumes(ID),
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
+    
+);
 
 /* perfume_imagesテーブル作成*/
 CREATE TABLE perfume_images (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     perfume_id INT,
-    item VARCHAR(10),
-    small_category VARCHAR(10),
-     created_at TIMESTAMP,
+    big_id INT,
+    small_id INT,
+    created_at TIMESTAMP,
     updated_at TIMESTAMP ,
-    FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
+    FOREIGN KEY(perfume_id)
+    REFERENCES perfumes(ID),
+    FOREIGN KEY (big_id) 
+    REFERENCES big_category(ID),
+    FOREIGN KEY (small_id)
+    REFERENCES small_category(ID)
     
 );
 
@@ -70,36 +88,18 @@ CREATE TABLE perfume_log (
 /* big_categoryテーブル作成*/
 CREATE TABLE big_category(
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    sweet VARCHAR(100),
-    fresh VARCHAR(100),
-    spicy VARCHAR(100),
-    relax VARCHAR(100),
+    scent_type VARCHAR(20),
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );
-/* details_categoryテーブル作成*/
-CREATE TABLE detail_category(
+/* small_categoryテーブル作成*/
+CREATE TABLE small_category(
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     genre VARCHAR(10),
-    big_id INT,
-    FOREIGN KEY (big_id) 
-    REFERENCES big_categpry(ID),
+    detail VARCHAR(10),
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );
-/* scrollballテーブル作成*/
-CREATE TABLE scrollbar(
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    perfume_id INT,
-    simple_complex INT,
-    fresh_sweet INT,
-    light_heavy INT,
-    male_women INT,
-    mild_spicy INT,
-    FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP
-    
-);
+
 
 Show tables;
