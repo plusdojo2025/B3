@@ -9,7 +9,7 @@ import dto.Big_category;
 
 public class Big_categoryDAO {
 	
-	public boolean insert(Big_category bigc) {
+	public boolean insert(Big_category bcate) {
 		Connection conn = null;
 		boolean result = false;
 		
@@ -18,44 +18,29 @@ public class Big_categoryDAO {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3303/b3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
 			
-			String sql = "INSERT INTO Big_category (id, sweet, fresh, spicy, relax, update_at, updated_at) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO Big_category (id, scent_type, update_at, updated_at) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			
 			// SQL文を完成させる
-			if (bigc.getSweet() != null) {
-				pStmt.setString(1, bigc.getSweet());
+			if (bcate.getScent_type() != null) {
+				pStmt.setString(1, bcate.getScent_type());
 			} else {
 				pStmt.setString(1, "");
 			}
-			if (bigc.getFresh() != null) {
-				pStmt.setString(2, bigc.getFresh());
-			} else {
-				pStmt.setString(2, "");
-			}
-			if (bigc.getSpicy() != null) {
-				pStmt.setString(3, bigc.getSpicy());
-			} else {
-			    pStmt.setString(3, "");
-			}
 			
-			if (bigc.getRelax() != null) {
-				pStmt.setString(4, bigc.getRelax());
+			if (bcate.getCreated_at() != null) {
+				pStmt.setTimestamp(2, bcate.getCreated_at());
 			} else {
-				pStmt.setString(4, "");
+				pStmt.setNull(2, java.sql.Types.TIMESTAMP);
 			}
-			if (bigc.getCreated_at() != null) {
-				pStmt.setTimestamp(5, bigc.getCreated_at());
+			if (bcate.getUpdated_at() != null) {
+				pStmt.setTimestamp(3, bcate.getUpdated_at());
 			} else {
-				pStmt.setNull(5, java.sql.Types.TIMESTAMP);
-			}
-			if (bigc.getUpdated_at() != null) {
-				pStmt.setTimestamp(6, bigc.getUpdated_at());
-			} else {
-				pStmt.setNull(6, java.sql.Types.TIMESTAMP);
+				pStmt.setNull(3, java.sql.Types.TIMESTAMP);
 			}
 	
 			// SQL文を実行する
