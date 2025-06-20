@@ -9,15 +9,9 @@ public class Big_category implements Serializable {
     private String scent_type;                   
     private Timestamp created_at;   
     private Timestamp updated_at;
+    
 	public int getId() {
 		return id;
-	}
-	public Big_category(int id, String scent_type, Timestamp created_at, Timestamp updated_at) {
-		super();
-		this.id = id;
-		this.scent_type = scent_type;
-		this.created_at = created_at;
-		this.updated_at = updated_at;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -38,6 +32,14 @@ public class Big_category implements Serializable {
 		return updated_at;
 	}
 	public void setUpdated_at(Timestamp updated_at) {
+		this.updated_at = updated_at;
+	}
+	
+	public Big_category(int id, String scent_type, Timestamp created_at, Timestamp updated_at) {
+		super();
+		this.id = id;
+		this.scent_type = scent_type;
+		this.created_at = created_at;
 		this.updated_at = updated_at;
 	}
     

@@ -12,10 +12,10 @@ import dto.Small_category;
 
 public class Small_categoryDAO {
 
-	// 引数detc指定された項目で検索して、取得されたデータのリストを返す
-	public List<Small_category> select(Small_category detc) {
+	// 引数scate指定された項目で検索して、取得されたデータのリストを返す
+	public List<Small_category> select(Small_category scate) {
 		Connection conn = null;
-		List<Small_category> detcList = new ArrayList<Small_category>();
+		List<Small_category> scateList = new ArrayList<Small_category>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -32,13 +32,13 @@ public class Small_categoryDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (detc.getGenre() != null) {
-				pStmt.setString(1, "%" + detc.getGenre() + "%");
+			if (scate.getGenre() != null) {
+				pStmt.setString(1, "%" + scate.getGenre() + "%");
 			} else {
 				pStmt.setString(1, "%");
 			}
-			if (detc.getDetail() != null) {
-				pStmt.setString(2, "%" + detc.getDetail() + "%");
+			if (scate.getDetail() != null) {
+				pStmt.setString(2, "%" + scate.getDetail() + "%");
 			} else {
 				pStmt.setString(2, "%");
 			}
@@ -55,14 +55,14 @@ public class Small_categoryDAO {
 					rs.getTimestamp("created_at"),
 					rs.getTimestamp("updated_at")
 				);
-				detcList.add(dc);
+				scateList.add(dc);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			detcList = null;
+			scateList = null;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			detcList = null;
+			scateList = null;
 		} finally {
 			// データベースを切断
 			if (conn != null) {
@@ -70,13 +70,13 @@ public class Small_categoryDAO {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					detcList = null;
+					scateList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return detcList;
+		return scateList;
 	}
 
 }
