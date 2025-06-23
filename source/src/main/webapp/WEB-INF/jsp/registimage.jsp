@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Parfüm Note | Regist image</title>
-<link rel="stylesheet" href="/B3/css/list.css">
+<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 </head>
 <body>
 <p> *イメージタグ </p>
@@ -602,6 +604,8 @@
       	<br>
       	<br>
 </div>
+<script src="<c:url value='/js/regist.js'/>"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const genreSelect = document.getElementById('genre');
