@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import dto.Perfumes;
 import dto.Scrollbar;
@@ -84,6 +85,11 @@ public class PerfumesDAO {
 	    }
 
 	    return result;
+	}
+
+	public List<Perfumes> perfume_img() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 
 	

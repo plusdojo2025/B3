@@ -36,9 +36,9 @@
 		<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
 	<main>
-		<form method="POST" action="<c:url value='RegistServlet' />" enctype="multipart/form-data">
-			<label>*商品名
-        		<input type="text" name="name">
+		<form  method="POST" action="<c:url value='/RegistServlet' />"  enctype="multipart/form-data">
+			<label>商品名
+        		<input type="text" name="perfume_name">
       		</label>
       		<p id="errormessage"></p>
       	<br>
@@ -54,8 +54,10 @@
         		<input type="date" name="purchased_date">
         	</label>
       	<br>
+   
    <label>画像
-    <input type="file" name="image" accept="image/*" >
+   <input type="file" name="image" accept="image/*" onchange="previewImage(this);"><br>
+		<canvas id="preview" style="max-width:200px;"></canvas><br>
   </label>
   
   
@@ -75,7 +77,7 @@
 				<input type="color" id="color" name="color" value="#FFFFFF">
       	<br>
       		お気に入り
-      		<span id="heart" class="heart" name="favourite">&#10084;</span>
+      		<span id="heart" class="heart" name = "favourite" >&#10084;</span>
       	<br>
       	<input type="submit" name="delete" value="削除">
       	
@@ -125,7 +127,30 @@
 
 </body>
   <script>
-  
+  function previewImage(obj){
+
+		var fileReader = new FileReader();
+
+		// 読み込み後に実行する処理
+		fileReader.onload = (function() {
+
+			// canvas にプレビュー画像を表示
+			var canvas = document.getElementById('preview');
+			var ctx = canvas.getContext('2d');
+			var image = new Image();
+			image.src = fileReader.result;
+			console.log(fileReader.result) // ← (確認用)
+
+			image.onload = (function () {
+				canvas.width = image.width;
+				canvas.height = image.height;
+				ctx.drawImage(image, 0, 0);
+			});
+		});
+		// 画像読み込み
+		fileReader.readAsDataURL(obj.files[0]);
+		console.log(fileReader.result) // ← (確認用)null
+	}
   
   
     const heart = document.getElementById("heart");
