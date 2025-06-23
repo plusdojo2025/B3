@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 
   <meta charset="UTF-8">
   <title>Parfüm Note | Search</title>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/B3/css/search.css">
+  <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 
   <style>
     .slider-group {
@@ -25,7 +25,7 @@
 	<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
 <!-- エラーメッセージ -->	
-	<form id="search_form" method="POST" action="/B3/SearchServlet">
+	<form method="POST" action="<c:url value='/SearchServlet'/>">
 		<table>
 			
 		<label for="name">商品名
@@ -109,6 +109,6 @@
 		</table>
 	</form>	
 	
-
+<script src="<c:url value='/js/search.js'/>"></script>
 </body>
 </html>
