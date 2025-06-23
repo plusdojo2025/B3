@@ -38,7 +38,7 @@ public class ModLogServlet extends HttpServlet {
 		// ログインしていない場合
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/B3/LoginServlet");
+			response.sendRedirect(request.getContextPath() + "/LoginServlet");
 			return;
 		}
 		

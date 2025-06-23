@@ -56,7 +56,7 @@ public class SearchServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 				HttpSession session = request.getSession();
 				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/b3/LoginServlet");
+					response.sendRedirect(request.getContextPath()+"/LoginServlet");
 					return;
 				}
 	

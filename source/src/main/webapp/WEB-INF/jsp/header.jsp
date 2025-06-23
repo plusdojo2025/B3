@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div>
-<img src="/B3/img/logo.png" id="logo">
-<nav class="nav">
+<img src="img/logo.png" alt="Parfüm Note" height="130">
+<nav>
 <a href="<c:url value='/ListServlet' />">Home</a>
 <a href="<c:url value='/CalenderServlet' />">Log</a>
 <a href="<c:url value='/SearcherServlet' />">Search</a>
