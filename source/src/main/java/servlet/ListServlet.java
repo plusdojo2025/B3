@@ -33,7 +33,7 @@ public class ListServlet extends HttpServlet {
 			return;
 		}
 		PerfumesDAO dao = new PerfumesDAO();
-		List<Perfumes> perfumeList = dao.perfume_img(); 
+		List<Perfumes> perfumeList = dao.perfume_img(); //perfumesのメッソド名で
 
 		// 取得したリストをリクエストスコープに格納
 		request.setAttribute("perfumeList", perfumeList);

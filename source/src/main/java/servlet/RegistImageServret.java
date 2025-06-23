@@ -37,7 +37,7 @@ public class RegistImageServret extends HttpServlet {
 		// ログインしていない場合
 			HttpSession session = request.getSession();
 			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/B3/RegistImageServlet");
+				response.sendRedirect(request.getContextPath() + "/LoginServllet");
 				return;
 			}
 		

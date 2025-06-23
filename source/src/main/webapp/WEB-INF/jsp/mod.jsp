@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Parfüm Note | mod</title>
-<link rel="stylesheet" href="/B3/css/list.css">
+<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+
 <style>
 .slider-row {
     display: flex;
@@ -30,7 +33,7 @@
 		<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
 	<main>
-		<form action="/b3/RegistServlet" method="POST">
+		<form action="<u:url value='/RegistServlet" method="POST">
 			<label>*商品名
         		<input type="text" name="name">
       		</label>
@@ -707,7 +710,7 @@
       	
   </form>
 </main>
-
+<script src="<c:url value='/js/mod.js'/>"></script>
 </body>
 <script>
     const heart = document.getElementById("heart");

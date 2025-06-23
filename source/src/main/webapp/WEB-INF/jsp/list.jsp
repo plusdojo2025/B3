@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Parfüm Note | List</title>
-<link rel="stylesheet" href="/B3/css/list.css">
+<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 </head>
 <body>
 list.jsp
@@ -17,7 +17,6 @@ list.jsp
 
   <div class="perfume_id" id="perfume_id"></div>
   <button id="andmore_button">さらに読み込む</button>
-
   <script>
     // 画像URLのダミーデータ
     const imageUrls = [
@@ -49,6 +48,6 @@ list.jsp
     
     loadMoreBtn.addEventListener('click', loadImages);
   </script>
-
+<script src="<c:url value='/js/list.js'/>"></script>
 </body>
 </html>
