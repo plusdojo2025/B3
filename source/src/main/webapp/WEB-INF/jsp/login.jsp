@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<img src="/B3/img/logo.png">
+		<img src="img/logo.png" alt="Parfüm Note" height="130">
 	</header>
 	<main>
 	<h2>Login</h2>
