@@ -60,6 +60,8 @@ public class LogBeforeServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		String perfume_id = request.getParameter("perfume_id");
+		// 登録した香水のデータを引き継ぐために
+		request.setAttribute("perfume_id", perfume_id);
 		
 		String temperature = request.getParameter("temperature");
 		
@@ -80,19 +82,19 @@ public class LogBeforeServlet extends HttpServlet {
 		    applied_area = String.join(",", applied_areas);  // カンマ区切りで1つの文字列にまとめる
 		}
 		
-		//どっちのボタンが押下されたかを取得
+		// どっちのボタンが押下されたかを取得
 		String action = request.getParameter("action");
 		
-			
-		//シンプルに登録処理を行う
+		
+		// シンプルに登録処理を行う
 		Perfume_logDAO plog = new Perfume_logDAO();
 		plog.insert(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
 		push_count, usage_scene, applied_area, top_note));
-		//ボタンによってフォワード先を変える
+		// ボタンによってフォワード先を変える
 		if("記録".equals(action)) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 			dispatcher.forward(request, response);
-		} else if("使用後へ".equals(action)) {
+		} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
 			dispatcher.forward(request, response);
 		}

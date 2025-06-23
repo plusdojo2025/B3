@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.Perfume_logDAO;
 import dto.Perfume_log;
@@ -35,12 +34,12 @@ public class LogAfterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// ログインしていない場合
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect(request.getContextPath() + "/LoginServlet");
-			return;
-		}
+//		// ログインしていない場合
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect(request.getContextPath() + "/LoginServlet");
+//			return;
+//		}
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
 		dispatcher.forward(request, response);
@@ -50,19 +49,19 @@ public class LogAfterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/B3/LoginServlet");
-			return;
-		}
+//		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/B3/LoginServlet");
+//			return;
+//		}
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-		int id = Integer.parseInt(request.getParameter("id"));
 		
-		String perfume_id_s = request.getParameter("perfume_id");
-		int perfume_id = Integer.parseInt(perfume_id_s);
+		String id = request.getParameter("id");
+		
+		String perfume_id = request.getParameter("perfume_id");
 		
 		String middle_note = request.getParameter("middle_note");
 		
