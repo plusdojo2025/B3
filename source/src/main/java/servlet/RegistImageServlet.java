@@ -17,14 +17,14 @@ import dto.Result;
 /**
  * Servlet implementation class RegistImageServret
  */
-@WebServlet("/RegistImageServret")
-public class RegistImageServret extends HttpServlet {
+@WebServlet("/RegistImageServlet")
+public class RegistImageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistImageServret() {
+    public RegistImageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,11 +35,11 @@ public class RegistImageServret extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// ログインしていない場合
-			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect(request.getContextPath() + "/LoginServlet");
-				return;
-			}
+//			HttpSession session = request.getSession();
+//			if (session.getAttribute("id") == null) {
+//				response.sendRedirect(request.getContextPath() + "/LoginServlet");
+//				return;
+//			}
 		
 		// 登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registimage.jsp");
@@ -52,11 +52,11 @@ public class RegistImageServret extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/B3/RegistImageServlet");
-			return;
-			}
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect(reguest.getContextpath() + "LoginServlet");
+//			return;
+//			}
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");

@@ -89,7 +89,7 @@ public class ModServlet extends HttpServlet {
 						request.setAttribute("result", new Result("更新失敗！", "レコードを更新できませんでした。", "/b3/ModServlet"));
 					}
 				} else {
-					if (pDao.delete(new Pf(name, brand, price, purchased_date, image, strength, color, favorite, sweet, genre, 
+					if (pDao.delete(new Pfi(name, brand, price, purchased_date, image, strength, color, favorite, sweet, genre, 
 							fresh, spicy, relax, registered_tags, simple_complex, fresh_sweet, light_heavy, male_women,
 							mild_spicy, date, top_note, middle_note, last_note, thoughts))) { // 削除成功
 						request.setAttribute("result", new Result("削除成功！", "レコードを削除しました。", "/b3/ModServlet"));
