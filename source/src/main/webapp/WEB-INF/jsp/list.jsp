@@ -23,12 +23,11 @@
   <div class="gallery">
     <c:forEach var="perfume" items="${perfumeList}">
       <div class="gallery-item">
-        <!-- perfume_imgに画像ファイル名が入ってる前提 -->
+      
         <img src="${pageContext.request.contextPath}/images/${perfume.perfume_img}" alt="画像">
         <p>${perfume.name}</p>
       </div>
     </c:forEach>
   </div>
-
 </body>
 </html>
