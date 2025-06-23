@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 		<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
 	<main>
-		<form action="/b3/RegistServlet" method="POST">
+		<form method="POST" action="<c:url value='RegistServlet' />" enctype="multipart/form-data">
 			<label>*商品名
         		<input type="text" name="name">
       		</label>
@@ -49,19 +50,21 @@
         		<input type="date" name="purchased_date">
         	</label>
       	<br>
-      		<label>画像
-        		<input type="file" name="image" accept="image/*">
-      		</label>
+   <label>画像
+    <input type="file" name="image" accept="image/*" >
+  </label>
+  
+  
       		<p id="errormessage"></p>
        	<br>
       		<label for="strength">強さ</label>
 				<select name="strength" id="strength">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
-    				<option value="パルファム">パルファム</option>
-    				<option value="オードパルファム">オードパルファム</option>
-    				<option value="オードトワレ">オードトワレ</option>
-    				<option value="オーデコロン">オーデコロン</option>
-    				<option value="オーデサントゥール">オーデサントゥール</option>
+    				<option value="1">パルファム</option>
+    				<option value="2">オードパルファム</option>
+    				<option value="3">オードトワレ</option>
+    				<option value="4">オーデコロン</option>
+    				<option value="5">オーデサントゥール</option>
 				</select>
       	<br>
       		<label for="color">色を選んでください:</label>

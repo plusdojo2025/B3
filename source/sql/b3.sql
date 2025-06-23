@@ -18,7 +18,7 @@ CREATE TABLE perfumes(
     perfume_name varchar(100),
     brand_name varchar(100),
     price int,
-    perfume_img varchar(200),
+    perfume_img varchar(255),
     day DATE,
     favourite BOOLEAN,
     color VARCHAR(7),

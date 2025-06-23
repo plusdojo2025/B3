@@ -85,6 +85,14 @@ public class Scrollbar implements Serializable {
 		super();
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
-	
+	public Scrollbar(int simple_complex, int fresh_sweet, int light_heavy, int male_women, int mild_spicy) {
+		super();
+		this.simple_complex = simple_complex;
+		this.fresh_sweet = fresh_sweet;
+		this.light_heavy = light_heavy;
+		this.male_women = male_women;
+		this.mild_spicy = mild_spicy;
+	}
+
 	
 }
