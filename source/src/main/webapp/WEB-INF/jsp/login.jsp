@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Parfüm Note | Login</title>
-
+<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 </head>
 <body>
 	<header>
