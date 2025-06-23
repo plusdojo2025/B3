@@ -126,6 +126,7 @@ public class Perfume_log implements Serializable {
 		this.applied_area = applied_area;
 		this.top_note = top_note;
 	}
+	
 	//▶　コンストラクタ（使用後）
 	public Perfume_log(int id, int perfume_id, String middle_note, String last_note, String thoughts) {
 		super();
@@ -135,6 +136,7 @@ public class Perfume_log implements Serializable {
 		this.last_note = last_note;
 		this.thoughts = thoughts;
 	}
+	
 	//▶　コンストラクタ（更新）
 	public Perfume_log(int id, int perfume_id, float temperature, String weather, String applied_time, int push_count,
 			int usage_scene, String applied_area, String top_note, String middle_note, String last_note,
@@ -153,11 +155,19 @@ public class Perfume_log implements Serializable {
 		this.last_note = last_note;
 		this.thoughts = thoughts;
 	}
+
+	//▶　コンストラクタ（グラフ化）
+	public Perfume_log(int id, int perfume_id) {
+		super();
+		this.id = id;
+		this.perfume_id = perfume_id;
+	}
 	
 	//▶　引数のないコンストラクタ
     public Perfume_log() {
 		super();
 	}
+
 	
 	
 

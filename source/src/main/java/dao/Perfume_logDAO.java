@@ -3,7 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dto.Perfume_log;
 
@@ -23,70 +26,50 @@ public class Perfume_logDAO {
 					"root", "password");
 
 			// SQL文を準備する
-			String sql = "INSERT INTO perfume_log VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO perfume_log (perfume_id, temperature, weather, applied_time,"
+					+ "push_count, usage_scene, applied_area, top_note) (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (plog.getId() != 0) {
-				pStmt.setInt(1, plog.getId());
+			if (plog.getPerfume_id() != 0) {
+				pStmt.setInt(1, plog.getPerfume_id());
 			} else {
 				pStmt.setInt(1, 0);
 			}
-			if (plog.getPerfume_id() != 0) {
-				pStmt.setInt(2, plog.getPerfume_id());
-			} else {
-				pStmt.setInt(2, 0);
-			}
 			if (plog.getTemperature() != 0) {
-				pStmt.setFloat(3, plog.getTemperature());
+				pStmt.setFloat(2, plog.getTemperature());
 			} else {
-				pStmt.setFloat(3, 0);
+				pStmt.setFloat(2, 0);
 			}
 			if (plog.getWeather() != null) {
-				pStmt.setString(4, plog.getWeather());
+				pStmt.setString(3, plog.getWeather());
+			} else {
+				pStmt.setString(3, "");
+			}
+			if (plog.getApplied_time() != null) {
+				pStmt.setString(4, plog.getApplied_time());
 			} else {
 				pStmt.setString(4, "");
 			}
-			if (plog.getApplied_time() != null) {
-				pStmt.setString(5, plog.getApplied_time());
-			} else {
-				pStmt.setString(5, "");
-			}
-			
 			if (plog.getPush_count() != 0) {
-				pStmt.setInt(6, plog.getPush_count());
+				pStmt.setInt(5, plog.getPush_count());
+			} else {
+				pStmt.setInt(5, 0);
+			}
+			if (plog.getUsage_scene() != 0) {
+				pStmt.setInt(6, plog.getUsage_scene());
 			} else {
 				pStmt.setInt(6, 0);
 			}
-			if (plog.getUsage_scene() != 0) {
-				pStmt.setInt(7, plog.getUsage_scene());
-			} else {
-				pStmt.setInt(7, 0);
-			}
 			if (plog.getApplied_area() != null) {
-				pStmt.setString(8, plog.getApplied_area());
+				pStmt.setString(7, plog.getApplied_area());
 			} else {
-				pStmt.setString(8, "");
+				pStmt.setString(7, "");
 			}
 			if (plog.getTop_note() != null) {
-				pStmt.setString(9, plog.getTop_note());
+				pStmt.setString(8, plog.getTop_note());
 			} else {
-				pStmt.setString(9, "");
-			}
-			if (plog.getMiddle_note() != null) {
-				pStmt.setString(10, plog.getMiddle_note());
-			} else {
-				pStmt.setString(10, "");
-			}
-			if (plog.getLast_note() != null) {
-				pStmt.setString(11, plog.getLast_note());
-			} else {
-				pStmt.setString(11, "");
-			}
-			if (plog.getThoughts() != null) {
-				pStmt.setString(12, plog.getThoughts());
-			} else {
-				pStmt.setString(12, "");
+				pStmt.setString(8, "");
 			}
 			
 			// SQL文を実行する
@@ -134,11 +117,8 @@ public class Perfume_logDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (plog.getId() != 0) {
-				pStmt.setInt(1, plog.getId());
-			} else {
-				pStmt.setInt(1, 0);
-			}
+			pStmt.setInt(1, plog.getId());
+			
 			if (plog.getPerfume_id() != 0) {
 				pStmt.setInt(2, plog.getPerfume_id());
 			} else {
@@ -219,7 +199,7 @@ public class Perfume_logDAO {
 		return result;
 	}
 	
-	// ▶メソッド３　｜引数で指定された番号のレコードを削除し、成功したらtrueを返す
+	// ▶　削除｜引数で指定された番号のレコードを削除し、成功したらtrueを返す
 	public boolean delete(Perfume_log plog) {
 		Connection conn = null;
 		boolean result = false;
@@ -261,5 +241,66 @@ public class Perfume_logDAO {
 
 		// 結果を返す
 		return result;
-	}	
+		
+		
+	}
+	
+	// ▶　グラフ化｜引数指定された項目で検索して、取得されたデータのリストを返す
+	public List<Perfume_log> select(Perfume_log plog) {
+		Connection conn = null;
+		List<Perfume_log> plogList = new ArrayList<Perfume_log>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+
+			// SQL文を準備する
+			String sql = "SELECT id, perfume_id" + "FROM Perfume_log"
+					+ "WHERE perfume_id = ?" + "ORDER BY id";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (plog.getPerfume_id() != 0) {
+				pStmt.setInt(1, plog.getPerfume_id());
+			} else {
+				pStmt.setNull(1, java.sql.Types.INTEGER);
+			}
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet logrs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (logrs.next()) {
+				Perfume_log plogrs = new Perfume_log(
+						logrs.getInt("id"), 
+						logrs.getInt("perfume_id")
+						);
+				plogList.add(plogrs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			plogList = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			plogList = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					plogList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return plogList;
+	}
 }
