@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Parfüm Note | Regist detail</title>
-<link rel="stylesheet" href="/B3/css/list.css">
+
+<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+
 <style>
 .slider-row {
     display: flex;
@@ -116,8 +120,14 @@
       	
   </form>
 </main>
+
+<script src="<c:url value='/js/regist.js'/>"></script>
+
 </body>
   <script>
+  
+  
+  
     const heart = document.getElementById("heart");
     heart.addEventListener("click", () => {
       heart.classList.toggle("active");
