@@ -12,18 +12,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/ChartServlet")
 public class ChartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//
-//        // ログインチェック
-//        HttpSession session = request.getSession(false);
-//        if (session == null || session.getAttribute("id") == null) {
-//            response.sendRedirect(request.getContextPath() + "/LoginServlet");
-//            return;
-//        }
+
+        // ログインチェック
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("id") == null) {
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
+            return;
+        }
 
         // DB接続情報
         String url = "jdbc:mysql://localhost:3306/b3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9";
