@@ -25,7 +25,7 @@
 	<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
 <!-- エラーメッセージ -->	
-	<form method="POST" action="<c:url value='/SearchServlet'/>">
+	<form id="search_form" method="POST" action="<c:url value='/SearchServlet'/>">
 		<table>
 			
 		<label for="name">商品名
@@ -109,6 +109,19 @@
 		</table>
 	</form>	
 	
-<script src="<c:url value='/js/search.js'/>"></script>
+<script src="<c:url value='/js/search.js'/>">
+'use strict';
+document.getElementById('search_form').onsubmit = function(event) {
+    const searchNAME = document.getElementById('name').value;
+    const searchBRAND_NAME = document.getElementById('brand_name').value;
+    const errorMessage = document.getElementById('error_message');
+
+    if (searchNAME === '' && searchBRAND_NAME === '') {
+        event.preventDefault();
+        window.alert('項目を入力してください。');
+        errorMessage.style.color = 'red'; // 色の追加
+    } 
+};
+</script>
 </body>
 </html>

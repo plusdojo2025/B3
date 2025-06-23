@@ -13,14 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.PerfumesDAO;
-/*
-import dao.BcDAO;
-import dto.Bc;
+import dao.Small_categoryDAO;
+import dto.Perfumes;
+import dto.Scrollbar;
+import dto.Small_category;
 
-編集
-import dao.~~DAO;
-import dto.~~;
-*/
 /**
  * Servlet implementation class SearchServlet
  */
@@ -41,6 +38,14 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		/*HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect(request.getContextPath()+"/LoginServlet");
+			return;
+		}*/
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -49,33 +54,45 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
+				HttpSession session = request.getSession();
+				if (session.getAttribute("id") == null) {
+					response.sendRedirect("/B3/LoginServlet");
+					return;
+				}
+		
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
 		/*こっから下編集*/
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect(request.getContextPath()+"/LoginServlet");
-					return;
-				}
+		
 	
 	
 	//リクエストパラメータを取得する
 	request.setCharacterEncoding("UTF-8");
 	String name = request.getParameter("name");
 	String brand_name = request.getParameter("brand_name");
-	String image_tag = request.getParameter("image_tag");
-	String simple_complex = request.getParameter("simple_complex");
-	String fresh_sweet = request.getParameter("fresh_sweet");
-	String light_heavy = request.getParameter("light_heavy");
-	String male_women = request.getParameter("male_women");
-	String mild_spicy = request.getParameter("mild_spicy");
+	String detail = request.getParameter("detail");
+	int complex = Integer.parseInt(request.getParameter("complex"));
+	int sweet = Integer.parseInt(request.getParameter("sweet"));
+	int heavy = Integer.parseInt(request.getParameter("heavy"));
+	int women = Integer.parseInt(request.getParameter("women"));
+	int spicy = Integer.parseInt(request.getParameter("spicy"));
+	
+	// Create objects
+		Perfumes perfume = new Perfumes(name, brand_name);
+		Small_category  scategory = new Small_category(detail);
+		Scrollbar scrollbar = new Scrollbar(complex, sweet, heavy, women,spicy);
 	
 	//検索処理を行う　赤線のところ変える
 	PerfumesDAO pDao = new PerfumesDAO();
-	List<Pf> perfumesList = pDao.select(new Pf(name, brand_name, image_tag, simple_complex,
-			fresh_sweet, light_heavy, male_women, mild_spicy));
+	List<Perfumes> perfumesList = pDao.select(new Perfumes(name, brand_name));
+	
+	Small_categoryDAO sDao = new Small_categoryDAO();
+	List<Small_category> small_categoryList =spDao.select(new Small_category(image_tag));
+	
+	ScrollbarDAO bDao = new ScrollbarDAO();
+	List<Scrollbar> scrollbarList = bDao.select(new Scrollbar(simple_complex,fresh_sweet, light_heavy, male_women, mild_spicy));
 	
 	// 検索結果をリクエストスコープに格納する  （これいるのかわからない）
 			request.setAttribute("perfumesList", perfumesList);
