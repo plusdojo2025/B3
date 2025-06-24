@@ -70,7 +70,7 @@ public class SearchServlet extends HttpServlet {
 	
 	//リクエストパラメータを取得する
 	request.setCharacterEncoding("UTF-8");
-	String name = request.getParameter("name");
+	String perfume_name = request.getParameter("perfume_name");
 	String brand_name = request.getParameter("brand_name");
 	String detail = request.getParameter("detail");
 	int complex = Integer.parseInt(request.getParameter("complex"));
@@ -80,16 +80,16 @@ public class SearchServlet extends HttpServlet {
 	int spicy = Integer.parseInt(request.getParameter("spicy"));
 	
 	// Create objects
-		Perfumes perfume = new Perfumes(name, brand_name);
+		Perfumes perfume = new Perfumes(perfume_name, brand_name);
 		Small_category  scategory = new Small_category(detail);
 		Scrollbar scrollbar = new Scrollbar(complex, sweet, heavy, women,spicy);
 	
 	//検索処理を行う　赤線のところ変える
 	PerfumesDAO pDao = new PerfumesDAO();
-	List<Perfumes> perfumesList = pDao.select(new Perfumes(name, brand_name));
+	List<Perfumes> perfumesList = pDao.select(new Perfumes(perfume_name, brand_name));
 	
 	Small_categoryDAO sDao = new Small_categoryDAO();
-	List<Small_category> small_categoryList =spDao.select(new Small_category(image_tag));
+	List<Small_category> small_categoryList =sDao.select(new Small_category(image_tag));
 	
 	ScrollbarDAO bDao = new ScrollbarDAO();
 	List<Scrollbar> scrollbarList = bDao.select(new Scrollbar(simple_complex,fresh_sweet, light_heavy, male_women, mild_spicy));
