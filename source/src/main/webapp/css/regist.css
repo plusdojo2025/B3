@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*スライダーバー*/
 	.slider-row {
   	display: flex;
   	justify-content: center; /* 横方向中央揃え */
@@ -8,14 +9,40 @@
   	margin: 10px 0;          /* 各行の上下マージン */
 	}
 	
-
 	.slider-row {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px; /* スライダーごとの間隔 */
 	}	
+	
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 8px;
+  background: transparent; /* 背景を透明にする（下で指定） */
+  cursor: pointer;
+}
 
+/* バー部分 */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background: #dcdcdc;
+  border-radius: 4px;
+}
+
+/* つまみ部分 */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: #a9a9a9; /* つまみの色 */
+  border-radius: 50%;
+  margin-top: -4px; /* トラック中央に揃える */
+  border: none;
+}
+
+/* お気に入り */
 	.heart {
 	font-size: 50px;
 	color: gray;
@@ -27,41 +54,7 @@
       color: red;
     }
 
-.form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
 
-.form-row label {
-  width: 100px;
-  margin-right: 10px;
-  font-weight: bold;
-}
-
-.color-picker-wrapper {
-  flex: 1;
-}
-
-.color-picker-wrapper input[type="color"] {
-  -webkit-appearance: none;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0;
-  background: none;
-}
-
-.color-picker-wrapper input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.color-picker-wrapper input[type="color"]::-webkit-color-swatch {
-  border: none;
-  border-radius: 50%;
-}
 
 
 .form-top {

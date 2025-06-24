@@ -45,19 +45,22 @@
           <select name="strength" id="strength">
             <option value="">選択して下さい</option>
             <option value="1">パルファム</option>
-            <!-- 以下略 -->
+            <option value="2">オードパルファム</option>
+    		<option value="3">オードトワレ</option>
+    		<option value="4">オーデコロン</option>
+    		<option value="5">オーデサントゥール</option>
           </select>
         </div>
         <div class="form-row">
           <label for="color">色</label>
-          <input type="color" name="color" value="#ffffff">
+          <input type="color"　id="color" name="color" value="#ffffff"　class="color-input">
         </div>
       </div>
 
       <!-- 右上：画像 -->
       <div class="form-right">
         <label>画像</label><br>
-        <input type="file" name="image" accept="image/*" onchange="previewImage(this);"><br>
+        <input type="file" name="image" accept="image/*" onchange="previewImage(this);">
         <canvas id="preview" style="max-width: 200px;"></canvas>
       </div>
     </div>
