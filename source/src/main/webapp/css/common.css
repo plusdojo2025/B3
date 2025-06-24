@@ -55,8 +55,6 @@
 	
 /*ボタン*/
 	.button {
-	  
-	  
 	  padding: 13px 20px;
 	  border: none;
 	  border-radius: 9px;
@@ -66,3 +64,14 @@
 	  font-weight: 500;
 	  cursor: pointer;           /* カーソルをポインタに */
 	}
+
+/*ヘッダーロゴ*/	
+	header {
+  	text-align: center;
+	}
+
+/*ボディー*/	
+	body {
+  	text-align: center;
+	}
+	

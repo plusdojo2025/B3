@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+	.slider-row {
+  	display: flex;
+  	justify-content: center; /* 横方向中央揃え */
+  	align-items: center;     /* 縦方向中央揃え */
+  	gap: 10px;               /* 要素間の余白 */
+  	margin: 10px 0;          /* 各行の上下マージン */
+	}
+	
+
+	.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px; /* スライダーごとの間隔 */
+	}	
+
+	.heart {
+	font-size: 50px;
+	color: gray;
+	cursor: pointer;
+    transition: color 0.3s ease;
+   	}
+   	
+    .heart.active {
+      color: red;
+    }
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.form-row label {
+  width: 100px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.color-picker-wrapper {
+  flex: 1;
+}
+
+.color-picker-wrapper input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+}
+
+.color-picker-wrapper input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-picker-wrapper input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+
+.form-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.form-left,
+.form-right {
+  flex: 1;
+}
+
+.form-left .form-row {
+  margin-bottom: 15px;
+}
+
+.form-row label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 下段（画面中央） */
+.form-bottom {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slider-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.slider-row input[type="range"] {
+  width: 200px;
+}
+
+.button-row {
+  margin-top: 20px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.form-row label {
+  width: 100px;         /* ラベルの幅は調整可 */
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;              /* 入力欄が残り幅を使う */
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
