@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 <head>
-    <title>Calendar</title>
-   
-    <style>
-    body {
+<meta charset="UTF-8">
+<title>Calendar</title>
+<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/calendar.css'/>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ body {
           font-family: sans-serif;
           display: flex;
           justify-content: center;
@@ -60,10 +62,12 @@
     color: white;
     font-weight: bold;
 }
-    </style>
-    
+</style>
 </head>
 <body>
+	<header>
+		<jsp:include page="/WEB-INF/jsp/header.jsp" />
+	</header>
 <div class="calendar">
     <div class="header">
         <button id="prev">&#8249;</button>

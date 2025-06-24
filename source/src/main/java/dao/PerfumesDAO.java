@@ -6,10 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import dto.Perfumes;
 import dto.Scrollbar;
+import dto.Small_category;
 
 public class PerfumesDAO {
 
@@ -93,218 +95,224 @@ public class PerfumesDAO {
 	}
 
 	
-//	// 引数card指定された項目で検索して、取得されたデータのリストを返す     書き換え
-//			public List<Perfumes> select(Perfumes pfi) {
-//				Connection conn = null;
-//				List<Perfumes> pfmList = new ArrayList<>();
-//				try {
-//					// JDBCドライバを読み込む
-//					Class.forName("com.mysql.cj.jdbc.Driver");
-//					// データベースに接続する
-//					conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
-//							+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-//							"root", "password");
-//
-//					// SQL文を準備する
-//					String sql = "SELECT perfume_name, brand_name"
-//							+ "FROM perfumes"
-//							+ "WHERE perfume_name LIKE ? AND brand_name LIKE ?";
-//					PreparedStatement pStmt = conn.prepareStatement(sql);
-//					
-//					
-//
-//					// SQL文を完成させる
-//					
-//					if (pfi.getPerfume_name() != null) {
-//						pStmt.setString(1, pfi.getPerfume_name());
-//					} else {
-//						pStmt.setNull(1,java.sql.Types.INTEGER );
-//					}
-//					if (pfi.getBrand_name() != null) {
-//						pStmt.setString(2, pfi.getBrand_name());
-//					} else {
-//						pStmt.setNull(2,java.sql.Types.INTEGER );
-//					}
-//					
-//
-//					// SQL文を実行し、結果表を取得する
-//					ResultSet rs = pStmt.executeQuery();
-//
-//					// 結果表をコレクションにコピーする
-//					while (rs.next()) {
-//						Perfumes perfumesrs = new Perfumes(
-//								rs.getString("perfume_name"),
-//								rs.getString("brand_name")
-//								);
-//						pfmList.add(perfumesrs);
-//					}
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//					pfmList = null;
-//				} catch (ClassNotFoundException e) {
-//					e.printStackTrace();
-//					pfmList = null;
-//				} finally {
-//					// データベースを切断
-//					if (conn != null) {
-//						try {
-//							conn.close();
-//						} catch (SQLException e) {
-//							e.printStackTrace();
-//							pfmList = null;
-//						}
-//					}
-//				}
-//
-//				// 結果を返す
-//				return pfmList;
-//			}
-//
-//	
-//			// 引数card指定された項目で検索して、取得されたデータのリストを返す     書き換え
-//						public List<Small_category> select(Small_category pfi) {
-//							Connection conn = null;
-//							List<Small_category> scList = new ArrayList<>();
-//							try {
-//								// JDBCドライバを読み込む
-//								Class.forName("com.mysql.cj.jdbc.Driver");
-//								// データベースに接続する
-//								conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
-//										+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-//										"root", "password");
-//
-//								// SQL文を準備する
-//								String sql = "SELECT detail"
-//										+ "FROM small_category"
-//										+ "WHERE detail LIKE ?";
-//								PreparedStatement pStmt = conn.prepareStatement(sql);
-//								
-//								
-//
-//								// SQL文を完成させる
-//								
-//								if (pfi.getSmall_category() != null) {
-//									pStmt.setString(1, pfi.getDetail());
-//								} else {
-//									pStmt.setNull(1,java.sql.Types.INTEGER );
-//								}
-//								
-//
-//								// SQL文を実行し、結果表を取得する
-//								ResultSet rs = pStmt.executeQuery();
-//
-//								// 結果表をコレクションにコピーする
-//								while (rs.next()) {
-//									Small_category small_categoryrs = new Small_category(
-//											rs.getString("Detail")
-//											
-//											);
-//									scList.add(small_categoryrs);
-//								}
-//							} catch (SQLException e) {
-//								e.printStackTrace();
-//								scList = null;
-//							} catch (ClassNotFoundException e) {
-//								e.printStackTrace();
-//								scList = null;
-//							} finally {
-//								// データベースを切断
-//								if (conn != null) {
-//									try {
-//										conn.close();
-//									} catch (SQLException e) {
-//										e.printStackTrace();
-//										scList = null;
-//									}
-//								}
-//							}
-//
-//							// 結果を返す
-//							return scList;
-//						}
-//						
-//						
-//						// 引数card指定された項目で検索して、取得されたデータのリストを返す     書き換え
-//						public List<Scrollbar> select(Scrollbar pfi) {
-//							Connection conn = null;
-//							List<Scrollbar> sbList = new ArrayList<>();
-//							try {
-//								// JDBCドライバを読み込む
-//								Class.forName("com.mysql.cj.jdbc.Driver");
-//								// データベースに接続する
-//								conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
-//										+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-//										"root", "password");
-//
-//								// SQL文を準備する
-//								String sql = "SELECT simple_complex, fresh_sweet, light_heavy, male_women, mild_spicy"
-//										+ "FROM scrollbar"
-//										+ "WHERE simple_complex LIKE ? AND fresh_sweet LIKE ? AND light_heavy LIKE ? AND male_women LIKE ? AND mild_spicy LIKE ?";
-//								PreparedStatement pStmt = conn.prepareStatement(sql);
-//								
-//								
-//
-//								// SQL文を完成させる
-//								
-//								if (pfi.getSimple_complex() != 0) {
-//									pStmt.setInt(1, pfi.getSimple_complex());
-//								} else {
-//									pStmt.setNull(1,java.sql.Types.INTEGER );
-//								}
-//								if (pfi.getFresh_sweet() != 0) {
-//									pStmt.setInt(2, pfi.getFresh_sweet());
-//								} else {
-//									pStmt.setNull(2,java.sql.Types.INTEGER );
-//								}
-//								if (pfi.getLight_heavy() != 0) {
-//									pStmt.setInt(3, pfi.getLight_heavy());
-//								} else {
-//									pStmt.setNull(3,java.sql.Types.INTEGER );
-//								}
-//								if (pfi.getMale_women() != 0) {
-//									pStmt.setInt(4, pfi.getMale_women());
-//								} else {
-//									pStmt.setNull(4,java.sql.Types.INTEGER );
-//								}
-//								if (pfi.getMild_spicy() != 0) {
-//									pStmt.setInt(5, pfi.getMild_spicy());
-//								} else {
-//									pStmt.setNull(5,java.sql.Types.INTEGER );
-//								}
-//								
-//
-//								// SQL文を実行し、結果表を取得する
-//								ResultSet rs = pStmt.executeQuery();
-//
-//								// 結果表をコレクションにコピーする
-//								while (rs.next()) {
-//									Perfumes perfumesrs = new Perfumes(
-//											rs.getString("perfume_name"),
-//											rs.getString("brand_name")
-//											);
-//									sbList.add(scrollbarrs);
-//								}
-//							} catch (SQLException e) {
-//								e.printStackTrace();
-//								sbList = null;
-//							} catch (ClassNotFoundException e) {
-//								e.printStackTrace();
-//								sbList = null;
-//							} finally {
-//								// データベースを切断
-//								if (conn != null) {
-//									try {
-//										conn.close();
-//									} catch (SQLException e) {
-//										e.printStackTrace();
-//										sbList = null;
-//									}
-//								}
-//							}
-//
-//							// 結果を返す
-//							return sbList;
-//						}
+
+
+	// 引数card指定された項目で検索して、取得されたデータのリストを返す     書き換え
+			public List<Perfumes> select(Perfumes pfi) {
+				Connection conn = null;
+				List<Perfumes> pfmList = new ArrayList<>();
+				try {
+					// JDBCドライバを読み込む
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					// データベースに接続する
+					conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+							+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+							"root", "password");
+
+					// SQL文を準備する
+					String sql = "SELECT perfume_name, brand_name"
+							+ "FROM perfumes"
+							+ "WHERE perfume_name LIKE ? AND brand_name LIKE ?";
+					PreparedStatement pStmt = conn.prepareStatement(sql);
+					
+					
+
+					// SQL文を完成させる
+					
+					if (pfi.getPerfume_name() != null) {
+						pStmt.setString(1, pfi.getPerfume_name());
+					} else {
+						pStmt.setNull(1,java.sql.Types.INTEGER );
+					}
+					if (pfi.getBrand_name() != null) {
+						pStmt.setString(2, pfi.getBrand_name());
+					} else {
+						pStmt.setNull(2,java.sql.Types.INTEGER );
+					}
+					
+
+					// SQL文を実行し、結果表を取得する
+					ResultSet rs = pStmt.executeQuery();
+
+					// 結果表をコレクションにコピーする
+					while (rs.next()) {
+						Perfumes perfumesrs = new Perfumes(
+								rs.getString("perfume_name"),
+								rs.getString("brand_name")
+								);
+						pfmList.add(perfumesrs);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+					pfmList = null;
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+					pfmList = null;
+				} finally {
+					// データベースを切断
+					if (conn != null) {
+						try {
+							conn.close();
+						} catch (SQLException e) {
+							e.printStackTrace();
+							pfmList = null;
+						}
+					}
+				}
+
+				// 結果を返す
+				return pfmList;
+			}
+
+	
+			// 引数card指定された項目で検索して、取得されたデータのリストを返す     書き換え
+						public List<Small_category> select(Small_category pfi) {
+							Connection conn = null;
+							List<Small_category> scList = new ArrayList<>();
+							try {
+								// JDBCドライバを読み込む
+								Class.forName("com.mysql.cj.jdbc.Driver");
+								// データベースに接続する
+								conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+										+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+										"root", "password");
+
+								// SQL文を準備する
+								String sql = "SELECT detail"
+										+ "FROM small_category"
+										+ "WHERE detail LIKE ?";
+								PreparedStatement pStmt = conn.prepareStatement(sql);
+								
+								
+
+								// SQL文を完成させる
+								
+								if (pfi.getDetail() != null) {
+									pStmt.setString(1, pfi.getDetail());
+								} else {
+									pStmt.setNull(1,java.sql.Types.INTEGER );
+								}
+								
+
+								// SQL文を実行し、結果表を取得する
+								ResultSet rs = pStmt.executeQuery();
+
+								// 結果表をコレクションにコピーする
+								while (rs.next()) {
+									Small_category small_categoryrs = new Small_category(
+											rs.getString("Detail")
+											
+											);
+									scList.add(small_categoryrs);
+								}
+							} catch (SQLException e) {
+								e.printStackTrace();
+								scList = null;
+							} catch (ClassNotFoundException e) {
+								e.printStackTrace();
+								scList = null;
+							} finally {
+								// データベースを切断
+								if (conn != null) {
+									try {
+										conn.close();
+									} catch (SQLException e) {
+										e.printStackTrace();
+										scList = null;
+									}
+								}
+							}
+
+							// 結果を返す
+							return scList;
+						}
+						
+						
+						// 引数card指定された項目で検索して、取得されたデータのリストを返す     書き換え
+						public List<Scrollbar> select(Scrollbar pfi) {
+							Connection conn = null;
+							List<Scrollbar> sbList = new ArrayList<>();
+							try {
+								// JDBCドライバを読み込む
+								Class.forName("com.mysql.cj.jdbc.Driver");
+								// データベースに接続する
+								conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+										+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+										"root", "password");
+
+								// SQL文を準備する
+								String sql = "SELECT simple_complex, fresh_sweet, light_heavy, male_women, mild_spicy"
+										+ "FROM scrollbar"
+										+ "WHERE simple_complex LIKE ? AND fresh_sweet LIKE ? AND light_heavy LIKE ? AND male_women LIKE ? AND mild_spicy LIKE ?";
+								PreparedStatement pStmt = conn.prepareStatement(sql);
+								
+								
+
+								// SQL文を完成させる
+								
+								if (pfi.getSimple_complex() != 0) {
+									pStmt.setInt(1, pfi.getSimple_complex());
+								} else {
+									pStmt.setNull(1,java.sql.Types.INTEGER );
+								}
+								if (pfi.getFresh_sweet() != 0) {
+									pStmt.setInt(2, pfi.getFresh_sweet());
+								} else {
+									pStmt.setNull(2,java.sql.Types.INTEGER );
+								}
+								if (pfi.getLight_heavy() != 0) {
+									pStmt.setInt(3, pfi.getLight_heavy());
+								} else {
+									pStmt.setNull(3,java.sql.Types.INTEGER );
+								}
+								if (pfi.getMale_women() != 0) {
+									pStmt.setInt(4, pfi.getMale_women());
+								} else {
+									pStmt.setNull(4,java.sql.Types.INTEGER );
+								}
+								if (pfi.getMild_spicy() != 0) {
+									pStmt.setInt(5, pfi.getMild_spicy());
+								} else {
+									pStmt.setNull(5,java.sql.Types.INTEGER );
+								}
+								
+
+								// SQL文を実行し、結果表を取得する
+								ResultSet rs = pStmt.executeQuery();
+
+								// 結果表をコレクションにコピーする
+								while (rs.next()) {
+									Scrollbar scrollbarrs = new Scrollbar(
+											rs.getInt("simple_complex"),
+											rs.getInt("fresh_sweet"),
+											rs.getInt("light_heavy"),
+											rs.getInt("male_women"),
+											rs.getInt("mild_spicy")
+											);
+									sbList.add(scrollbarrs);
+								}
+							} catch (SQLException e) {
+								e.printStackTrace();
+								sbList = null;
+							} catch (ClassNotFoundException e) {
+								e.printStackTrace();
+								sbList = null;
+							} finally {
+								// データベースを切断
+								if (conn != null) {
+									try {
+										conn.close();
+									} catch (SQLException e) {
+										e.printStackTrace();
+										sbList = null;
+									}
+								}
+							}
+
+							// 結果を返す
+							return sbList;
+						}
+
 //	// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
 //	public boolean update(Perfumes pf) {
 //			Connection conn = null;

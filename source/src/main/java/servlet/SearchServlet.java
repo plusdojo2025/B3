@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.PerfumesDAO;
+import dao.ScrollbarDAO;
 import dao.Small_categoryDAO;
 import dto.Perfumes;
 import dto.Scrollbar;
@@ -89,10 +90,10 @@ public class SearchServlet extends HttpServlet {
 	List<Perfumes> perfumesList = pDao.select(new Perfumes(perfume_name, brand_name));
 	
 	Small_categoryDAO sDao = new Small_categoryDAO();
-	List<Small_category> small_categoryList =sDao.select(new Small_category(image_tag));
+	List<Small_category> small_categoryList =sDao.select(new Small_category(detail));
 	
 	ScrollbarDAO bDao = new ScrollbarDAO();
-	List<Scrollbar> scrollbarList = bDao.select(new Scrollbar(simple_complex,fresh_sweet, light_heavy, male_women, mild_spicy));
+	//List<Scrollbar> scrollbarList = bDao.select(new Scrollbar(simple_complex,fresh_sweet, light_heavy, male_women, mild_spicy));
 	
 	// 検索結果をリクエストスコープに格納する  （これいるのかわからない）
 			request.setAttribute("perfumesList", perfumesList);

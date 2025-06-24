@@ -195,35 +195,10 @@ public class RegistServlet extends HttpServlet {
 //		dispatcher.forward(request, response);
 	}
 	
-//	private String getFileName(Part part) {
-//		String name = null;
-//		for(String dispotion : part.getHeader
-//				("Content-Disposition").split(";")) {
-//			if(dispotion.trim().startsWith("filename")) {
-//				name = dispotion.substring(dispotion.indexOf
-//						("=")+1).replace("\"", "").trim();
-//				name = name.substring(name.lastIndexOf("\\")+
-//						1);
-//				break;
-//			}
-//		}
-//		return name;
-//		
-//	}
+
 
 }
-		//PefumesDAOを実体化して、その中の香水を追加するメソッドを実行する
-		//insert into perfumes (name,brand....) valeues (?,?,,,);
-		
-		
-		//引数としてdaoにデートを渡したい。
-		//そのままでもいいけど、出来たらまとめた形で渡したい
-		//その時に使うのがdto（javabeans）になる
-		//「Perfumes」型を実体化する。コンストラクターでデータを入れた形で実体化する
-//		Perfumes pf = new Perfumes(name,brand);
-//		PerfumesDAO pDao = new PerfumesDAO();
-//		boolean result = pDao.insert(pf);
-//		
+
 		
 		
 		

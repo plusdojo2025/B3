@@ -164,7 +164,7 @@
       	</form>
     
       <form id="myFormFresh">
-      	<p　class="group-label">さわやかさ</p>
+      	<p class="group-label">さわやかさ</p>
       	<label for="genre_fresh">ジャンル</label>
 				<select name="genre" id="genre_fresh">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
