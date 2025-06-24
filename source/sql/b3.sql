@@ -11,6 +11,8 @@ CREATE TABLE users (
     created_at timestamp,
     updated_at timestamp
 );
+INSERT INTO users (user_name, password, created_at, updated_at)
+     VALUES ('id', 'password', NOW(), NOW());
 
 /*perfumesテーブル作成*/
 CREATE TABLE perfumes(
