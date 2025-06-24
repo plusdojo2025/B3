@@ -185,7 +185,7 @@ public class PerfumesDAO {
 
 								// SQL文を完成させる
 								
-								if (pfi.getSmall_category() != null) {
+								if (pfi.getDetail() != null) {
 									pStmt.setString(1, pfi.getDetail());
 								} else {
 									pStmt.setNull(1,java.sql.Types.INTEGER );
@@ -280,9 +280,12 @@ public class PerfumesDAO {
 
 								// 結果表をコレクションにコピーする
 								while (rs.next()) {
-									Perfumes perfumesrs = new Perfumes(
-											rs.getString("perfume_name"),
-											rs.getString("brand_name")
+									Scrollbar scrollbarrs = new Scrollbar(
+											rs.getInt("simple_complex"),
+											rs.getInt("fresh_sweet"),
+											rs.getInt("light_heavy"),
+											rs.getInt("male_women"),
+											rs.getInt("mild_spicy")
 											);
 									sbList.add(scrollbarrs);
 								}
