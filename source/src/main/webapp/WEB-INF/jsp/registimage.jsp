@@ -11,8 +11,11 @@
 </head>
 <body>
 <p> *イメージタグ </p>
-<div class="section" data-section="甘さ">
-<p>甘さ</p>
+
+
+<form id="myForm">
+<div  class="section" data-section="甘さ">
+<p class="group-label">甘さ</p>
       		<label for="genre">ジャンル</label>
 				<select name="genre" id="genre">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
@@ -24,7 +27,7 @@
     				<option value="植物">植物</option>
 				</select>
 			
-			<div id="sweets-options" style="display: none;">
+			<div id="sweets-options" class="section" data-section="甘さ" style="display: none;">
     			<p>スイーツの種類を選んでください:</p>
     				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
@@ -44,7 +47,7 @@
     				<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label><br>    				
 			</div>
 			
-			<div id="fruit-options" style="display: none;">
+			<div id="fruit-options"class="section" data-section="甘さ" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
     				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label><br>
@@ -75,7 +78,7 @@
     				<label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label><br>
 			</div>
 				
-			<div id="drink-options" style="display: none;">
+			<div id="drink-options" class="section" data-section="甘さ" style="display: none;">
     			<p>飲み物の種類を選んでください:</p>
     				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label><br>
@@ -87,7 +90,7 @@
     				<label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label><br>
 			</div>
 			
-			<div id="spices-options" style="display: none;">
+			<div id="spices-options" class="section" data-section="甘さ" style="display: none;">
     			<p>スパイスの種類を選んでください:</p>
     				<label><input type="checkbox" name="spices[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label><br>
@@ -98,7 +101,7 @@
     				<label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label><br>
 			</div>
 			
-			<div id="scene-options" style="display: none;">
+			<div id="scene-options" class="section" data-section="甘さ" style="display: none;">
     			<p>シーンの種類を選んでください:</p>
     				<label><input type="checkbox" name="scene[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label><br>
@@ -131,7 +134,7 @@
     				<label><input type="checkbox" name="scene[]" value="冬"> 冬</label><br>
 			</div>
 			
-			<div id="plant-options" style="display: none;">
+			<div id="plant-options" class="section" data-section="甘さ" style="display: none;">
     			<p>植物の種類を選んでください:</p>
     				<label><input type="checkbox" name="plant[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label><br>
@@ -158,10 +161,10 @@
       	<input type="submit" name="decision" value="決定">
       	<input type="reset" name="reset" value="リセット">
       	<hr>
-      	
+      	</form>
     
-      
-      	<p>さわやかさ</p>
+      <form id="myFormFresh">
+      	<p　class="group-label">さわやかさ</p>
       	<label for="genre_fresh">ジャンル</label>
 				<select name="genre" id="genre_fresh">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
@@ -173,7 +176,7 @@
     				<option value="植物1">植物</option>
 				</select>
 			
-			<div id="sweets-options1" style="display: none;">
+			<div id="sweets-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>スイーツの種類を選んでください:</p>
     				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
@@ -193,7 +196,7 @@
     				<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label><br>    				
 			</div>
 			
-			<div id="fruit-options1" style="display: none;">
+			<div id="fruit-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
     				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label><br>
@@ -224,7 +227,7 @@
     				<label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label><br>
 			</div>
 				
-			<div id="drink-options1" style="display: none;">
+			<div id="drink-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>飲み物の種類を選んでください:</p>
     				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label><br>
@@ -236,7 +239,7 @@
     				<label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label><br>
 			</div>
 			
-			<div id="spices-options1" style="display: none;">
+			<div id="spices-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>スパイスの種類を選んでください:</p>
     				<label><input type="checkbox" name="spices[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label><br>
@@ -247,7 +250,7 @@
     				<label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label><br>
 			</div>
 			
-			<div id="scene-options1" style="display: none;">
+			<div id="scene-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>シーンの種類を選んでください:</p>
     				<label><input type="checkbox" name="scene[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label><br>
@@ -280,7 +283,7 @@
     				<label><input type="checkbox" name="scene[]" value="冬"> 冬</label><br>
 			</div>
 			
-			<div id="plant-options1" style="display: none;">
+			<div id="plant-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>植物の種類を選んでください:</p>
     				<label><input type="checkbox" name="plant[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label><br>
@@ -306,7 +309,9 @@
       	<input type="submit" name="decision" value="決定">
       	<input type="reset" name="reset" value="リセット">
 		<hr>
+		</form>
       	
+      	<form id="myFormSpicy">
       	<p>スパイシー</p>
       	<label for="genre_spicy">ジャンル</label>
 				<select name="genre" id="genre_spicy">
@@ -319,7 +324,7 @@
     				<option value="植物2">植物</option>
 				</select>
 			
-			<div id="sweets-options2" style="display: none;">
+			<div id="sweets-options2" class="section" data-section="スパイシー" style="display: none;">
     			<p>スイーツの種類を選んでください:</p>
     				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
@@ -339,7 +344,7 @@
     				<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label><br>    				
 			</div>
 			
-			<div id="fruit-options2" style="display: none;">
+			<div id="fruit-options2" class="section" data-section="スパイシー" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
     				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label><br>
@@ -370,7 +375,7 @@
     				<label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label><br>
 			</div>
 				
-			<div id="drink-options2" style="display: none;">
+			<div id="drink-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>飲み物の種類を選んでください:</p>
     				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label><br>
@@ -382,7 +387,7 @@
     				<label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label><br>
 			</div>
 			
-			<div id="spices-options2" style="display: none;">
+			<div id="spices-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>スパイスの種類を選んでください:</p>
     				<label><input type="checkbox" name="spices[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label><br>
@@ -393,7 +398,7 @@
     				<label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label><br>
 			</div>
 			
-			<div id="scene-options2" style="display: none;">
+			<div id="scene-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>シーンの種類を選んでください:</p>
     				<label><input type="checkbox" name="scene[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label><br>
@@ -426,7 +431,7 @@
     				<label><input type="checkbox" name="scene[]" value="冬"> 冬</label><br>
 			</div>
 			
-			<div id="plant-options2" style="display: none;">
+			<div id="plant-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>植物の種類を選んでください:</p>
     				<label><input type="checkbox" name="plant[]" value="無し"> 無し</label><br>
     				<label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label><br>
@@ -453,6 +458,9 @@
       	<input type="submit" name="decision" value="決定">
       	<input type="reset" name="reset" value="リセット">
 		<hr>
+		</form>
+      	
+      	
       	
       	<p>リラックス</p>
       	<label for="genre_relax">ジャンル</label>
@@ -600,12 +608,183 @@
       	<input type="reset" name="reset" value="リセット">
       	<hr>
       	
-      	<p>登録済みのタグ</p>
-      	<div id="registeredTags" style="margin-bottom: 1em;"></div>
+      
       	
       	<br>
       	<br>
 </div>
-<script src="<c:url value='/js/registimage.js'/>"></script>
+
+
+
+<ul class="selected-list"></ul>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const genreSelect = document.getElementById('genre');
+
+  // Map genre values to corresponding div IDs
+  const genreOptions = {
+    'スイーツ': 'sweets-options',
+    '果物': 'fruit-options',
+    '飲み物': 'drink-options',
+    'スパイス': 'spices-options',
+    'シーン': 'scene-options',
+    '植物': 'plant-options'
+  };
+
+  // Handle genre change: show relevant options
+  genreSelect.addEventListener('change', function () {
+    Object.values(genreOptions).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+
+    const selectedId = genreOptions[this.value];
+    if (selectedId) {
+      const showEl = document.getElementById(selectedId);
+      if (showEl) showEl.style.display = 'block';
+    }
+  });
+
+  const form = document.getElementById('myForm');
+  
+  // Create selected list container dynamically if it doesn't exist
+  let selectedList = document.getElementById('selected-list');
+  if (!selectedList) {
+    selectedList = document.createElement('ul');
+    selectedList.id = 'selected-list';
+    form.appendChild(selectedList);
+  }
+
+  // Handle form submit
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    selectedList.innerHTML = '';
+
+    let hasSelected = false;
+
+    for (const [genre, divId] of Object.entries(genreOptions)) {
+      const container = document.getElementById(divId);
+      if (!container) continue;
+
+      const checkboxes = container.querySelectorAll('input[type="checkbox"]:checked');
+      if (checkboxes.length > 0) {
+        hasSelected = true;
+        const groupLabel = container.getAttribute('data-section') || genre;
+
+        checkboxes.forEach(cb => {
+          if (cb.value === '無し') return;
+
+          const li = document.createElement('li');
+          li.textContent = groupLabel + ' × ' + cb.value;
+          selectedList.appendChild(li);
+        });
+      }
+    }
+
+    if (!hasSelected) {
+      const li = document.createElement('li');
+      li.textContent = '何も選択されていません。';
+      selectedList.appendChild(li);
+    }
+  });
+
+  // Reset selected list on form reset
+  const resetButton = form.querySelector('input[type="reset"]');
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      selectedList.innerHTML = '';
+      
+      // Hide all sections again
+      Object.values(genreOptions).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+
+      // Reset genre select dropdown
+      genreSelect.value = '';
+    });
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+	  const genreOptions = {
+	    'スイーツ1': 'sweets-options1',
+	    '果物1': 'fruit-options1',
+	    '飲み物1': 'drink-options1',
+	    'スパイス1': 'spices-options1',
+	    'シーン1': 'scene-options1',
+	    '植物1': 'plant-options1'
+	  };
+
+	  const form = document.getElementById('myFormFresh');
+	  const genreSelect = document.getElementById('genre_fresh');
+
+	  // Create or locate the output list
+	  let selectedList = document.createElement('ul');
+	  selectedList.id = 'selected-list-fresh';
+	  form.appendChild(selectedList);
+
+	  // Handle dropdown change: Show relevant section
+	  genreSelect.addEventListener('change', function () {
+	    Object.values(genreOptions).forEach(id => {
+	      const section = form.querySelector('#' + id);
+	      if (section) section.style.display = 'none';
+	    });
+
+	    const selectedSectionId = genreOptions[this.value];
+	    const sectionToShow = form.querySelector('#' + selectedSectionId);
+	    if (sectionToShow) sectionToShow.style.display = 'block';
+	  });
+
+	  // Handle form submit
+	  form.addEventListener('submit', function (e) {
+	    e.preventDefault();
+	    selectedList.innerHTML = '';
+	    let hasSelected = false;
+
+	    Object.values(genreOptions).forEach(sectionId => {
+	      const section = form.querySelector('#' + sectionId);
+	      if (!section) return;
+
+	      const groupLabel = section.getAttribute('data-section') || '';
+	      const checkboxes = section.querySelectorAll('input[type="checkbox"]:checked');
+
+	      checkboxes.forEach(cb => {
+	        if (cb.value === '無し') return;
+	        hasSelected = true;
+	        const li = document.createElement('li');
+	        li.textContent = groupLabel + ' × ' + cb.value;
+	        selectedList.appendChild(li);
+	      });
+	    });
+
+	    if (!hasSelected) {
+	      const li = document.createElement('li');
+	      li.textContent = '何も選択されていません。';
+	      selectedList.appendChild(li);
+	    }
+	  });
+
+	  // Handle reset
+	  const resetBtn = form.querySelector('input[type="reset"]');
+	  resetBtn.addEventListener('click', function () {
+	    selectedList.innerHTML = '';
+	    genreSelect.value = '';
+	    Object.values(genreOptions).forEach(id => {
+	      const section = form.querySelector('#' + id);
+	      if (section) section.style.display = 'none';
+	    });
+	  });
+	});
+</script>
+	  
+	  
+
+	 
+
+
 </body>
 </html>
