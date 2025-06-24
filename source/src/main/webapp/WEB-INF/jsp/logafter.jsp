@@ -45,7 +45,7 @@
 		<p>記録すると自動的にカレンダーに戻ります</p>
 		
 		<input type="submit" name="action"　value="記録">
-		<input type="submit" name="action"　value="使用前へ">
+		
 	</form>
 	<script src="<c:url value='/js/logafter.js' />"></script>
 </body>
