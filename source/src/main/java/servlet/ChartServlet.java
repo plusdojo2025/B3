@@ -5,11 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,17 +18,16 @@ public class ChartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
 
-        // ログインチェック（単体テスト時は無効化）
+//        // ログインチェック
 //        HttpSession session = request.getSession(false);
 //        if (session == null || session.getAttribute("id") == null) {
 //            response.sendRedirect(request.getContextPath() + "/LoginServlet");
 //            return;
 //        }
 
-        // データを格納するリスト
-        List<Map<String, Object>> perfumeList = new ArrayList<>();
+        List<String> labels = new ArrayList<>();
+        List<Integer> counts = new ArrayList<>();
 
-        // DB接続
         String url = "jdbc:mysql://localhost:3306/b3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9";
         String user = "root";
         String password = "password";
@@ -46,18 +42,16 @@ public class ChartServlet extends HttpServlet {
             ResultSet rs = stmt.executeQuery()
         ) {
             while (rs.next()) {
-                Map<String, Object> map = new HashMap<>();
-                map.put("name", rs.getString("perfume_name"));
-                map.put("count", rs.getInt("count"));
-                perfumeList.add(map);
+                labels.add(rs.getString("perfume_name"));
+                counts.add(rs.getInt("count"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        // JSPにデータを渡す
-        request.setAttribute("perfumeList", perfumeList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chart.jsp");
-        dispatcher.forward(request, response);
+        // Chart.jsで利用する形式で渡す
+        request.setAttribute("labels", labels);
+        request.setAttribute("counts", counts);
+        request.getRequestDispatcher("/WEB-INF/jsp/chart.jsp").forward(request, response);
     }
 }
