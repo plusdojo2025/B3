@@ -242,7 +242,7 @@ public class Perfume_logDAO {
 		
 	}
 	
-	// ▶　グラフ化｜引数指定された項目で検索して、取得されたデータのリストを返す
+	// ▶　検索（グラフ化）｜引数指定された項目で検索して、取得されたデータのリストを返す
 	public List<Perfume_log> select(Perfume_log plog) {
 		Connection conn = null;
 		List<Perfume_log> plogList = new ArrayList<Perfume_log>();
