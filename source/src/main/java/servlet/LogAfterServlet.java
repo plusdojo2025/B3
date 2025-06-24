@@ -59,9 +59,9 @@ public class LogAfterServlet extends HttpServlet {
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
 		
-		String id = request.getParameter("id");
+		int id= Integer.parseInt(request.getParameter("id"));
 		
-		String perfume_id = request.getParameter("perfume_id");
+		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
 		
 		String middle_note = request.getParameter("middle_note");
 		

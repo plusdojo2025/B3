@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Perfume_logDAO;
+import dao.PerfumesDAO;
 import dto.Perfume_log;
+import dto.Perfumes;
 
 /**
  * Servlet implementation class LogBeforeServlet
@@ -57,9 +60,9 @@ public class LogBeforeServlet extends HttpServlet {
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
 		
-		String id = request.getParameter("id");
+		int id= Integer.parseInt(request.getParameter("id"));
 		
-		String perfume_id = request.getParameter("perfume_id");
+		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
 		// 登録した香水のデータを引き継ぐために
 		request.setAttribute("perfume_id", perfume_id);
 		
@@ -82,10 +85,12 @@ public class LogBeforeServlet extends HttpServlet {
 		    applied_area = String.join(",", applied_areas);  // カンマ区切りで1つの文字列にまとめる
 		}
 		
-		// どっちのボタンが押下されたかを取得
+		// どのボタンが押下されたかを取得
 		String action = request.getParameter("action");
 		
-		
+		//香水情報呼び出し
+		PerfumesDAO pDao = new PerfumesDAO();
+		List<Perfumes> perfumesList = pDao.select(new Perfumes(perfume_name, brand_name));
 		// シンプルに登録処理を行う
 		Perfume_logDAO plog = new Perfume_logDAO();
 		plog.insert(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 

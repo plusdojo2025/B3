@@ -24,6 +24,7 @@
 			<option value="3">香水C</option>
 		</select>
 		<span id="error_message"></span>
+		<input type="submit" name="action" value="香水情報呼び出し">
 		
 		<img src="わからない" alt="香水画像">
 		<!-- 商品名に基づいた画像を表示させる方法が分からない -->
