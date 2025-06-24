@@ -56,6 +56,11 @@
           <input type="color"　id="color" name="color" value="#ffffff"　class="color-input">
         </div>
       </div>
+      
+      <br>
+            お気に入り
+            <span id="heart" class="heart" name = "favourite" >&#10084;</span>
+        <br>
 
       <!-- 右上：画像 -->
       <div class="form-right">
@@ -77,25 +82,25 @@
       
       <div class="slider-row">
         <span>フレッシュ</span>
-        <input type="range" id="complex" name="complex" min="0" max="100" value="50">
+        <input type="range" id="sweet" name="sweet" min="0" max="100" value="50">
         <span>スイート</span>
       </div>
       
       <div class="slider-row">
         <span>ライト</span>
-        <input type="range" id="complex" name="complex" min="0" max="100" value="50">
+        <input type="range" id="heavy" name="heavy" min="0" max="100" value="50">
         <span>ヘビー</span>
       </div>
       
       <div class="slider-row">
         <span>メンズ</span>
-        <input type="range" id="complex" name="complex" min="0" max="100" value="50">
+        <input type="range" id="women" name="women" min="0" max="100" value="50">
         <span>レディース</span>
       </div>
       
       <div class="slider-row">
         <span>マイルド</span>
-        <input type="range" id="complex" name="complex" min="0" max="100" value="50">
+        <input type="range" id="spicy" name="spicy" min="0" max="100" value="50">
         <span>スパイシー</span>
       </div>
 

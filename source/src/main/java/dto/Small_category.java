@@ -54,6 +54,10 @@ public class Small_category implements Serializable {
 		super();
 		this.detail = detail;
 	}
+	public Object getSmall_category() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
 	
 	
 }
