@@ -56,7 +56,17 @@ public class RegistServlet extends HttpServlet {
 
 		String perfume_name = request.getParameter("perfume_name");
 		String brand_name = request.getParameter("brand");
-		int price = Integer.parseInt(request.getParameter("price"));
+		String priceStr = request.getParameter("price");
+		int price =0;
+		if (priceStr != null && !priceStr.isEmpty()) {
+		    try {
+		        price = Integer.parseInt(priceStr);
+		    } catch (NumberFormatException e) {
+		        System.out.println("価格が不正です：" + priceStr);
+		        price = 0;
+		    }
+		}
+
 		String day = request.getParameter("purchased_date");
 		
 
@@ -72,16 +82,67 @@ public class RegistServlet extends HttpServlet {
 		
 		boolean favourite = Boolean.parseBoolean(request.getParameter("favourite"));
 		String color = request.getParameter("color");
-		int strength = Integer.parseInt(request.getParameter("strength"));
 		
-	
-		
-		
-		int complex = Integer.parseInt(request.getParameter("complex"));
-		int sweet = Integer.parseInt(request.getParameter("sweet"));
-		int heavy = Integer.parseInt(request.getParameter("heavy"));
-		int women = Integer.parseInt(request.getParameter("women"));
-		int spicy = Integer.parseInt(request.getParameter("spicy"));
+		String strengthStr = request.getParameter("strength");
+		int strength = 0;
+		if (strengthStr != null && !strengthStr.isEmpty()) {
+		    try {
+		        strength = Integer.parseInt(strengthStr);
+		    } catch (NumberFormatException e) {
+		        strength = 0;
+		    }
+		}
+
+		String complexStr = request.getParameter("complex");
+		int complex = 0;
+		if (complexStr != null && !complexStr.isEmpty()) {
+		    try {
+		        complex = Integer.parseInt(complexStr);
+		    } catch (NumberFormatException e) {
+		        complex = 0;
+		    }
+		}
+
+		String sweetStr = request.getParameter("sweet");
+		int sweet = 0;
+		if (sweetStr != null && !sweetStr.isEmpty()) {
+		    try {
+		        sweet = Integer.parseInt(sweetStr);
+		    } catch (NumberFormatException e) {
+		        sweet = 0;
+		    }
+		}
+
+		String heavyStr = request.getParameter("heavy");
+		int heavy = 0;
+		if (heavyStr != null && !heavyStr.isEmpty()) {
+		    try {
+		        heavy = Integer.parseInt(heavyStr);
+		    } catch (NumberFormatException e) {
+		        heavy = 0;
+		    }
+		}
+
+		String womenStr = request.getParameter("women");
+		int women = 0;
+		if (womenStr != null && !womenStr.isEmpty()) {
+		    try {
+		        women = Integer.parseInt(womenStr);
+		    } catch (NumberFormatException e) {
+		        women = 0;
+		    }
+		}
+
+		String spicyStr = request.getParameter("spicy");
+		int spicy = 0;
+		if (spicyStr != null && !spicyStr.isEmpty()) {
+		    try {
+		        spicy = Integer.parseInt(spicyStr);
+		    } catch (NumberFormatException e) {
+		        spicy = 0;
+		    }
+		}
+
 
 		
 		//image

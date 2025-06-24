@@ -96,6 +96,11 @@ public class Perfumes implements Serializable {
 			this.color = color;
 			this.strength = strength;
 		}
+		public Perfumes(String perfume_name, String brand_name) {
+			super();
+			this.perfume_name = perfume_name;
+			this.brand_name = brand_name;
+		}
 
 		
 		

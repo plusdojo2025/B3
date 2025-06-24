@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.Perfume_logDAO;
 import dto.Perfume_log;
@@ -35,12 +34,12 @@ public class ModLogServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ログインしていない場合
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect(request.getContextPath() + "/LoginServlet");
-			return;
-		}
+//		// ログインしていない場合
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect(request.getContextPath() + "/LoginServlet");
+//			return;
+//		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modlog.jsp");
 		dispatcher.forward(request, response);
@@ -50,32 +49,30 @@ public class ModLogServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/B3/LoginServlet");
-			return;
-		}
+//		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/B3/LoginServlet");
+//			return;
+//		}
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
+				
+		String perfume_id = request.getParameter("perfume_id");
+		// 登録した香水のデータを引き継ぐために
+		request.setAttribute("perfume_id", perfume_id);
 		
-		String perfume_id_s = request.getParameter("perfume_id");
-		int perfume_id = Integer.parseInt(perfume_id_s);
-		
-		String float_s = request.getParameter("temperature");
-		float temperature = Float.parseFloat(float_s);
+		String temperature = request.getParameter("temperature");
 		
 		String weather = request.getParameter("weather");
 
 		String applied_time = request.getParameter("applied_time");
 		
-		String push_count_s = request.getParameter("push_count");
-		int push_count = Integer.parseInt(push_count_s);
+		String push_count = request.getParameter("push_count");
 		
-		String usage_scene_s = request.getParameter("usage_scene");
-		int usage_scene = Integer.parseInt(usage_scene_s);
+		String usage_scene = request.getParameter("usage_scene");
 		
 		String[] applied_areas = request.getParameterValues("applied_area");
 

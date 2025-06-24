@@ -16,13 +16,13 @@
 	<form method="POST" action="<c:url value='/LogAfterServlet'/>">
 		<label for="perfume_id">*商品名</label>
 		<select name="perfume_id">
-		<!-- perfume_nameかidかわからない -->
-			<option value="1">香水A</option>
-			<option value="2">香水B</option>
-			<option value="3">香水C</option>
+    		<option value="" ${empty perfume_id ? "selected" : ""}>---</option>
+    		<option value="1" ${perfume_id == '1' ? "selected" : ""}>香水A</option>
+    		<option value="2" ${perfume_id == '2' ? "selected" : ""}>香水B</option>
+    		<option value="3" ${perfume_id == '3' ? "selected" : ""}>香水C</option>
 		</select>
-		
-		<p>*</p>
+		<span id="error_message"></span>
+				
 		<img src="わからない" alt="香水画像">
 		<!-- 商品名に基づいた画像を表示させる方法が分からない -->
 		
@@ -44,8 +44,8 @@
 		
 		<p>記録すると自動的にカレンダーに戻ります</p>
 		
-		<input type="submit" value="記録">
-		<input type="submit" value="使用前へ">
+		<input type="submit" name="action"　value="記録">
+		
 	</form>
 	<script src="<c:url value='/js/logafter.js' />"></script>
 </body>
