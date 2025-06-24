@@ -24,14 +24,14 @@ input[type="range"] {
   cursor: pointer;
 }
 
-/* バー部分 */
+/* スライドバーのバー部分 */
 input[type="range"]::-webkit-slider-runnable-track {
   height: 8px;
   background: #dcdcdc;
   border-radius: 4px;
 }
 
-/* つまみ部分 */
+/* スライドバーのつまみ部分 */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 16px;
@@ -42,7 +42,7 @@ input[type="range"]::-webkit-slider-thumb {
   border: none;
 }
 
-/* お気に入り */
+/* お気に入りボタン */
 	.heart {
 	font-size: 50px;
 	color: gray;
@@ -54,9 +54,7 @@ input[type="range"]::-webkit-slider-thumb {
       color: red;
     }
 
-
-
-
+/* レイアウト */
 .form-top {
   display: flex;
   justify-content: space-between;

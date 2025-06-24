@@ -53,7 +53,7 @@
 	    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 	}
 	
-/*ボタン*/
+/*ボタン（作光ちゃん）*/
 	.button {
 	  padding: 13px 20px;
 	  border: none;
@@ -64,6 +64,19 @@
 	  font-weight: 500;
 	  cursor: pointer;           /* カーソルをポインタに */
 	}
+	
+/*ボタン（作加藤）*/
+input[type="submit"],
+input[type="reset"] {
+  background-color: #ababab;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  margin: 5px;
+}
 
 /*ヘッダーロゴ*/	
 	header {
