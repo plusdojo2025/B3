@@ -11,6 +11,62 @@ import java.util.List;
 import dto.Perfume_log;
 
 public class Perfume_logDAO {
+	// ▶　検索（グラフ化）｜引数指定された項目で検索して、取得されたデータのリストを返す
+	public Perfume_log selectOne(Perfume_log pinfo) {
+	    Connection conn = null;
+	    Perfume_log plog = null;
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+
+	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+	                + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+	                "root", "password");
+
+	        String sql = "SELECT p.perfume_img, pi.big_id, pi.small_id " +
+                    "FROM perfumes p " +
+                    "LEFT JOIN perfume_images pi ON p.ID = pi.perfume_id " +
+                    "WHERE p.ID = ?";
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+
+	        if (pinfo.getp.perfume_img() != 0) {
+	            pStmt.setInt(1, pinfo.getPerfume_id());
+	        } else {
+	            pStmt.setNull(1, java.sql.Types.INTEGER);
+	        }
+	        if (pinfo.getPerfume_id() != 0) {
+	            pStmt.setInt(1, pinfo.getPerfume_id());
+	        } else {
+	            pStmt.setNull(1, java.sql.Types.INTEGER);
+	        }
+
+	        ResultSet rs = pStmt.executeQuery();
+
+	        if (rs.next()) {
+	            plog = new Perfume_log(
+	                rs.getInt("id"),
+	                rs.getInt("perfume_id")
+	                // 他のカラムもあればここで追加
+	            );
+	        }
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+
+	    return plog;
+	}
+
+		
+		
 	// ▶　記録｜ 引数で指定されたレコードを登録し、成功したらtrueを返す
 	public boolean insert(Perfume_log plog) {
 		Connection conn = null;
@@ -31,10 +87,10 @@ public class Perfume_logDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (plog.getPerfume_id() != null) {
-				pStmt.setString(1, plog.getPerfume_id());
+			if (plog.getPerfume_id() != 0) {
+				pStmt.setInt(1, plog.getPerfume_id());
 			} else {
-				pStmt.setString(1, "");
+				pStmt.setInt(1, 0);
 			}
 			if (plog.getTemperature() != null) {
 				pStmt.setString(2, plog.getTemperature());
@@ -117,9 +173,9 @@ public class Perfume_logDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setString(1, plog.getId());
+			pStmt.setInt(1, plog.getId());
 			
-			pStmt.setString(2, plog.getPerfume_id());
+			pStmt.setInt(2, plog.getPerfume_id());
 
 			if (plog.getTemperature() != null) {
 				pStmt.setString(3, plog.getTemperature());
@@ -215,7 +271,7 @@ public class Perfume_logDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setString(1, plog.getId());
+			pStmt.setInt(1, plog.getId());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -262,8 +318,8 @@ public class Perfume_logDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (plog.getPerfume_id() != null) {
-				pStmt.setString(1, plog.getPerfume_id());
+			if (plog.getPerfume_id() != 0) {
+				pStmt.setInt(1, plog.getPerfume_id());
 			} else {
 				pStmt.setNull(1, java.sql.Types.INTEGER);
 			}
@@ -275,8 +331,8 @@ public class Perfume_logDAO {
 			// 結果表をコレクションにコピーする
 			while (logrs.next()) {
 				Perfume_log plogrs = new Perfume_log(
-						logrs.getString("id"), 
-						logrs.getString("perfume_id")
+						logrs.getInt("id"), 
+						logrs.getInt("perfume_id")
 						);
 				plogList.add(plogrs);
 			}

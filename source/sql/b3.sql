@@ -66,14 +66,14 @@ CREATE TABLE perfume_images (
     /*  perfume_logテーブル作成*/
 CREATE TABLE perfume_log (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
     perfume_id INT,
+    user_id INT,
     applied_time TIME,
-    temperature FLOAT(4),
-    weather INT,
-    push_count INT,
+    temperature VARCHAR(4),
+    weather VARCHAR(4),
+    push_count VARCHAR(3),
     applied_area VARCHAR(30),
-    usage_scene INT,
+    usage_scene VARCHAR(3),
     top_note VARCHAR(100),
     middle_note VARCHAR(100),
     last_note VARCHAR(100),
@@ -84,8 +84,25 @@ CREATE TABLE perfume_log (
     FOREIGN KEY(user_id) REFERENCES users(ID)
 );
 
-
-
+    /*  log_perfumeinfoテーブル作成*/
+CREATE TABLE perfume_log (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    perfume_id VARCHAR(3),
+    applied_time TIME,
+    temperature VARCHAR(4),
+    weather VARCHAR(4),
+    push_count VARCHAR(3),
+    applied_area VARCHAR(30),
+    usage_scene VARCHAR(3),
+    top_note VARCHAR(100),
+    middle_note VARCHAR(100),
+    last_note VARCHAR(100),
+    thoughts VARCHAR(100),
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP ,
+    FOREIGN KEY (perfume_id) REFERENCES perfumes(ID),
+    FOREIGN KEY(user_id) REFERENCES users(ID)
+);
 
 /* big_categoryテーブル作成*/
 CREATE TABLE big_category(

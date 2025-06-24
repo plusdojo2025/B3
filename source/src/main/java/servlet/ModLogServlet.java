@@ -57,9 +57,9 @@ public class ModLogServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
+		int id= Integer.parseInt(request.getParameter("id"));
 				
-		String perfume_id = request.getParameter("perfume_id");
+		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
 		// 登録した香水のデータを引き継ぐために
 		request.setAttribute("perfume_id", perfume_id);
 		

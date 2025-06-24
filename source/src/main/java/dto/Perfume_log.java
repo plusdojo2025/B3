@@ -6,9 +6,9 @@ public class Perfume_log implements Serializable {
 	
 	//▶　フィールド
 	//▶　基本情報
-	private String id;
+	private int id;
 	//▶　使用前記録
-    private String perfume_id;
+    private int perfume_id;
     private String temperature;
     private String weather;
     private String applied_time;
@@ -28,17 +28,17 @@ public class Perfume_log implements Serializable {
     
     
 	//▶　ゲッターとセッター	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getPerfume_id() {
+	public int getPerfume_id() {
 		return perfume_id;
 	}
-	public void setPerfume_id(String perfume_id) {
+	public void setPerfume_id(int perfume_id) {
 		this.perfume_id = perfume_id;
 	}
 	
@@ -127,7 +127,7 @@ public class Perfume_log implements Serializable {
 	}
 
 	//▶　コンストラクタ（使用前）
-	public Perfume_log(String id, String perfume_id, String temperature, String weather, String applied_time,
+	public Perfume_log(int id, int perfume_id, String temperature, String weather, String applied_time,
 			String push_count, String usage_scene, String applied_area, String top_note) {
 		super();
 		this.id = id;
@@ -142,7 +142,7 @@ public class Perfume_log implements Serializable {
 	}
 	
 	//▶　コンストラクタ（使用後）
-	public Perfume_log(String id, String perfume_id, String middle_note, String last_note, String thoughts) {
+	public Perfume_log(int id, int perfume_id, String middle_note, String last_note, String thoughts) {
 		super();
 		this.id = id;
 		this.perfume_id = perfume_id;
@@ -152,7 +152,7 @@ public class Perfume_log implements Serializable {
 	}
 	
 	//▶　コンストラクタ（更新）
-	public Perfume_log(String id, String perfume_id, String temperature, String weather, String applied_time,
+	public Perfume_log(int id, int perfume_id, String temperature, String weather, String applied_time,
 			String push_count, String usage_scene, String applied_area, String top_note, String middle_note,
 			String last_note, String thoughts) {
 		super();
@@ -171,7 +171,7 @@ public class Perfume_log implements Serializable {
 	}
 
 	//▶　コンストラクタ（グラフ化）
-	public Perfume_log(String id, String perfume_id) {
+	public Perfume_log(int id, int perfume_id) {
 		super();
 		this.id = id;
 		this.perfume_id = perfume_id;
