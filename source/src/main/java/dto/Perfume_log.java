@@ -154,7 +154,7 @@ public class Perfume_log implements Serializable {
 	//▶　コンストラクタ（更新）
 	public Perfume_log(String id, String perfume_id, String temperature, String weather, String applied_time,
 			String push_count, String usage_scene, String applied_area, String top_note, String middle_note,
-			String last_note, String thoughts, String created_at, String updated_at) {
+			String last_note, String thoughts) {
 		super();
 		this.id = id;
 		this.perfume_id = perfume_id;
@@ -176,6 +176,7 @@ public class Perfume_log implements Serializable {
 		this.id = id;
 		this.perfume_id = perfume_id;
 	}
+	
 	
 	//▶　引数のないコンストラクタ
     public Perfume_log() {

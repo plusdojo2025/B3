@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Perfume_logDAO;
 import dto.Perfume_log;
-import dto.Result;
 
 /**
  * Servlet implementation class ModLogServlet
@@ -89,34 +88,45 @@ public class ModLogServlet extends HttpServlet {
 		    applied_area = String.join(",", applied_areas);  // カンマ区切りで1つの文字列にまとめる
 		}
 		
-		
-		// 更新または削除を行う	
+		// どっちのボタンが押下されたかを取得
+		String action = request.getParameter("action");
+				
+				
+		// シンプルに更新処理を行う
 		Perfume_logDAO plog = new Perfume_logDAO();
-		if (request.getParameter("submit").equals("更新")) {
-			if (plog.update(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
-					push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 更新成功
-				request.setAttribute("result", new Result("更新成功", "住民のデータを更新しました", "/webapp/MenuServlet"));
-			} else { // 更新失敗
-				request.setAttribute("result", new Result("更新失敗", "住民のデータを更新できませんでした", "/webapp/MenuServlet"));
-			}
-			
+		plog.update(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+			push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts));
+		
+		// ボタンによってフォワード先を変える
+		if("記録".equals(action)) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+			dispatcher.forward(request, response);
 		} else {
-			if (plog.delete(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
-				push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 削除成功
-				request.setAttribute("result", new Result("削除成功", "住民のデータを削除しました。", "/webapp/MenuServlet"));
-			} else { // 削除失敗
-				request.setAttribute("result", new Result("削除失敗", "住民のデータを削除できませんでした。", "/webapp/MenuServlet"));
-			}
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
+			dispatcher.forward(request, response);
+			//105,106変えてない(ボタンも消したのでjspのname="action"とかリクエストパラメータとかも全部いらなそう)
+			
 		}
 		
-		//ボツだと思うけど一応残しておく先生スタイル
-//		Perfume_log plog = new Perfume_log(id, user_id, perfume_id, temperature, weather, applied_time, 
-//				push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts, created_at, updated_at);
-//		
-//		Perfume_logDAO logDao = new Perfume_logDAO();
-//		boolean result = logDao.update(plog);
-//		doGet(request, response);
-//	}
+//		// 更新または削除を行う	（名刺管理ver）
+//		Perfume_logDAO plog = new Perfume_logDAO();
+//		if (request.getParameter("submit").equals("更新")) {
+//			if (plog.update(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+//					push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 更新成功
+//				request.setAttribute("result", new Result("更新成功", "住民のデータを更新しました", "/webapp/MenuServlet"));
+//			} else { // 更新失敗
+//				request.setAttribute("result", new Result("更新失敗", "住民のデータを更新できませんでした", "/webapp/MenuServlet"));
+//			}
+//			
+//		} else {
+//			if (plog.delete(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+//				push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 削除成功
+//				request.setAttribute("result", new Result("削除成功", "住民のデータを削除しました。", "/webapp/MenuServlet"));
+//			} else { // 削除失敗
+//				request.setAttribute("result", new Result("削除失敗", "住民のデータを削除できませんでした。", "/webapp/MenuServlet"));
+//			}
+//		}
+	
 
 	}
 

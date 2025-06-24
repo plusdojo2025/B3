@@ -85,13 +85,5 @@ public class LogAfterServlet extends HttpServlet {
 			}
 		}
 		
-		//ボツだと思うけど一応残しておく先生スタイル
-//		Perfume_log plog = new Perfume_log(id,
-//		middle_note, last_note, thoughts);
-//		
-//		Perfume_logDAO logDao = new Perfume_logDAO();
-//		boolean result = logDao.update(plog);
-//		doGet(request, response);
-//	}
 	}
 }
