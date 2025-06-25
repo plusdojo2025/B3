@@ -8,61 +8,184 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.Big_category;
 import dto.Perfume_log;
+import dto.Perfumes;
+import dto.Small_category;
 
 public class Perfume_logDAO {
-	// ▶　画像とイメージタグを引っ張ってくる｜引数指定された項目で検索して、取得されたデータのリストを返す
-	    public Perfume_log selectImagesByPerfumeId(int p_id) {
-	        Connection conn = null;
-	        Perfume_log pinfo = null;
+	// ▶　画像を引っ張ってくる｜引数指定された項目で検索して、取得されたデータのリストを返す
+	public List<Perfumes> selectImg(int perfume_id) {
+		Connection conn = null;
+		List<Perfumes> pimgList = new ArrayList<Perfumes>();
 
-	        try {
-	        	// JDBCドライバを読み込む
-	            Class.forName("com.mysql.cj.jdbc.Driver");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+
+			// SQL文を準備する
+			String sql = "SELECT perfume_img FROM Perfumes WHERE id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (perfume_id != 0) {
+				pStmt.setInt(1, perfume_id);
+			} else {
+				pStmt.setNull(1, java.sql.Types.INTEGER);
+			}
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet imgrs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (imgrs.next()) {
+				Perfumes pimgrs = new Perfumes(
+						imgrs.getString("perfume_img")
+						);
+				pimgList.add(pimgrs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			pimgList = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			pimgList = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					pimgList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return pimgList;
+	}
+	
+			// ▶　大項目（甘さ等）を引っ張ってくる｜引数指定された項目で検索して、取得されたデータのリストを返す
+		public List<Big_category> selectBig(int perfume_id) {
+			Connection conn = null;
+			List<Big_category> pbigList = new ArrayList<Big_category>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("com.mysql.cj.jdbc.Driver");
+
 				// データベースに接続する
-	            conn = DriverManager.getConnection(
-	                "jdbc:mysql://localhost:3306/b3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
-	                "root", "password"
-	            );
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+						+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+						"root", "password");
 
 				// SQL文を準備する
-	            String sql = "SELECT p.perfume_img " +
-	                         "FROM perfumes p " +
-	            		//テーブル名を返還したのを書く
-	                         "LEFT JOIN perfume_images pi ON p.ID = pi.perfume_id " +
-	                         "WHERE p.ID = ?";
+				String sql = "SELECT big.scent_type FROM perfume_images pi"
+						+ " JOIN big_category big ON pi.big_id = big.id WHERE pi.perfume_id = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-	            PreparedStatement ps = conn.prepareStatement(sql);
-	            ps.setInt(1, p_id);
-	            
-	         // SQL文を実行し、結果表を取得する
-	            
-	            ResultSet rs = ps.executeQuery();
-	            
-	            
-	            if (rs.next()) {
-	                pinfo = new Perfume_log();
+				// SQL文を完成させる
+				if (perfume_id != 0) {
+					pStmt.setInt(1, perfume_id);
+				} else {
+					pStmt.setNull(1, java.sql.Types.INTEGER);
+				}
 
-	                pinfo.setPerfume_img(rs.getString("perfume_img"));
-	                pinfo.setBig_id(rs.getInt("big_id"));
-	                pinfo.setSmall_id(rs.getInt("small_id"));
-	            }
 
-	            rs.close();
-	            ps.close();
+				// SQL文を実行し、結果表を取得する
+				ResultSet bigrs = pStmt.executeQuery();
 
-	        } catch (ClassNotFoundException | SQLException e) {
-	            e.printStackTrace();
-	            pinfo = null;
-	        } finally {
-	            if (conn != null) {
-	                try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
-	            }
-	        }
+				// 結果表をコレクションにコピーする
+				while (bigrs.next()) {
+					Big_category pbigrs = new Big_category(
+							bigrs.getString("scent_type")
+							);
+					pbigList.add(pbigrs);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				pbigList = null;
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				pbigList = null;
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						pbigList = null;
+					}
+				}
+			}
+			// 結果を返す
+			return pbigList;
+		}
+		
+		// ▶　小項目（いちご等）を引っ張ってくる｜引数指定された項目で検索して、取得されたデータのリストを返す
+		public List<Small_category> selectSml(int perfume_id) {
+			Connection conn = null;
+			List<Small_category> psmlList = new ArrayList<Small_category>();
 
-	        return pinfo;
-	    }
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("com.mysql.cj.jdbc.Driver");
 
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+						+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+						"root", "password");
+
+				// SQL文を準備する
+				String sql = "SELECT sml.detail FROM perfume_images pi"
+						+ " JOIN small_category sml ON pi.small_id = sml.id WHERE pi.perfume_id = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				if (perfume_id != 0) {
+					pStmt.setInt(1, perfume_id);
+				} else {
+					pStmt.setNull(1, java.sql.Types.INTEGER);
+				}
+
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet smlrs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (smlrs.next()) {
+					Small_category psmlrs = new Small_category(
+							smlrs.getString("detail")
+							);
+					psmlList.add(psmlrs);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				psmlList = null;
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				psmlList = null;
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						psmlList = null;
+					}
+				}
+			}
+			// 結果を返す
+			return psmlList;
+		}
 		
 		
 	// ▶　記録｜ 引数で指定されたレコードを登録し、成功したらtrueを返す

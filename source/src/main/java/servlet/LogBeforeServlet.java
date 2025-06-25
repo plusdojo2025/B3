@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Perfume_logDAO;
+import dto.Big_category;
 import dto.Perfume_log;
+import dto.Perfumes;
+import dto.Small_category;
 
 /**
  * Servlet implementation class LogBeforeServlet
@@ -90,7 +94,18 @@ public class LogBeforeServlet extends HttpServlet {
 		// ボタンによってフォワード先を変える
 		if("香水情報呼び出し".equals(action)) {
 			//香水情報呼び出し
-//			PerfumesDAO pDao = new PerfumesDAO();
+			Perfume_logDAO pinfo = new Perfume_logDAO();
+			List<Perfumes> pimgList = pinfo.selectImg(perfume_id);
+			List<Big_category> pbigList = pinfo.selectBig(perfume_id);
+			List<Small_category> psmlList = pinfo.selectSml(perfume_id);
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("pimgList", pimgList);
+			request.setAttribute("pbigList", pbigList);
+			request.setAttribute("psmlList", psmlList);
+			// 使用前画面へ戻る
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logbefore.jsp");
+			dispatcher.forward(request, response);
+			
 		} else if("記録".equals(action)){
 			Perfume_logDAO plog = new Perfume_logDAO();
 			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
@@ -98,6 +113,9 @@ public class LogBeforeServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 			dispatcher.forward(request, response);
 		} else {
+			Perfume_logDAO plog = new Perfume_logDAO();
+			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
+			push_count, usage_scene, applied_area, top_note));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
 			dispatcher.forward(request, response);
 		}
