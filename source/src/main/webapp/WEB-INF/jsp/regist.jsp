@@ -18,7 +18,7 @@
 	</header>
 	
 	<main>
-  <form method="POST" action="<c:url value='/RegistImageServlet' />" enctype="multipart/form-data" id="registerForm">
+  <form method="POST" action="<c:url value='/RegistServlet' />" enctype="multipart/form-data" id="registerForm">
 
   <input type="hidden" name="perfume_id" value="${perfume_id}">
   <input type="hidden" name="big_id" value="${big_id}">
