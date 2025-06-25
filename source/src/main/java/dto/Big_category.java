@@ -42,6 +42,11 @@ public class Big_category implements Serializable {
 		this.created_at = created_at;
 		this.updated_at = updated_at;
 	}
+
     
-    
+	//▶　log用
+	public Big_category(String scent_type) {
+		super();
+		this.scent_type = scent_type;
+	}
 }
