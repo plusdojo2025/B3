@@ -18,9 +18,12 @@
 	</header>
 	
 	<main>
-  <form method="POST" action="<c:url value='/RegistServlet' />" enctype="multipart/form-data">
+  <form method="POST" action="<c:url value='/RegistImageServlet' />" enctype="multipart/form-data" id="registerForm">
 
-    <!-- 上段：左 = 入力欄, 右 = 画像 -->
+  <input type="hidden" name="perfume_id" value="${perfume_id}">
+  <input type="hidden" name="big_id" value="${big_id}">
+  <input type="hidden" name="small_id" value="${small_id}">
+
     <div class="form-top">
       <!-- 左上：基本情報 -->
       <div class="form-left">
@@ -53,22 +56,27 @@
         </div>
         <div class="form-row">
           <label for="color">色</label>
-          <input type="color"　id="color" name="color" value="#ffffff"　class="color-input">
+          <input type="color" id="color" name="color" value="#ffffff" class="color-input">
         </div>
       </div>
-      
-      <br>
-            お気に入り
-            <span id="heart" class="heart" name = "favourite" >&#10084;</span>
-        <br>
 
       <!-- 右上：画像 -->
       <div class="form-right">
-        <label>画像</label><br>
-        <input type="file" name="image" accept="image/*" onchange="previewImage(this);">
-        <canvas id="preview" style="max-width: 200px;"></canvas>
-      </div>
+  <label>画像</label><br>
+  <input type="file" name="image" accept="image/*" onchange="previewImage(this);">
+  <canvas id="preview" style="max-width: 200px;"></canvas>
+
+  <div class="form-row">
+    <label for="favorite"></label>
+   		<span id="heart" class="heart">&#10084;</span>
+		<input type="hidden" name="favourite" id="favouriteValue" value="false">
+  </div>
+</div>
+      
     </div>
+    
+    <br>
+    
 
     <!-- 下段：中央に香りの印象とボタン -->
     <div class="form-bottom">
@@ -105,9 +113,7 @@
       </div>
 
       <div class="button-row">
-        <input type="submit" value="登録" name="regist">
-        <input type="reset" value="リセット">
-        <input type="submit" name="delete" value="削除">
+        <input type="submit" value="イメージ登録へ" name="imageregist">
       </div>
     </div>
 

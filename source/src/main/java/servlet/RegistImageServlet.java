@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.Perfume_imagesDAO;
 import dto.Perfume_images;
@@ -83,7 +82,7 @@ public class RegistImageServlet extends HttpServlet {
 					request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/webapp/MenuServlet"));
 				}
 				
-				// カレンダーにフォワードする
+				// ホームにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list/.jsp");
 				dispatcher.forward(request, response);	
 	}
