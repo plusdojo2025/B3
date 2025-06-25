@@ -18,13 +18,13 @@
 
 
   <div class="perfume_id" id="perfume_id"></div>
-  <button id="andmore_button">さらに読み込む</button>
+  <button id="andmore_button">さらに表示</button>   
 
-  <div>
-  	<a href="<c:url value='/RegistServlet'/>"><img src="<c:url value='/images/button.png'/>"></a>
+  <div class="btton">
+  	  <a href="<c:url value='/RegistServlet'/>"><img src="<c:url value='/img/button.png'/>" height="60"></a>
   </div>
 
-  <div class="gallery">
+  	  <div class="gallery">
     <c:forEach var="perfume" items="${perfumeList}">
       <div class="gallery-item">
       
