@@ -94,7 +94,7 @@ public class PerfumesDAO {
 		return null;
 	}
 
-	public List<Perfumes> selectImage(Perfumes p) {
+	public List<Perfumes> selectAllImages() {
 		Connection conn = null;
 		List<Perfumes> pfmList = new ArrayList<>();
 		try {
@@ -110,11 +110,7 @@ public class PerfumesDAO {
 					
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			
-			if (p.getPerfume_img() != null) {
-				pStmt.setString(1, p.getPerfume_img());
-			} else {
-				pStmt.setNull(1,java.sql.Types.INTEGER );
-			}
+
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする

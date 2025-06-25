@@ -23,11 +23,12 @@ public class ListServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // セッションからユーザー情報を確認（ログインしてなければリダイレクト）
+
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/B3/LoginServlet");
-			return;
-		}
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/B3/LoginServlet");
+//			return;
+//		}
 //        HttpSession session = request.getSession(false); // セッションがなければnull
 //        if (session == null || session.getAttribute("id") == null) {
 ////            response.sendRedirect(request.getContextPath() + "/LoginServlet");
@@ -35,11 +36,21 @@ public class ListServlet extends HttpServlet {
 //            return;
 //        }
 
+    	PerfumesDAO pDAO = new PerfumesDAO();
+    	List<Perfumes> imageList = pDAO.selectAllImages();
+    	
+    	request.setAttribute("imageList", imageList);
+    	
+
 //        HttpSession session = request.getSession(false); // セッションがなければnull
 //        if (session == null || session.getAttribute("id") == null) {
 //            response.sendRedirect(request.getContextPath() + "/LoginServlet");
 //            return;
 //        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+        dispatcher.forward(request, response);
+
 
 //        // 香水一覧を取得（PerfumesDAOを使用）
 //        PerfumesDAO dao = new PerfumesDAO();
@@ -57,12 +68,8 @@ public class ListServlet extends HttpServlet {
 			throws ServletException, IOException {
     	request.setCharacterEncoding("UTF-8");
     	
-    	String perfume_img = request.getParameter("perfume_image");
-    	
-    	PerfumesDAO pDAO = new PerfumesDAO();
-    	List<Perfumes> imageList = pDAO.selectImage(new Perfumes(perfume_img));
-    	
-    	request.setAttribute("imageList", imageList);
+   	
+
     	
     	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
 		dispatcher.forward(request, response);
