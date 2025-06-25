@@ -7,17 +7,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Search Perfume</title>
+    <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 </head>
 <body>
-    <h2>香水を検索</h2>
 
-<<<<<<< HEAD
-    <form method="POST" action="<c:url value='/ListServlet' />">
-        <label>画像名またはキーワード: </label>
-        <input type="text" name="perfume_imag" required />
-        <button type="submit">検索</button>
-    </form>
-=======
 	<header>
 		<jsp:include page="/WEB-INF/jsp/header.jsp" /> <!-- ヘッダー -->
 	</header>
@@ -40,6 +33,5 @@
       </div>
     </c:forEach>
   </div>
->>>>>>> 6f9f1d484d4fcaadf48498f6c820b99d2ed475aa
 </body>
 </html>

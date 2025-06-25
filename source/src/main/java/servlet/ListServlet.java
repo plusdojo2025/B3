@@ -22,19 +22,14 @@ public class ListServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // セッションからユーザー情報を確認（ログインしてなければリダイレクト）
-<<<<<<< HEAD
-        HttpSession session = request.getSession(false); // セッションがなければnull
-        if (session == null || session.getAttribute("id") == null) {
-            response.sendRedirect(request.getContextPath() + "/ListServlet");
-            return;
-        }
-=======
+    	
 //        HttpSession session = request.getSession(false); // セッションがなければnull
 //        if (session == null || session.getAttribute("id") == null) {
 //            response.sendRedirect(request.getContextPath() + "/LoginServlet");
 //            return;
 //        }
->>>>>>> 6f9f1d484d4fcaadf48498f6c820b99d2ed475aa
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+        dispatcher.forward(request, response);
 
 //        // 香水一覧を取得（PerfumesDAOを使用）
 //        PerfumesDAO dao = new PerfumesDAO();
