@@ -45,24 +45,6 @@ CREATE TABLE scrollbar(
     
 );
 
-/* perfume_imagesテーブル作成*/
-CREATE TABLE perfume_images (
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    perfume_id INT,
-    big_id INT,
-    small_id INT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP ,
-    FOREIGN KEY(perfume_id)
-    REFERENCES perfumes(ID),
-    FOREIGN KEY (big_id) 
-    REFERENCES big_category(ID),
-    FOREIGN KEY (small_id)
-    REFERENCES small_category(ID)
-    
-);
-
-
     /*  perfume_logテーブル作成*/
 CREATE TABLE perfume_log (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -102,5 +84,20 @@ CREATE TABLE small_category(
     updated_at TIMESTAMP
 );
 
+/* perfume_imagesテーブル作成*/
+CREATE TABLE perfume_images (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    perfume_id INT,
+    big_id INT,
+    small_id INT,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP ,
+    FOREIGN KEY(perfume_id)
+    REFERENCES perfumes(ID),
+    FOREIGN KEY (big_id) 
+    REFERENCES big_category(ID),
+    FOREIGN KEY (small_id)
+    REFERENCES small_category(ID)
+);
 
 Show tables;
