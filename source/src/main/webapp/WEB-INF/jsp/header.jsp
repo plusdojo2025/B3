@@ -15,32 +15,42 @@
 
 /* ロゴ画像 */
 .header-logo {
-    height: 60px;
-    width: auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
 }
 .header-nav {
 	display: flex;
 	flex-direction:row;
+    padding: 10px; 
+    /* border: 1px solid #000; */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    /*ドロップシャドウは勝手に足した*/
+    background-color: #c5c5c5;
 }
 /* メニューリンク */
 .header-nav a {
     text-decoration: none;
-    color: #333;
     font-weight: bold;
     margin: 0 8px;
     transition: color 0.3s ease;
+    margin: 0 15px;
+    color: #ffffff;
 }
 
 .header-nav a:hover {
-    color: #2196F3; /* ホバーで青く */
+    color: #000000;
 }
+
+
  </style>
 <div class="header-container">
 	<img src="img/logo.png" alt="Parfüm Note" height="130">
 	<nav class="header-nav">
 		<a href="<c:url value='/ListServlet' />">Home</a>
-		<a href="<c:url value='/CalenderServlet' />">Log</a>
-		<a href="<c:url value='/SearcherServlet' />">Search</a>
+		<a href="<c:url value='/CalendarServlet' />">Log</a>
+		<a href="<c:url value='/SearchServlet' />">Search</a>
 		<a href="<c:url value='/ChartServlet' />">MyType</a>
 		<a href="<c:url value='/LoginServlet' />">Logout</a>
 	</nav>

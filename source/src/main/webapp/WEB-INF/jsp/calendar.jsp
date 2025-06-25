@@ -201,6 +201,5 @@ function fetchPerfumes(dateString) {
 
 renderCalendar();
 </script>
-
 </body>
 </html>
