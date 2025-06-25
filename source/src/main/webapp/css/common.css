@@ -2,12 +2,16 @@
 	body {
 		
 		background-color: #e8e8e8;
-		
+		text-align: center;
 	    color: #5f5f5f;
 	    font-size: 18px;
 	    font-weight: 500;
 	    font-family: sans-serif;
 	    
+	}
+/*ヘッダーロゴ*/	
+	header {
+  	text-align: center;
 	}
 
 /*<hr>*/
@@ -42,14 +46,3 @@ input[type="reset"] {
   cursor: pointer;
   margin: 5px;
 }
-
-/*ヘッダーロゴ*/	
-	header {
-  	text-align: center;
-	}
-
-/*ボディー*/	
-	body {
-  	text-align: center;
-	}
-	
