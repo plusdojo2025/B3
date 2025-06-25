@@ -65,6 +65,7 @@
             }
         });
     </script>
+    <hr>
 
     <h2>所持香水の傾向</h2>
     <canvas id="radarChart" width="400" height="400"></canvas>
@@ -111,7 +112,8 @@
             }
         });
     </script>
-
+    <hr>
+    
     <h2>好みの匂いの系統</h2>
     <canvas id="barChart" width="400" height="400"></canvas>
 

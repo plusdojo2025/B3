@@ -21,7 +21,7 @@
   <button id="andmore_button">さらに読み込む</button>
 
   <div>
-  	<a href="<c:url value='/RegistServlet'/>"><img src="<c:url value='/images/button.png'/>"></a>
+  	<a href="<c:url value='/RegistServlet'/>"><img src="img/button.png" alt="Parfüm Note" height="130"></a>
   </div>
 
   <div class="gallery">
