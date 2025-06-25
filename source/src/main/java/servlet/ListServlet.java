@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.PerfumesDAO;
 import dto.Perfumes;
@@ -22,19 +23,23 @@ public class ListServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // セッションからユーザー情報を確認（ログインしてなければリダイレクト）
-<<<<<<< HEAD
-        HttpSession session = request.getSession(false); // セッションがなければnull
-        if (session == null || session.getAttribute("id") == null) {
-            response.sendRedirect(request.getContextPath() + "/ListServlet");
-            return;
-        }
-=======
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/B3/LoginServlet");
+			return;
+		}
+//        HttpSession session = request.getSession(false); // セッションがなければnull
+//        if (session == null || session.getAttribute("id") == null) {
+////            response.sendRedirect(request.getContextPath() + "/LoginServlet");
+//            response.sendRedirect("/b3/LoginServlet");
+//            return;
+//        }
+
 //        HttpSession session = request.getSession(false); // セッションがなければnull
 //        if (session == null || session.getAttribute("id") == null) {
 //            response.sendRedirect(request.getContextPath() + "/LoginServlet");
 //            return;
 //        }
->>>>>>> 6f9f1d484d4fcaadf48498f6c820b99d2ed475aa
 
 //        // 香水一覧を取得（PerfumesDAOを使用）
 //        PerfumesDAO dao = new PerfumesDAO();
@@ -52,14 +57,14 @@ public class ListServlet extends HttpServlet {
 			throws ServletException, IOException {
     	request.setCharacterEncoding("UTF-8");
     	
-    	String perfume_img = request.getParameter("perfume_imag");
+    	String perfume_img = request.getParameter("perfume_image");
     	
     	PerfumesDAO pDAO = new PerfumesDAO();
     	List<Perfumes> imageList = pDAO.selectImage(new Perfumes(perfume_img));
     	
     	request.setAttribute("imageList", imageList);
     	
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
 		dispatcher.forward(request, response);
 }
 }

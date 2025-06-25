@@ -120,7 +120,7 @@ public class PerfumesDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Perfumes perfumers = new Perfumes(
-						rs.getString("perfume_")
+						rs.getString("perfume_img")
 						
 						);
 				pfmList.add(perfumers);
