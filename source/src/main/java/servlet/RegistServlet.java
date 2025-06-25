@@ -29,19 +29,19 @@ import dto.Scrollbar;
 @MultipartConfig
 public class RegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    // もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// HttpSession session = request.getSession();
+		// if (session.getAttribute("id") == null) {
+		// 	response.sendRedirect("/WEB-INF/LoginServlet");
+		// 	return;
+		// }
+		// 登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -49,12 +49,18 @@ public class RegistServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+                // もしもログインしていなかったらログインサーブレットにリダイレクトする
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/WEB-INF/LoginServlet");
+//			return;
+//		}
+
 		
 		//リクエストパラメータを受け取る
 		request.setCharacterEncoding("UTF-8");
-
 		String perfume_name = request.getParameter("perfume_name");
 		String brand_name = request.getParameter("brand");
 		String priceStr = request.getParameter("price");
@@ -67,23 +73,14 @@ public class RegistServlet extends HttpServlet {
 		        price = 0;
 		    }
 		}
-
-		String day = request.getParameter("purchased_date");
+        String day = request.getParameter("purchased_date");
 		
-
 //		String perfume_img = this.getFileName(part);
 //		request.setAttribute("image", perfume_img);
 //		part.write(perfume_img);
 		
-		
-		
-		
-		
-		
-		
-		boolean favourite = Boolean.parseBoolean(request.getParameter("favourite"));
+        boolean favourite = Boolean.parseBoolean(request.getParameter("favourite"));
 		String color = request.getParameter("color");
-		
 		String strengthStr = request.getParameter("strength");
 		int strength = 0;
 		if (strengthStr != null && !strengthStr.isEmpty()) {
@@ -144,8 +141,6 @@ public class RegistServlet extends HttpServlet {
 		    }
 		}
 
-
-		
 		//image
 		Part imagePart =request.getPart("image");
 		String fileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
@@ -181,26 +176,18 @@ public class RegistServlet extends HttpServlet {
      		Scrollbar scrollbar = new Scrollbar(complex, sweet, heavy, women, spicy);
 
 		
-		
-		
 		// Insert into DB
 		PerfumesDAO pDAO = new PerfumesDAO();
 		if (pDAO.insert(perfume, scrollbar)) {
-		    doGet(request,response);
-		     response.sendRedirect(request.getContextPath() + "/RegistImageServletServlet");
+
+		    request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/WEB-INF/RegistImageServlet"));
 			
 		} else {
-		    request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/b3/RegistImageServlet"));
-		}	
+		    request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/WEB-INF/RegistImageServlet"));
+		}
+        		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registimage.jsp");
+		dispatcher.forward(request, response);
 
 	}
-	
-
-
 }
-
-		
-		
-		
-		
-	
