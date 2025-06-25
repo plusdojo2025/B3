@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Perfume_logDAO;
-import dao.PerfumesDAO;
 import dto.Perfume_log;
-import dto.Perfumes;
 
 /**
  * Servlet implementation class LogBeforeServlet
@@ -59,8 +56,7 @@ public class LogBeforeServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-		
-		int id= Integer.parseInt(request.getParameter("id"));
+	
 		
 		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
 		// 登録した香水のデータを引き継ぐために
@@ -88,15 +84,17 @@ public class LogBeforeServlet extends HttpServlet {
 		// どのボタンが押下されたかを取得
 		String action = request.getParameter("action");
 		
-		//香水情報呼び出し
-		PerfumesDAO pDao = new PerfumesDAO();
-		List<Perfumes> perfumesList = pDao.select(new Perfumes(perfume_name, brand_name));
+
 		// シンプルに登録処理を行う
-		Perfume_logDAO plog = new Perfume_logDAO();
-		plog.insert(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
-		push_count, usage_scene, applied_area, top_note));
+		
 		// ボタンによってフォワード先を変える
-		if("記録".equals(action)) {
+		if("香水情報呼び出し".equals(action)) {
+			//香水情報呼び出し
+//			PerfumesDAO pDao = new PerfumesDAO();
+		} else if("記録".equals(action)){
+			Perfume_logDAO plog = new Perfume_logDAO();
+			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
+			push_count, usage_scene, applied_area, top_note));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 			dispatcher.forward(request, response);
 		} else {
@@ -106,7 +104,7 @@ public class LogBeforeServlet extends HttpServlet {
 		
 //		// 登録処理を行う（名刺管理ver）
 //		Perfume_logDAO plog = new Perfume_logDAO();
-//		if (plog.insert(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
+//		if (plog.insert(new Perfume_log(temperature, weather, applied_time, 
 //			push_count, usage_scene, applied_area, top_note))) { 
 //			
 //			// 🍥🍚🍛🍜要検討！！！！！！！！！！！！！！！！！

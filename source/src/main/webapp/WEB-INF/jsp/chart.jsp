@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +9,14 @@
     <title>Parfüm Note | Mytype</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
+	<header>
+		<jsp:include page="/WEB-INF/jsp/header.jsp" /> <!-- ヘッダー -->
+	</header>
+	
     <h2>香水別の使用割合</h2>
     <canvas id="pieChart" width="400" height="400"></canvas>
 
@@ -57,6 +65,7 @@
             }
         });
     </script>
+    <hr>
 
     <h2>所持香水の傾向</h2>
     <canvas id="radarChart" width="400" height="400"></canvas>
@@ -103,7 +112,8 @@
             }
         });
     </script>
-
+    <hr>
+    
     <h2>好みの匂いの系統</h2>
     <canvas id="barChart" width="400" height="400"></canvas>
 

@@ -11,59 +11,57 @@ import java.util.List;
 import dto.Perfume_log;
 
 public class Perfume_logDAO {
-	// ▶　検索（グラフ化）｜引数指定された項目で検索して、取得されたデータのリストを返す
-	public Perfume_log selectOne(Perfume_log pinfo) {
-	    Connection conn = null;
-	    Perfume_log plog = null;
+	// ▶　画像とイメージタグを引っ張ってくる｜引数指定された項目で検索して、取得されたデータのリストを返す
+	    public Perfume_log selectImagesByPerfumeId(int p_id) {
+	        Connection conn = null;
+	        Perfume_log pinfo = null;
 
-	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
-
-	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
-	                + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-	                "root", "password");
-
-	        String sql = "SELECT p.perfume_img, pi.big_id, pi.small_id " +
-                    "FROM perfumes p " +
-                    "LEFT JOIN perfume_images pi ON p.ID = pi.perfume_id " +
-                    "WHERE p.ID = ?";
-	        PreparedStatement pStmt = conn.prepareStatement(sql);
-
-	        if (pinfo.getp.perfume_img() != 0) {
-	            pStmt.setInt(1, pinfo.getPerfume_id());
-	        } else {
-	            pStmt.setNull(1, java.sql.Types.INTEGER);
-	        }
-	        if (pinfo.getPerfume_id() != 0) {
-	            pStmt.setInt(1, pinfo.getPerfume_id());
-	        } else {
-	            pStmt.setNull(1, java.sql.Types.INTEGER);
-	        }
-
-	        ResultSet rs = pStmt.executeQuery();
-
-	        if (rs.next()) {
-	            plog = new Perfume_log(
-	                rs.getInt("id"),
-	                rs.getInt("perfume_id")
-	                // 他のカラムもあればここで追加
+	        try {
+	        	// JDBCドライバを読み込む
+	            Class.forName("com.mysql.cj.jdbc.Driver");
+				// データベースに接続する
+	            conn = DriverManager.getConnection(
+	                "jdbc:mysql://localhost:3306/b3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+	                "root", "password"
 	            );
-	        }
 
-	    } catch (SQLException | ClassNotFoundException e) {
-	        e.printStackTrace();
-	    } finally {
-	        if (conn != null) {
-	            try {
-	                conn.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
+				// SQL文を準備する
+	            String sql = "SELECT p.perfume_img " +
+	                         "FROM perfumes p " +
+	            		//テーブル名を返還したのを書く
+	                         "LEFT JOIN perfume_images pi ON p.ID = pi.perfume_id " +
+	                         "WHERE p.ID = ?";
+
+	            PreparedStatement ps = conn.prepareStatement(sql);
+	            ps.setInt(1, p_id);
+	            
+	         // SQL文を実行し、結果表を取得する
+	            
+	            ResultSet rs = ps.executeQuery();
+	            
+	            
+	            if (rs.next()) {
+	                pinfo = new Perfume_log();
+
+	                pinfo.setPerfume_img(rs.getString("perfume_img"));
+	                pinfo.setBig_id(rs.getInt("big_id"));
+	                pinfo.setSmall_id(rs.getInt("small_id"));
+	            }
+
+	            rs.close();
+	            ps.close();
+
+	        } catch (ClassNotFoundException | SQLException e) {
+	            e.printStackTrace();
+	            pinfo = null;
+	        } finally {
+	            if (conn != null) {
+	                try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
 	            }
 	        }
-	    }
 
-	    return plog;
-	}
+	        return pinfo;
+	    }
 
 		
 		
@@ -83,12 +81,12 @@ public class Perfume_logDAO {
 
 			// SQL文を準備する
 			String sql = "INSERT INTO perfume_log (perfume_id, temperature, weather, applied_time,"
-					+ "push_count, usage_scene, applied_area, top_note) (?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "push_count, usage_scene, applied_area, top_note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
 			if (plog.getPerfume_id() != 0) {
-				pStmt.setInt(1, plog.getPerfume_id());
+				pStmt.setInt(1,plog.getPerfume_id());
 			} else {
 				pStmt.setInt(1, 0);
 			}
@@ -127,7 +125,7 @@ public class Perfume_logDAO {
 			} else {
 				pStmt.setString(8, "");
 			}
-			
+
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;

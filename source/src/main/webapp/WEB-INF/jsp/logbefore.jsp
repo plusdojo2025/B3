@@ -35,7 +35,7 @@
 		
 		<p>・使用前登録</p>
 		<hr>
-		
+
 		<label>気温
 			<input type="number" name="temperature" step="0.1">
 		</label>

@@ -26,6 +26,11 @@ public class Perfume_log implements Serializable {
     private String created_at;
     private String updated_at;
     
+    //▶他のdtoとの関連付け
+    private String perfume_img;
+    private int big_id;
+    private int small_id;
+    
     
 	//▶　ゲッターとセッター	
 	public int getId() {
@@ -125,12 +130,41 @@ public class Perfume_log implements Serializable {
 	public void setUpdated_at(String updated_at) {
 		this.updated_at = updated_at;
 	}
-
+		
+	public String getPerfume_img() {
+		return perfume_img;
+	}
+	public void setPerfume_img(String perfume_img) {
+		this.perfume_img = perfume_img;
+	}
+	
+	public int getBig_id() {
+		return big_id;
+	}
+	public void setBig_id(int big_id) {
+		this.big_id = big_id;
+	}
+	
+	public int getSmall_id() {
+		return small_id;
+	}
+	public void setSmall_id(int small_id) {
+		this.small_id = small_id;
+	}
+	
+	//▶　コンストラクタ（画像とタグを持ってくる）
+	public Perfume_log(int perfume_id, String perfume_img, int big_id, int small_id) {
+		super();
+		this.perfume_id = perfume_id;
+		this.perfume_img = perfume_img;
+		this.big_id = big_id;
+		this.small_id = small_id;
+	}
+	
 	//▶　コンストラクタ（使用前）
-	public Perfume_log(int id, int perfume_id, String temperature, String weather, String applied_time,
+	public Perfume_log(int perfume_id, String temperature, String weather, String applied_time,
 			String push_count, String usage_scene, String applied_area, String top_note) {
 		super();
-		this.id = id;
 		this.perfume_id = perfume_id;
 		this.temperature = temperature;
 		this.weather = weather;
