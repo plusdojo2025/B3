@@ -163,18 +163,11 @@
       	<hr>
       	</div>
       	</form>
-<<<<<<< HEAD
-    
-      <form id="myFormFresh">
-      	<p class="group-label">さわやかさ</p>
-      	<label for="genre_fresh">ジャンル</label>
-
 
 <form id="myFormFresh">
 <div  class="section" data-section="さわやかさ">
 <p class ="group-label">さわやかさ</p>
 				<label for="genre_fresh">ジャンル</label>
-
 				<select name="genre" id="genre_fresh">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
     				<option value="スイーツ1">スイーツ</option>
@@ -628,7 +621,7 @@
 
 
 <div id="summary-section">
-  <h3>選択した結果まとめ</h3>
+  <h3>登録済みのタグ</h3>
   <ul id="summary-list"></ul>
 </div>
 
@@ -728,7 +721,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	          hasSelected = true;
 
 	          const li = document.createElement('li');
-	          li.textContent = `${label} × ${cb.value}`;
+	          //li.textContent = `${label} × ${cb.value}`;
+	          li.textContent = label + "x" + cb.value;
 	          summaryList.appendChild(li);
 	        });
 	      });
