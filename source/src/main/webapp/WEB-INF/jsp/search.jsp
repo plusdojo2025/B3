@@ -51,7 +51,7 @@
 		<input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
 		</div>
 		<div class="values">
-		  選択範囲: <span id="rangeValue">0 - 100</span>
+		  選択範囲: <span id="rangeValue"></span>
 		</div>
 		</label>
 				
@@ -109,19 +109,21 @@
 		</table>
 	</form>	
 	
-<script src="<c:url value='/js/search.js'/>">
-'use strict';
-document.getElementById('search_form').onsubmit = function(event) {
-    const searchNAME = document.getElementById('name').value;
-    const searchBRAND_NAME = document.getElementById('brand_name').value;
-    const errorMessage = document.getElementById('error_message');
 
-    if (searchNAME === '' && searchBRAND_NAME === '') {
-        event.preventDefault();
-        window.alert('項目を入力してください。');
-        errorMessage.style.color = 'red'; // 色の追加
-    } 
-};
+<script>
+function updateSlider() {
+  const min = parseInt(document.getElementById("minRange").value, 10);
+  const max = parseInt(document.getElementById("maxRange").value, 10);
+  const rangeDisplay = document.getElementById("rangeValue");
+
+  // Ensure min is always less than or equal to max
+  const minValue = Math.min(min, max);
+  const maxValue = Math.max(min, max);
+
+  rangeDisplay.textContent = minValue + " - " + maxValue;
+
+}
 </script>
+
 </body>
 </html>

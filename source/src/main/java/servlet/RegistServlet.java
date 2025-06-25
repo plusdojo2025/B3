@@ -19,6 +19,7 @@ import javax.servlet.http.Part;
 
 import dao.PerfumesDAO;
 import dto.Perfumes;
+import dto.Result;
 import dto.Scrollbar;
 
 /**
@@ -186,13 +187,12 @@ public class RegistServlet extends HttpServlet {
 		PerfumesDAO pDAO = new PerfumesDAO();
 		if (pDAO.insert(perfume, scrollbar)) {
 		    doGet(request,response);
-		    // response.sendRedirect(request.getContextPath() + "/HomeServlet");
+		     response.sendRedirect(request.getContextPath() + "/RegistImageServletServlet");
 			
 		} else {
-//		    request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/b3/RegistServlet"));
+		    request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/b3/RegistImageServlet"));
 		}	
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-//		dispatcher.forward(request, response);
+
 	}
 	
 

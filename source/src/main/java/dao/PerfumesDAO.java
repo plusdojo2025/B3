@@ -94,6 +94,61 @@ public class PerfumesDAO {
 		return null;
 	}
 
+	public List<Perfumes> selectImage(Perfumes p) {
+		Connection conn = null;
+		List<Perfumes> pfmList = new ArrayList<>();
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/b3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+
+			// SQL文を準備する
+			String sql = "SELECT perfume_img from perfumes";
+					
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			if (p.getPerfume_img() != null) {
+				pStmt.setString(1, p.getPerfume_img());
+			} else {
+				pStmt.setNull(1,java.sql.Types.INTEGER );
+			}
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Perfumes perfumers = new Perfumes(
+						rs.getString("perfume_")
+						
+						);
+				pfmList.add(perfumers);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			pfmList = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			pfmList = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					pfmList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return pfmList;
+	}
+			
+	
+	
 	
 
 
@@ -227,6 +282,8 @@ public class PerfumesDAO {
 							return scList;
 						}
 						
+						
+					
 						
 						// 引数card指定された項目で検索して、取得されたデータのリストを返す     書き換え
 						public List<Scrollbar> select(Scrollbar pfi) {

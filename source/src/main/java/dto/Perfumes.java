@@ -101,6 +101,9 @@ public class Perfumes implements Serializable {
 			this.perfume_name = perfume_name;
 			this.brand_name = brand_name;
 		}
+		public Perfumes(String perfume_img) {
+			this.perfume_img = perfume_img;
+		}
 
 		
 		

@@ -5,33 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Parfüm Note | List</title>
-<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+    <meta charset="UTF-8">
+    <title>Search Perfume</title>
 </head>
 <body>
+    <h2>香水を検索</h2>
 
-	<header>
-		<jsp:include page="/WEB-INF/jsp/header.jsp" /> <!-- ヘッダー -->
-	</header>
-	<p id="deletemessage"></p>  <!-- メッセージエリア -->
-
-
-  <div class="perfume_id" id="perfume_id"></div>
-  <button id="andmore_button">さらに読み込む</button>
-
-  <div>
-  	<a href="<c:url value='/RegistServlet'/>"><img src="<c:url value='/images/button.png'/>"></a>
-  </div>
-
-  <div class="gallery">
-    <c:forEach var="perfume" items="${perfumeList}">
-      <div class="gallery-item">
-      
-        <img src="${pageContext.request.contextPath}/images/${perfume.perfume_img}" alt="画像">
-        <p>${perfume.name}</p>
-      </div>
-    </c:forEach>
-  </div>
+    <form method="POST" action="<c:url value='/ListServlet' />">
+        <label>画像名またはキーワード: </label>
+        <input type="text" name="perfume_imag" required />
+        <button type="submit">検索</button>
+    </form>
 </body>
 </html>

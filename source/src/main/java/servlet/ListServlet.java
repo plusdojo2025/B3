@@ -25,19 +25,34 @@ public class ListServlet extends HttpServlet {
         // セッションからユーザー情報を確認（ログインしてなければリダイレクト）
         HttpSession session = request.getSession(false); // セッションがなければnull
         if (session == null || session.getAttribute("id") == null) {
-            response.sendRedirect(request.getContextPath() + "/LoginServlet");
+            response.sendRedirect(request.getContextPath() + "/ListServlet");
             return;
         }
 
-        // 香水一覧を取得（PerfumesDAOを使用）
-        PerfumesDAO dao = new PerfumesDAO();
-        List<Perfumes> perfumeList = dao.perfume_img();
-
-        // JSPにデータを渡す
-        request.setAttribute("perfumeList", perfumeList);
-
-        // リスト表示用JSPにフォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
-        dispatcher.forward(request, response);
+//        // 香水一覧を取得（PerfumesDAOを使用）
+//        PerfumesDAO dao = new PerfumesDAO();
+//        List<Perfumes> perfumeList = dao.perfume_img();
+//
+//        // JSPにデータを渡す
+//        request.setAttribute("perfumeList", perfumeList);
+//
+//        // リスト表示用JSPにフォワード
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+//        dispatcher.forward(request, response);
     }
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+    	request.setCharacterEncoding("UTF-8");
+    	
+    	String perfume_img = request.getParameter("perfume_imag");
+    	
+    	PerfumesDAO pDAO = new PerfumesDAO();
+    	List<Perfumes> imageList = pDAO.selectImage(new Perfumes(perfume_img));
+    	
+    	request.setAttribute("imageList", imageList);
+    	
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
+		dispatcher.forward(request, response);
+}
 }
