@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
  
 <div class="header">
-	<img src="logo.png" id="logo">
+	<img src="img/logo.png" alt="Parfüm Note" height="130">
 	<nav class="nav">
 		<a href="<c:url value='/ListServlet' />">Home</a>
 		<a href="<c:url value='/CalenderServlet' />">Log</a>

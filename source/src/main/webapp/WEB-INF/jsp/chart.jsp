@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
+	<header>
+		<jsp:include page="/WEB-INF/jsp/header.jsp" /> <!-- ヘッダー -->
+	</header>
+	
     <h2>香水別の使用割合</h2>
     <canvas id="pieChart" width="400" height="400"></canvas>
 
