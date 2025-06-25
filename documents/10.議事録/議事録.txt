@@ -1,1 +1,48 @@
-おなかすいたなあ
+<script src="<c:url value='/js/search.js'/>">
+'use strict';
+document.getElementById('search_form').onsubmit = function(event) {
+    const searchNAME = document.getElementById('name').value;
+    const searchBRAND_NAME = document.getElementById('brand_name').value;
+    const errorMessage = document.getElementById('error_message');
+
+    if (searchNAME === '' && searchBRAND_NAME === '') {
+        event.preventDefault();
+        window.alert('項目を入力してください。');
+        errorMessage.style.color = 'red'; // 色の追加
+    } 
+};
+</script>
+
+
+<div class="perfume_id" id="perfume_id"></div>
+  <button id="andmore_button">さらに読み込む</button>
+
+  <div>
+  	<a href="<c:url value='/RegistServlet'/>"><img src="<c:url value='/images/button.png'/>"></a>
+  </div>
+
+<div class="gallery">
+    <c:forEach var="perfume" items="${perfumeList}">
+      <div class="gallery-item">
+      
+        <img src="${pageContext.request.contextPath}/images/${perfume.perfume_img}" alt="画像">
+        <p>${perfume.name}</p>
+      </div>
+    </c:forEach>
+  </div>
+
+ protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+    	request.setCharacterEncoding("UTF-8");
+    	
+    	String perfume_img = request.getParameter("perfume_image");
+    	
+    	PerfumesDAO pDAO = new PerfumesDAO();
+    	List<Perfumes> imageList = pDAO.selectImage(new Perfumes(perfume_img));
+    	
+    	request.setAttribute("imageList", imageList);
+    	
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+		dispatcher.forward(request, response);
+}
+}

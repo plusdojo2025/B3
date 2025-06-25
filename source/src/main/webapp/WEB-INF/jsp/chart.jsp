@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Parfüm Note | Mytype</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+	<link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 

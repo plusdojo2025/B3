@@ -1,55 +1,73 @@
-@charset "UTF-8";
+body {
+    margin: 0;
+    background: #f0f0f0;
+    font-family: sans-serif;
+}
 
- body {
-          font-family: sans-serif;
-          display: flex;
-          justify-content: center;
-          margin-top: 50px;
-          background: #f0f0f0;
-        }
+/* ヘッダー下に配置されるように */
+.calendar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
 
-        .calendar {
-          background: white;
-          border-radius: 8px;
-          padding: 20px;
-          width: 300px;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+/* カレンダー本体 */
+.calendar {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
-        .header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
+/* 上部のボタンと年月 */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
-        #month-year {
-          font-weight: bold;
-          font-size: 1.2em;
-        }
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 10px;
+}
 
-        .weekdays, .days {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          margin-top: 10px;
-        }
+#month-year {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    flex-grow: 1;
+}
 
-        .weekdays div {
-          font-weight: bold;
-          text-align: center;
-        }
+/* 曜日と日付 */
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-top: 10px;
+}
 
-        .days div {
-          text-align: center;
-          padding: 10px 0;
-          cursor: pointer;
-          border-radius: 4px;
-        }
+.weekdays div {
+    font-weight: bold;
+    text-align: center;
+}
 
-        .days div.today {
-          background-color: #2196F3;
-          color: white;
-        }
-        .days div.selected {
+.days div {
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.days div.today {
+    background-color: #2196F3;
+    color: white;
+}
+
+.days div.selected {
     background-color: #4CAF50;
     color: white;
     font-weight: bold;
