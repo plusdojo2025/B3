@@ -13,7 +13,7 @@
 <p> *イメージタグ </p>
 
 
-<form id="myForm">
+<form id="myForm" method="POST" action="/B3/RegistImageServlet">
 <div  class="section" data-section="甘さ">
 <p class ="group-label">甘さ</p>
       		<label for="genre">ジャンル</label>
@@ -316,7 +316,7 @@
       	
       	<form id="myFormSpicy">
       	<div  class="section" data-section="スパイシー">
-      	<p　class="group-label">スパイシー</p>
+      	<p class="group-label">スパイシー</p>
       			<label for="genre_spicy">ジャンル</label>
 				<select name="genre" id="genre_spicy">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
@@ -467,7 +467,7 @@
       	
 <form id="myFormRelax">
 <div  class="section" data-section="リラックス">
-<p　class="group-label">リラックス</p>
+<p class="group-label">リラックス</p>
 				<label for="genre_relax">ジャンル</label>
 				<select name="genre" id="genre_relax">
     				<option data-display="選択して下さい" value="">選択して下さい</option>
@@ -625,8 +625,6 @@
   <ul id="summary-list"></ul>
 </div>
 
-<ul class="selected-list"></ul>
-
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -746,8 +744,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	  });
 	});
 </script>
-	  
-	  
+
+<ul class="selected-list"></ul>
+<input type="submit"  name="submit" value="登録">
+          <span id="error_message"></span>  
 
 	 
 
