@@ -76,8 +76,6 @@
       
     </div>
     
-    <br>
-    
 
     <!-- 下段：中央に香りの印象とボタン -->
     <div class="form-bottom">

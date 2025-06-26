@@ -17,6 +17,23 @@
       display: block;
       margin-bottom: 5px;
     }
+    /*スライダーバー*/
+	.slider-row {
+  	display: flex;
+  	justify-content: center; /* 横方向中央揃え */
+  	align-items: center;     /* 縦方向中央揃え */
+  	gap: 10px;               /* 要素間の余白 */
+  	margin: 10px 0;          /* 各行の上下マージン */
+	}
+	
+	.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px; /* スライダーごとの間隔 */
+	}	
+	
+
   </style>
 </head>
 <body>
