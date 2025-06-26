@@ -52,6 +52,9 @@
      
 </div>
 <button id="andmore_button">さらに読み込む</button>
-
+<div >
+	<!--　<a href="RegistServlet"><img src="img/button.png" alt="Parfüm Note" height="60" alt="Parfüm Note"></a>　-->
+  	  <a href="<c:url value='/RegistServlet'/>"><img src="<c:url value='/img/button.png'/>" alt="Parfüm Note" height="60"></a>
+  </div>
 </body>
 </html>
