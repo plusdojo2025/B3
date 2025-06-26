@@ -43,13 +43,16 @@
         new Chart(document.getElementById('pieChart').getContext('2d'), {
             type: 'pie',
             data: {
-                labels: pieLabels,
-                datasets: [{
-                    label: '使用回数',
-                    data: pieData,
-                    borderWidth: 1
-                }]
-            },
+            	  labels: pieLabels,
+            	  datasets: [{
+            	    data: pieData,
+            	    backgroundColor: [
+            	      '#333333', '#666666', '#999999', '#bbbbbb', '#dddddd'
+            	    ],
+            	    borderColor: '#ffffff',
+            	    borderWidth: 1
+            	  }]
+            	},
             options: {
                 responsive: true,
                 plugins: {
@@ -88,13 +91,13 @@
             data: {
                 labels: radarLabels,
                 datasets: [{
-                    label: '全香水の平均傾向',
-                    data: radarValues,
-                    fill: true,
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    pointBackgroundColor: 'rgba(54, 162, 235, 1)'
-                }]
+                	  label: '全香水の平均傾向',
+                	  data: radarValues,
+                	  fill: true,
+                	  borderColor: '#444444',
+                	  backgroundColor: 'rgba(150,150,150,0.3)',
+                	  pointBackgroundColor: '#000000'
+                	}]
             },
             options: {
                 responsive: true,
@@ -139,18 +142,21 @@
             data: {
                 labels: barLabels,
                 datasets: [{
-                    label: '使用回数',
-                    data: barData,
-                    backgroundColor: 'rgba(255, 159, 64, 0.6)',
-                    borderColor: 'rgba(255, 159, 64, 1)',
-                    borderWidth: 1
+                	  label: '使用回数',
+                	  data: barData,
+                	  backgroundColor: 'rgba(120,120,120,0.6)',
+                	  borderColor: '#222222',
+                	  borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                        	stepSize: 1
+                        }
                     }
                 },
                 plugins: {

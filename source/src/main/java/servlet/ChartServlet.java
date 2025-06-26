@@ -49,21 +49,30 @@ public class ChartServlet extends HttpServlet {
 
             // 円グラフ：香水使用回数
         	// perfumesとperfume_logテーブルをjoin
-        	//各香水が南海使われたかをチェックし、結果をlabelとcountに保存
-            try (
-                PreparedStatement stmt = conn.prepareStatement(
-                    "SELECT p.perfume_name, COUNT(*) AS count " +
-                    "FROM perfume_log pl " +
-                    "JOIN perfumes p ON pl.perfume_id = p.id " +
-                    "GROUP BY p.perfume_name"
-                );
-                ResultSet rs = stmt.executeQuery()
-            ) {
-                while (rs.next()) {
-                    labels.add(rs.getString("perfume_name"));
-                    counts.add(rs.getInt("count"));
-                }
-            }
+        	// 一時的に Map に詰めてからソート
+        	Map<String, Integer> pieMap = new LinkedHashMap<>();
+        	try (
+        	    PreparedStatement stmt = conn.prepareStatement(
+        	        "SELECT p.perfume_name, COUNT(*) AS count " +
+        	        "FROM perfume_log pl " +
+        	        "JOIN perfumes p ON pl.perfume_id = p.id " +
+        	        "GROUP BY p.perfume_name"
+        	    );
+        	    ResultSet rs = stmt.executeQuery()
+        	) {
+        	    while (rs.next()) {
+        	        pieMap.put(rs.getString("perfume_name"), rs.getInt("count"));
+        	    }
+        	}
+
+        	// Map を使用回数の降順でソートして labels/counts に入れ直す
+        	//　結果をlabelとcountに保存
+        	pieMap.entrySet().stream()
+        	    .sorted((a, b) -> b.getValue().compareTo(a.getValue())) // 降順ソート
+        	    .forEach(entry -> {
+        	        labels.add(entry.getKey());
+        	        counts.add(entry.getValue());
+        	    });
 
             
             // レーダーチャート：scrollbarから取得

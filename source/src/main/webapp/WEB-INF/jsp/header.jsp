@@ -10,7 +10,7 @@
     align-items: center;
     gap: 20px;
     padding: 10px 20px;
-    background-color: transparent; /* 透明でもいいけど色付けてもOK */
+    background-color: transparent; 
 }
 
 /* ロゴ画像 */
@@ -42,9 +42,8 @@
 .header-nav a:hover {
     color: #000000;
 }
-
-
  </style>
+ 
 <div class="header-container">
 	<img src="img/logo.png" alt="Parfüm Note" height="130">
 	<nav class="header-nav">
