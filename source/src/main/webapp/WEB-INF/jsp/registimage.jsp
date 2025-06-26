@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Parfüm Note | Regist image</title>
 <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/registimage.css'/>">
 </head>
 <body>
 <p> *イメージタグ </p>
@@ -29,132 +30,131 @@
 			
 			<div id="sweets-options" class="section" data-section="甘さ" style="display: none;">
     			<p>スイーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label><br>    				
+					<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label>
+					<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label>
+					<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label>
+					<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label>
+					<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label>
+					<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label>
+					<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label>
+					<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label>
+					<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label>
+					<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label>
+					<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label>
+					<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label>
+					<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロ</label>
+					<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label>
+					<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label>
+					<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label>    				
 			</div>
 			
 			<div id="fruit-options"class="section" data-section="甘さ" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label><br>
+  <label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label>
+  <label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label>
+  <label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label>
+  <label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label>
+  <label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label>
+  <label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label>
+  <label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label>
+  <label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label>
+  <label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label>
+  <label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label>
+  <label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label>
+  <label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label>
+  <label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label>
+  <label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label>
+  <label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label>
+  <label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label>
+  <label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label>
+  <label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label>
+  <label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label>
+  <label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label>
+  <label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label>
+  <label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label>
+  <label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label>
+  <label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label>
 			</div>
 				
 			<div id="drink-options" class="section" data-section="甘さ" style="display: none;">
     			<p>飲み物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label><br>
-    				<label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label><br>
+					  <label><input type="checkbox" name="drink[]" value="無し"> 無し</label>
+					  <label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label>
+					  <label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label>
+					  <label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label>
+					  <label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label>
+					  <label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label>
+					  <label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label>
+					  <label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label>
 			</div>
 			
 			<div id="spices-options" class="section" data-section="甘さ" style="display: none;">
     			<p>スパイスの種類を選んでください:</p>
-    				<label><input type="checkbox" name="spices[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label><br>
+  <label><input type="checkbox" name="spices[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label>
+  <label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label>
+  <label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label>
+  <label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label>
+  <label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label>
+  <label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label>   				
 			</div>
 			
 			<div id="scene-options" class="section" data-section="甘さ" style="display: none;">
     			<p>シーンの種類を選んでください:</p>
-    				<label><input type="checkbox" name="scene[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label><br>
-    				<label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label><br>
-    				<label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label><br>
-    				<label><input type="checkbox" name="scene[]" value="畳"> 畳</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label><br>
-    				<label><input type="checkbox" name="scene[]" value="海"> 海</label><br>
-    				<label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="森林"> 森林</label><br>
-    				<label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label><br>
-    				<label><input type="checkbox" name="scene[]" value="寺"> 寺</label><br>
-    				<label><input type="checkbox" name="scene[]" value="庭"> 庭</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="プール"> プール</label><br>
-    				<label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label><br>
-    				<label><input type="checkbox" name="scene[]" value="山"> 山</label><br>
-    				<label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="春"> 春</label><br>
-    				<label><input type="checkbox" name="scene[]" value="夏"> 夏</label><br>
-    				<label><input type="checkbox" name="scene[]" value="秋"> 秋</label><br>
-    				<label><input type="checkbox" name="scene[]" value="冬"> 冬</label><br>
+  <label><input type="checkbox" name="scene[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label>
+  <label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label>
+  <label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label>
+  <label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label>
+  <label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label>
+  <label><input type="checkbox" name="scene[]" value="畳"> 畳</label>
+  <label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label>
+  <label><input type="checkbox" name="scene[]" value="海"> 海</label>
+  <label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label>
+  <label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label>
+  <label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label>
+  <label><input type="checkbox" name="scene[]" value="森林"> 森林</label>
+  <label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label>
+  <label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label>
+  <label><input type="checkbox" name="scene[]" value="寺"> 寺</label>
+  <label><input type="checkbox" name="scene[]" value="庭"> 庭</label>
+  <label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label>
+  <label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label>
+  <label><input type="checkbox" name="scene[]" value="プール"> プール</label>
+  <label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label>
+  <label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label>
+  <label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label>
+  <label><input type="checkbox" name="scene[]" value="山"> 山</label>
+  <label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label>
+  <label><input type="checkbox" name="scene[]" value="春"> 春</label>
+  <label><input type="checkbox" name="scene[]" value="夏"> 夏</label>
+  <label><input type="checkbox" name="scene[]" value="秋"> 秋</label>
+  <label><input type="checkbox" name="scene[]" value="冬"> 冬</label>
 			</div>
 			
 			<div id="plant-options" class="section" data-section="甘さ" style="display: none;">
     			<p>植物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="plant[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label><br>
-    				<label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="バジル"> バジル</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label><br>
-    				<label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミント"> ミント</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label><br>
+  <label><input type="checkbox" name="plant[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label>
+  <label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label>
+  <label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label>
+  <label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label>
+  <label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label>
+  <label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label>
+  <label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label>
+  <label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label>
+  <label><input type="checkbox" name="plant[]" value="バジル"> バジル</label>
+  <label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label>
+  <label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label>
+  <label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label>
+  <label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label>
+  <label><input type="checkbox" name="plant[]" value="ミント"> ミント</label>
+  <label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label>
+  <label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label>
+  <label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label>
+  <label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label>
 			</div>
 
       	<br>
@@ -164,7 +164,7 @@
       	</div>
       	</form>
 
-<form id="myFormFresh">
+<form id="myFormFresh" method="POST" action="/B3/RegistImageServlet">
 <div  class="section" data-section="さわやかさ">
 <p class ="group-label">さわやかさ</p>
 				<label for="genre_fresh">ジャンル</label>
@@ -180,132 +180,132 @@
 			
 			<div id="sweets-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>スイーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label><br>    				
+    				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label>
+<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label>
+<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label>
+<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label>
+<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label>
+<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label>
+<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label>
+<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label>
+<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label>
+<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label>
+<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label>
+<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label>
+<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロ</label>
+<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label>
+<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label>
+<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label>    				
 			</div>
 			
 			<div id="fruit-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label><br>
+    		<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label>
+  <label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label>
+  <label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label>
+  <label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label>
+  <label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label>
+  <label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label>
+  <label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label>
+  <label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label>
+  <label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label>
+  <label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label>
+  <label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label>
+  <label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label>
+  <label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label>
+  <label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label>
+  <label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label>
+  <label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label>
+  <label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label>
+  <label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label>
+  <label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label>
+  <label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label>
+  <label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label>
+  <label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label>
+  <label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label>
+  <label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label>
 			</div>
 				
 			<div id="drink-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>飲み物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label><br>
-    				<label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label><br>
+    				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label>
+					  <label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label>
+					  <label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label>
+					  <label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label>
+					  <label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label>
+					  <label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label>
+					  <label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label>
+					  <label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label>
 			</div>
 			
 			<div id="spices-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>スパイスの種類を選んでください:</p>
-    				<label><input type="checkbox" name="spices[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label><br>
+  <label><input type="checkbox" name="spices[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label>
+  <label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label>
+  <label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label>
+  <label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label>
+  <label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label>
+  <label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label>
 			</div>
 			
 			<div id="scene-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>シーンの種類を選んでください:</p>
-    				<label><input type="checkbox" name="scene[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label><br>
-    				<label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label><br>
-    				<label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label><br>
-    				<label><input type="checkbox" name="scene[]" value="畳"> 畳</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label><br>
-    				<label><input type="checkbox" name="scene[]" value="海"> 海</label><br>
-    				<label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="森林"> 森林</label><br>
-    				<label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label><br>
-    				<label><input type="checkbox" name="scene[]" value="寺"> 寺</label><br>
-    				<label><input type="checkbox" name="scene[]" value="庭"> 庭</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="プール"> プール</label><br>
-    				<label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label><br>
-    				<label><input type="checkbox" name="scene[]" value="山"> 山</label><br>
-    				<label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="春"> 春</label><br>
-    				<label><input type="checkbox" name="scene[]" value="夏"> 夏</label><br>
-    				<label><input type="checkbox" name="scene[]" value="秋"> 秋</label><br>
-    				<label><input type="checkbox" name="scene[]" value="冬"> 冬</label><br>
+  <label><input type="checkbox" name="scene[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label>
+  <label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label>
+  <label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label>
+  <label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label>
+  <label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label>
+  <label><input type="checkbox" name="scene[]" value="畳"> 畳</label>
+  <label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label>
+  <label><input type="checkbox" name="scene[]" value="海"> 海</label>
+  <label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label>
+  <label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label>
+  <label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label>
+  <label><input type="checkbox" name="scene[]" value="森林"> 森林</label>
+  <label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label>
+  <label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label>
+  <label><input type="checkbox" name="scene[]" value="寺"> 寺</label>
+  <label><input type="checkbox" name="scene[]" value="庭"> 庭</label>
+  <label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label>
+  <label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label>
+  <label><input type="checkbox" name="scene[]" value="プール"> プール</label>
+  <label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label>
+  <label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label>
+  <label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label>
+  <label><input type="checkbox" name="scene[]" value="山"> 山</label>
+  <label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label>
+  <label><input type="checkbox" name="scene[]" value="春"> 春</label>
+  <label><input type="checkbox" name="scene[]" value="夏"> 夏</label>
+  <label><input type="checkbox" name="scene[]" value="秋"> 秋</label>
+  <label><input type="checkbox" name="scene[]" value="冬"> 冬</label>    				
 			</div>
 			
 			<div id="plant-options1" class="section" data-section="さわやかさ" style="display: none;">
     			<p>植物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="plant[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label><br>
-    				<label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="バジル"> バジル</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label><br>
-    				<label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミント"> ミント</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label><br>
+  <label><input type="checkbox" name="plant[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label>
+  <label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label>
+  <label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label>
+  <label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label>
+  <label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label>
+  <label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label>
+  <label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label>
+  <label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label>
+  <label><input type="checkbox" name="plant[]" value="バジル"> バジル</label>
+  <label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label>
+  <label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label>
+  <label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label>
+  <label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label>
+  <label><input type="checkbox" name="plant[]" value="ミント"> ミント</label>
+  <label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label>
+  <label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label>
+  <label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label>
+  <label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label>
 			</div>
       	<br>
       	<input type="submit" name="decision" value="決定">
@@ -313,8 +313,8 @@
 		<hr>
 		</div>
 		</form>
-      	
-      	<form id="myFormSpicy">
+		
+      	<form id="myFormSpicy" method="POST" action="/B3/RegistImageServlet">
       	<div  class="section" data-section="スパイシー">
       	<p class="group-label">スパイシー</p>
       			<label for="genre_spicy">ジャンル</label>
@@ -330,132 +330,132 @@
 			
 			<div id="sweets-options2" class="section" data-section="スパイシー" style="display: none;">
     			<p>スイーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label><br>    				
+    				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label>
+<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label>
+<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label>
+<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label>
+<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label>
+<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label>
+<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label>
+<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label>
+<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label>
+<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label>
+<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label>
+<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label>
+<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロ</label>
+<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label>
+<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label>
+<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label>
 			</div>
 			
 			<div id="fruit-options2" class="section" data-section="スパイシー" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label><br>
+    				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label>
+  <label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label>
+  <label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label>
+  <label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label>
+  <label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label>
+  <label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label>
+  <label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label>
+  <label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label>
+  <label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label>
+  <label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label>
+  <label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label>
+  <label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label>
+  <label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label>
+  <label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label>
+  <label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label>
+  <label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label>
+  <label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label>
+  <label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label>
+  <label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label>
+  <label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label>
+  <label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label>
+  <label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label>
+  <label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label>
+  <label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label>
 			</div>
 				
 			<div id="drink-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>飲み物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label><br>
-    				<label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label><br>
+<label><input type="checkbox" name="drink[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label>
+  <label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label>
+  <label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label>
+  <label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label>
+  <label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label>
+  <label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label>
+  <label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label>    				
 			</div>
 			
 			<div id="spices-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>スパイスの種類を選んでください:</p>
-    				<label><input type="checkbox" name="spices[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label><br>
+  <label><input type="checkbox" name="spices[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label>
+  <label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label>
+  <label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label>
+  <label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label>
+  <label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label>
+  <label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label>    				
 			</div>
 			
 			<div id="scene-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>シーンの種類を選んでください:</p>
-    				<label><input type="checkbox" name="scene[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label><br>
-    				<label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label><br>
-    				<label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label><br>
-    				<label><input type="checkbox" name="scene[]" value="畳"> 畳</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label><br>
-    				<label><input type="checkbox" name="scene[]" value="海"> 海</label><br>
-    				<label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="森林"> 森林</label><br>
-    				<label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label><br>
-    				<label><input type="checkbox" name="scene[]" value="寺"> 寺</label><br>
-    				<label><input type="checkbox" name="scene[]" value="庭"> 庭</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="プール"> プール</label><br>
-    				<label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label><br>
-    				<label><input type="checkbox" name="scene[]" value="山"> 山</label><br>
-    				<label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="春"> 春</label><br>
-    				<label><input type="checkbox" name="scene[]" value="夏"> 夏</label><br>
-    				<label><input type="checkbox" name="scene[]" value="秋"> 秋</label><br>
-    				<label><input type="checkbox" name="scene[]" value="冬"> 冬</label><br>
+  <label><input type="checkbox" name="scene[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label>
+  <label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label>
+  <label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label>
+  <label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label>
+  <label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label>
+  <label><input type="checkbox" name="scene[]" value="畳"> 畳</label>
+  <label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label>
+  <label><input type="checkbox" name="scene[]" value="海"> 海</label>
+  <label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label>
+  <label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label>
+  <label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label>
+  <label><input type="checkbox" name="scene[]" value="森林"> 森林</label>
+  <label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label>
+  <label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label>
+  <label><input type="checkbox" name="scene[]" value="寺"> 寺</label>
+  <label><input type="checkbox" name="scene[]" value="庭"> 庭</label>
+  <label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label>
+  <label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label>
+  <label><input type="checkbox" name="scene[]" value="プール"> プール</label>
+  <label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label>
+  <label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label>
+  <label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label>
+  <label><input type="checkbox" name="scene[]" value="山"> 山</label>
+  <label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label>
+  <label><input type="checkbox" name="scene[]" value="春"> 春</label>
+  <label><input type="checkbox" name="scene[]" value="夏"> 夏</label>
+  <label><input type="checkbox" name="scene[]" value="秋"> 秋</label>
+  <label><input type="checkbox" name="scene[]" value="冬"> 冬</label>    				
 			</div>
 			
 			<div id="plant-options2"  class="section" data-section="スパイシー" style="display: none;">
     			<p>植物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="plant[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label><br>
-    				<label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="バジル"> バジル</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label><br>
-    				<label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミント"> ミント</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label><br>
+  <label><input type="checkbox" name="plant[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label>
+  <label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label>
+  <label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label>
+  <label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label>
+  <label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label>
+  <label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label>
+  <label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label>
+  <label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label>
+  <label><input type="checkbox" name="plant[]" value="バジル"> バジル</label>
+  <label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label>
+  <label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label>
+  <label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label>
+  <label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label>
+  <label><input type="checkbox" name="plant[]" value="ミント"> ミント</label>
+  <label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label>
+  <label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label>
+  <label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label>
+  <label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label>
 			</div>
       	<br>
       	<input type="submit" name="decision" value="決定">
@@ -465,7 +465,7 @@
 		</form>
       	
       	
-<form id="myFormRelax">
+<form id="myFormRelax" method="POST" action="/B3/RegistImageServlet">
 <div  class="section" data-section="リラックス">
 <p class="group-label">リラックス</p>
 				<label for="genre_relax">ジャンル</label>
@@ -481,132 +481,132 @@
 			
 			<div id="sweets-options3" class="section" data-section="リラックス" style="display: none;">
     			<p>スイーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロル</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label><br>
-    				<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label><br>    				
+    				<label><input type="checkbox" name="sweets[]" value="無し"> 無し</label>
+<label><input type="checkbox" name="sweets[]" value="あんこ"> あんこ</label>
+<label><input type="checkbox" name="sweets[]" value="カスタード"> カスタード</label>
+<label><input type="checkbox" name="sweets[]" value="カラメル"> カラメル</label>
+<label><input type="checkbox" name="sweets[]" value="キャラメル"> キャラメル</label>
+<label><input type="checkbox" name="sweets[]" value="キャンディ"> キャンディ</label>
+<label><input type="checkbox" name="sweets[]" value="ケーキ"> ケーキ</label>
+<label><input type="checkbox" name="sweets[]" value="チョコレート"> チョコレート</label>
+<label><input type="checkbox" name="sweets[]" value="生クリーム"> 生クリーム</label>
+<label><input type="checkbox" name="sweets[]" value="はちみつ"> はちみつ</label>
+<label><input type="checkbox" name="sweets[]" value="バニラ"> バニラ</label>
+<label><input type="checkbox" name="sweets[]" value="プリン"> プリン</label>
+<label><input type="checkbox" name="sweets[]" value="マシュマロ"> マシュマロ</label>
+<label><input type="checkbox" name="sweets[]" value="メープルシロップ"> メープルシロップ</label>
+<label><input type="checkbox" name="sweets[]" value="モンブラン"> モンブラン</label>
+<label><input type="checkbox" name="sweets[]" value="わたあめ"> わたあめ</label>
 			</div>
 			
 			<div id="fruit-options3" class="section" data-section="リラックス" style="display: none;">
     			<p>フルーツの種類を選んでください:</p>
-    				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label><br>
-    				<label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label><br>
+    				<label><input type="checkbox" name="fruit[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="fruit[]" value="あんず"> あんず</label>
+  <label><input type="checkbox" name="fruit[]" value="イチゴ"> イチゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="イチジク"> イチジク</label>
+  <label><input type="checkbox" name="fruit[]" value="オレンジ"> オレンジ</label>
+  <label><input type="checkbox" name="fruit[]" value="カシス"> カシス</label>
+  <label><input type="checkbox" name="fruit[]" value="グレープフルーツ"> グレープフルーツ</label>
+  <label><input type="checkbox" name="fruit[]" value="ココナッツ"> ココナッツ</label>
+  <label><input type="checkbox" name="fruit[]" value="サクランボ"> サクランボ</label>
+  <label><input type="checkbox" name="fruit[]" value="サツマイモ"> サツマイモ</label>
+  <label><input type="checkbox" name="fruit[]" value="シトラス"> シトラス</label>
+  <label><input type="checkbox" name="fruit[]" value="スイカ"> スイカ</label>
+  <label><input type="checkbox" name="fruit[]" value="パイナップル"> パイナップル</label>
+  <label><input type="checkbox" name="fruit[]" value="ブドウ"> ブドウ</label>
+  <label><input type="checkbox" name="fruit[]" value="プラム"> プラム</label>
+  <label><input type="checkbox" name="fruit[]" value="ベルガモット"> ベルガモット</label>
+  <label><input type="checkbox" name="fruit[]" value="マスカット"> マスカット</label>
+  <label><input type="checkbox" name="fruit[]" value="マンゴー"> マンゴー</label>
+  <label><input type="checkbox" name="fruit[]" value="マンダリン"> マンダリン</label>
+  <label><input type="checkbox" name="fruit[]" value="メロン"> メロン</label>
+  <label><input type="checkbox" name="fruit[]" value="モモ"> モモ</label>
+  <label><input type="checkbox" name="fruit[]" value="柚子"> 柚子</label>
+  <label><input type="checkbox" name="fruit[]" value="ライム"> ライム</label>
+  <label><input type="checkbox" name="fruit[]" value="ラズベリー"> ラズベリー</label>
+  <label><input type="checkbox" name="fruit[]" value="ラフランス"> ラフランス</label>
+  <label><input type="checkbox" name="fruit[]" value="リンゴ"> リンゴ</label>
+  <label><input type="checkbox" name="fruit[]" value="レモン"> レモン</label>
 			</div>
 				
 			<div id="drink-options3" class="section" data-section="リラックス" style="display: none;">
     			<p>飲み物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="drink[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label><br>
-    				<label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label><br>
-    				<label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label><br>
+<label><input type="checkbox" name="drink[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="drink[]" value="アールグレイ"> アールグレイ</label>
+  <label><input type="checkbox" name="drink[]" value="グリーンティー"> グリーンティー</label>
+  <label><input type="checkbox" name="drink[]" value="コーヒー"> コーヒー</label>
+  <label><input type="checkbox" name="drink[]" value="ブラックティー"> ブラックティー</label>
+  <label><input type="checkbox" name="drink[]" value="ほうじ茶"> ほうじ茶</label>
+  <label><input type="checkbox" name="drink[]" value="ミルク"> ミルク</label>
+  <label><input type="checkbox" name="drink[]" value="ミルクティー"> ミルクティー</label>   				
 			</div>
 			
 			<div id="spices-options3" class="section" data-section="さわやかさ" style="display: none;">
     			<p>スパイスの種類を選んでください:</p>
-    				<label><input type="checkbox" name="spices[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label><br>
-    				<label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label><br>
-    				<label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label><br>
+  <label><input type="checkbox" name="spices[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="spices[]" value="クローブ"> クローブ</label>
+  <label><input type="checkbox" name="spices[]" value="シナモン"> シナモン</label>
+  <label><input type="checkbox" name="spices[]" value="ショウガ"> ショウガ</label>
+  <label><input type="checkbox" name="spices[]" value="唐辛子"> 唐辛子</label>
+  <label><input type="checkbox" name="spices[]" value="ペッパー"> ペッパー</label>
+  <label><input type="checkbox" name="spices[]" value="ワサビ"> ワサビ</label>    				
 			</div>
 			
 			<div id="scene-options3" class="section" data-section="リラックス" style="display: none;">
     			<p>シーンの種類を選んでください:</p>
-    				<label><input type="checkbox" name="scene[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label><br>
-    				<label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label><br>
-    				<label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label><br>
-    				<label><input type="checkbox" name="scene[]" value="畳"> 畳</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label><br>
-    				<label><input type="checkbox" name="scene[]" value="海"> 海</label><br>
-    				<label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="森林"> 森林</label><br>
-    				<label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label><br>
-    				<label><input type="checkbox" name="scene[]" value="寺"> 寺</label><br>
-    				<label><input type="checkbox" name="scene[]" value="庭"> 庭</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label><br>
-    				<label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label><br>
-    				<label><input type="checkbox" name="scene[]" value="プール"> プール</label><br>
-    				<label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label><br>
-    				<label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label><br>
-    				<label><input type="checkbox" name="scene[]" value="山"> 山</label><br>
-    				<label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label><br>
-    				<label><input type="checkbox" name="scene[]" value="春"> 春</label><br>
-    				<label><input type="checkbox" name="scene[]" value="夏"> 夏</label><br>
-    				<label><input type="checkbox" name="scene[]" value="秋"> 秋</label><br>
-    				<label><input type="checkbox" name="scene[]" value="冬"> 冬</label><br>
+  <label><input type="checkbox" name="scene[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="scene[]" value="オゾンノート"> オゾンノート</label>
+  <label><input type="checkbox" name="scene[]" value="シーソルト"> シーソルト</label>
+  <label><input type="checkbox" name="scene[]" value="石鹸"> 石鹸</label>
+  <label><input type="checkbox" name="scene[]" value="ソファ"> ソファ</label>
+  <label><input type="checkbox" name="scene[]" value="太陽"> 太陽</label>
+  <label><input type="checkbox" name="scene[]" value="畳"> 畳</label>
+  <label><input type="checkbox" name="scene[]" value="ムスク"> ムスク</label>
+  <label><input type="checkbox" name="scene[]" value="海"> 海</label>
+  <label><input type="checkbox" name="scene[]" value="映画館"> 映画館</label>
+  <label><input type="checkbox" name="scene[]" value="カフェ"> カフェ</label>
+  <label><input type="checkbox" name="scene[]" value="サウナ"> サウナ</label>
+  <label><input type="checkbox" name="scene[]" value="森林"> 森林</label>
+  <label><input type="checkbox" name="scene[]" value="茶室"> 茶室</label>
+  <label><input type="checkbox" name="scene[]" value="ディズニー"> ディズニー</label>
+  <label><input type="checkbox" name="scene[]" value="寺"> 寺</label>
+  <label><input type="checkbox" name="scene[]" value="庭"> 庭</label>
+  <label><input type="checkbox" name="scene[]" value="ビーチ"> ビーチ</label>
+  <label><input type="checkbox" name="scene[]" value="美容室"> 美容室</label>
+  <label><input type="checkbox" name="scene[]" value="プール"> プール</label>
+  <label><input type="checkbox" name="scene[]" value="風呂"> 風呂</label>
+  <label><input type="checkbox" name="scene[]" value="ベッドルーム"> ベッドルーム</label>
+  <label><input type="checkbox" name="scene[]" value="ホテル"> ホテル</label>
+  <label><input type="checkbox" name="scene[]" value="山"> 山</label>
+  <label><input type="checkbox" name="scene[]" value="旅館"> 旅館</label>
+  <label><input type="checkbox" name="scene[]" value="春"> 春</label>
+  <label><input type="checkbox" name="scene[]" value="夏"> 夏</label>
+  <label><input type="checkbox" name="scene[]" value="秋"> 秋</label>
+  <label><input type="checkbox" name="scene[]" value="冬"> 冬</label>   				
 			</div>
 			
 			<div id="plant-options3" class="section" data-section="リラックス" style="display: none;">
     			<p>植物の種類を選んでください:</p>
-    				<label><input type="checkbox" name="plant[]" value="無し"> 無し</label><br>
-    				<label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label><br>
-    				<label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="バジル"> バジル</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label><br>
-    				<label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ミント"> ミント</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label><br>
-    				<label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label><br>
+  <label><input type="checkbox" name="plant[]" value="無し"> 無し</label>
+  <label><input type="checkbox" name="plant[]" value="アーモンド"> アーモンド</label>
+  <label><input type="checkbox" name="plant[]" value="イランイラン"> イランイラン</label>
+  <label><input type="checkbox" name="plant[]" value="ウッド"> ウッド</label>
+  <label><input type="checkbox" name="plant[]" value="カモミール"> カモミール</label>
+  <label><input type="checkbox" name="plant[]" value="キンモクセイ"> キンモクセイ</label>
+  <label><input type="checkbox" name="plant[]" value="ジャスミン"> ジャスミン</label>
+  <label><input type="checkbox" name="plant[]" value="スズラン"> スズラン</label>
+  <label><input type="checkbox" name="plant[]" value="ネロリ"> ネロリ</label>
+  <label><input type="checkbox" name="plant[]" value="バジル"> バジル</label>
+  <label><input type="checkbox" name="plant[]" value="ヒノキ"> ヒノキ</label>
+  <label><input type="checkbox" name="plant[]" value="白檀(サンダルウッド)"> 白檀(サンダルウッド)</label>
+  <label><input type="checkbox" name="plant[]" value="マリーゴールド"> マリーゴールド</label>
+  <label><input type="checkbox" name="plant[]" value="ミモザ"> ミモザ</label>
+  <label><input type="checkbox" name="plant[]" value="ミント"> ミント</label>
+  <label><input type="checkbox" name="plant[]" value="ユーカリ"> ユーカリ</label>
+  <label><input type="checkbox" name="plant[]" value="ラベンダー"> ラベンダー</label>
+  <label><input type="checkbox" name="plant[]" value="ローズ"> ローズ</label>
+  <label><input type="checkbox" name="plant[]" value="ローズマリー"> ローズマリー</label>
 			</div>
       	<br>
       	<input type="submit" name="decision" value="決定">
@@ -625,6 +625,9 @@
   <ul id="summary-list"></ul>
 </div>
 
+<ul class="selected-list"></ul>
+<input type="submit"  name="submit" value="登録">
+<span id="error_message"></span>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -743,14 +746,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	    });
 	  });
 	});
+	
+const resetBtn = document.getElementById('resetBtn');
+const summaryList = document.getElementById('summary-list');
+
+resetBtn.addEventListener('click', () => {
+  // summary-listの中身を空にする
+  summaryList.innerHTML = '';
+});
 </script>
-
-<ul class="selected-list"></ul>
-<input type="submit"  name="submit" value="登録">
-          <span id="error_message"></span>  
-
-	 
-
-
 </body>
 </html>

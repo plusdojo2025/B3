@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+#sweets-options,
+#fruit-options,
+#drink-options,
+#spices-options,
+#scene-options,
+#plant-options,
+#sweets-options1,
+#fruit-options1,
+#drink-options1,
+#spices-options1,
+#scene-options1,
+#plant-options1,
+#sweets-options2,
+#fruit-options2,
+#drink-options2,
+#spices-options2,
+#scene-options2,
+#plant-options2,
+#sweets-options3,
+#fruit-options3
+#drink-options3,
+#spices-options3,
+#scene-options3,
+#plant-options3{
+    text-align: center;        /* 中央寄せ */
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+#sweets-options label,
+#fruit-options label,
+#drink-options label,
+#spices-options label,
+#scene-options label,
+#plant-options label,
+#sweets-options1 label,
+#fruit-options1 label,
+#drink-options1 label,
+#spices-options1 label,
+#scene-options1 label,
+#plant-options1 label,
+#sweets-options2 label,
+#fruit-options2 label,
+#drink-options2 label,
+#spices-options2 label,
+#scene-options2 label,
+#plant-options2 label,
+#sweets-options3 label,
+#fruit-options3 label,
+#drink-options3 label,
+#spices-options3 label,
+#scene-options3 label,
+#plant-options3 label{
+    display: inline-block;
+    width: 160px;              /* ここで幅を統一 */
+    margin-bottom: 10px;
+    white-space: nowrap;       /* 折り返さないようにする */
+    text-align: left;          /* ラベル内のテキストは左寄せ（好みに応じて） */
+  }

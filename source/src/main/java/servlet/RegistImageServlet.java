@@ -73,8 +73,6 @@ public class RegistImageServlet extends HttpServlet {
 				Perfume_imagesDAO pfi = new Perfume_imagesDAO();
 				if (pfi.insert(new Perfume_images(perfume_id, big_id,small_id))) { 
 					
-					// 🍥🍚🍛🍜要検討！！！！！！！！！！！！！！！！！
-					// 登録成功↓ここから下は必要なのか
 					request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/webapp/MenuServlet"));
 				}
 				else { 
@@ -83,7 +81,7 @@ public class RegistImageServlet extends HttpServlet {
 				}
 				
 				// ホームにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list/.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/list.jsp");
 				dispatcher.forward(request, response);	
 	}
 
