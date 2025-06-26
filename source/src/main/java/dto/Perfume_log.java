@@ -176,9 +176,11 @@ public class Perfume_log implements Serializable {
 	}
 	
 	//▶　コンストラクタ（使用後）
-	public Perfume_log(int id, int perfume_id, String middle_note, String last_note, String thoughts) {
+//	public Perfume_log(int id, int perfume_id, String middle_note, String last_note, String thoughts) {
+	// ↑idを引き継いだ場合
+	public Perfume_log(int perfume_id, String middle_note, String last_note, String thoughts) {
 		super();
-		this.id = id;
+//		this.id = id;
 		this.perfume_id = perfume_id;
 		this.middle_note = middle_note;
 		this.last_note = last_note;
