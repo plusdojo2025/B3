@@ -101,7 +101,7 @@
                 scales: {
                     r: {
                         min: 0,
-                        max: 10,
+                        max: 100,
                         ticks: { stepSize: 1 }
                     }
                 },
