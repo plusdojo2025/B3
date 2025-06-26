@@ -30,6 +30,8 @@
       <input type="reset" name="reset" value="リセット">
       <p id="errormessage"></p>
   </form>
+  <p>ID dojouser1
+  <p>PW #SEplus2025SEplus
 </main>
 <footer>
 </footer>    

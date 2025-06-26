@@ -16,39 +16,46 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 @WebServlet("/ChartServlet")
 public class ChartServlet extends HttpServlet {
+	// ページロード時、doメッソドで処理
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
+    	
+        // ログインチェック（テスト時コメントアウト。直すときは19行目のコメントアウトを同時に解除）
+//    		HttpSession session = request.getSession(false);
+//      	if (session == null || session.getAttribute("id") == null) {
+//          response.sendRedirect(request.getContextPath() + "/LoginServlet");
+//          return;
+//      	}
 
-        // ログインチェック
-//        HttpSession session = request.getSession(false);
-//        if (session == null || session.getAttribute("id") == null) {
-//            response.sendRedirect(request.getContextPath() + "/LoginServlet");
-//            return;
-//        }
-
-        // データ格納リスト
-        List<String> labels = new ArrayList<>();
+        // グラフ用のデータ構造
+        List<String> labels = new ArrayList<>();          // 円グラフ用（香水名と使用回数）
         List<Integer> counts = new ArrayList<>();
-        Map<String, Double> radarData = new LinkedHashMap<>();
-        List<String> barLabels = new ArrayList<>();
+
+        Map<String, Double> radarData = new LinkedHashMap<>(); // レーダーチャート用（項目ごとの平均）
+
+        List<String> barLabels = new ArrayList<>();       // 棒グラフ用（香りカテゴリーと詳細）
         List<Integer> barCounts = new ArrayList<>();
 
-        String url = "jdbc:mysql://localhost:3306/b3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9";
+        // DB接続
+        String url = "jdbc:mysql://localhost:3306/b3?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Tokyo";
         String user = "root";
         String password = "password";
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
 
             // 円グラフ：香水使用回数
+        	// perfumesとperfume_logテーブルをjoin
+        	//各香水が南海使われたかをチェックし、結果をlabelとcountに保存
             try (
                 PreparedStatement stmt = conn.prepareStatement(
-                    "SELECT p.name AS perfume_name, COUNT(*) AS count " +
-                    "FROM perfume_log pl JOIN perfumes p ON pl.perfume_id = p.id " +
-                    "GROUP BY p.name"
+                    "SELECT p.perfume_name, COUNT(*) AS count " +
+                    "FROM perfume_log pl " +
+                    "JOIN perfumes p ON pl.perfume_id = p.id " +
+                    "GROUP BY p.perfume_name"
                 );
                 ResultSet rs = stmt.executeQuery()
             ) {
@@ -58,7 +65,10 @@ public class ChartServlet extends HttpServlet {
                 }
             }
 
-            // レーダーチャート：全体平均
+            
+            // レーダーチャート：scrollbarから取得
+            // scroolbarテーブルから５つの要素の平均値を取得
+            //　結果をradarDataに保存
             try (
                 PreparedStatement stmt = conn.prepareStatement(
                     "SELECT " +
@@ -67,7 +77,7 @@ public class ChartServlet extends HttpServlet {
                     "AVG(light_heavy) AS light_heavy_avg, " +
                     "AVG(male_women) AS male_women_avg, " +
                     "AVG(mild_spicy) AS mild_spicy_avg " +
-                    "FROM perfumes"
+                    "FROM scrollbar"
                 );
                 ResultSet rs = stmt.executeQuery()
             ) {
@@ -80,17 +90,22 @@ public class ChartServlet extends HttpServlet {
                 }
             }
 
-            // 棒グラフ：よくあるbig_id×small_idの組み合わせ
+            // 棒グラフ：香りの種類×詳細のTOP5
+            // perfume_imagesに関連づいているbig_categoryとsmall_catrgoryをjoinして組み合わせる
+            //　組み合わせた香りの種類×詳細のperfume_logの使用回数を取得
+            //　使用回数上位5つを取得し、barlabels,barCountsに保存
             try (
-                PreparedStatement stmt = conn.prepareStatement(
-                    "SELECT b.scent_type, s.detail, COUNT(*) AS cnt " +
-                    "FROM perfume_images pi " +
-                    "JOIN big_category b ON pi.big_id = b.id " +
-                    "JOIN small_category s ON pi.small_id = s.id " +
-                    "GROUP BY b.scent_type, s.detail " +
-                    "ORDER BY cnt DESC " +
-                    "LIMIT 5"
-                );
+	    		PreparedStatement stmt = conn.prepareStatement(
+	    			    "SELECT b.scent_type, s.detail, COUNT(pl.id) AS cnt " +
+	    			    "FROM perfume_log pl " +
+	    			    "JOIN perfumes p ON pl.perfume_id = p.id " +
+	    			    "JOIN perfume_images pi ON p.id = pi.perfume_id " +
+	    			    "JOIN big_category b ON pi.big_id = b.id " +
+	    			    "JOIN small_category s ON pi.small_id = s.id " +
+	    			    "GROUP BY b.scent_type, s.detail " +
+	    			    "ORDER BY cnt DESC " +
+	    			    "LIMIT 5"
+	    			);
                 ResultSet rs = stmt.executeQuery()
             ) {
                 while (rs.next()) {
@@ -105,12 +120,14 @@ public class ChartServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        // データをリクエストスコープを用いて、JSPへ渡す
         request.setAttribute("labels", labels);
         request.setAttribute("counts", counts);
         request.setAttribute("radarData", radarData);
         request.setAttribute("barLabels", barLabels);
         request.setAttribute("barCounts", barCounts);
-
+        
+        //　chart.jspにフォワードしてグラフを描画。
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chart.jsp");
         dispatcher.forward(request, response);
     }

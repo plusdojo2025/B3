@@ -74,7 +74,7 @@ public class RegistServlet extends HttpServlet {
 		    }
 		}
         String day = request.getParameter("purchased_date");
-		
+       
 //		String perfume_img = this.getFileName(part);
 //		request.setAttribute("image", perfume_img);
 //		part.write(perfume_img);

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Perfume_logDAO;
 import dto.Perfume_log;
-import dto.Result;
 
 /**
  * Servlet implementation class LogAfterServlet
@@ -59,7 +58,7 @@ public class LogAfterServlet extends HttpServlet {
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
 		
-		int id= Integer.parseInt(request.getParameter("id"));
+//		int id= Integer.parseInt(request.getParameter("id"));
 		
 		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
 		
@@ -69,21 +68,29 @@ public class LogAfterServlet extends HttpServlet {
 		
 		String thoughts = request.getParameter("thoughts");
 		
+		// どのボタンが押下されたかを取得
+		String action = request.getParameter("action");
+		
 		// 更新または削除を行う	
 		Perfume_logDAO plog = new Perfume_logDAO();
-		if (request.getParameter("submit").equals("更新")) {
-			if (plog.update(new Perfume_log(id, perfume_id, middle_note, last_note, thoughts))) { // 更新成功
-				request.setAttribute("result", new Result("更新成功", "住民のデータを更新しました", "/webapp/MenuServlet"));
-			} else { // 更新失敗
-				request.setAttribute("result", new Result("更新失敗", "住民のデータを更新できませんでした", "/webapp/MenuServlet"));
-			}
-		} else {
-			if (plog.delete(new Perfume_log(id, perfume_id, middle_note, last_note, thoughts))) { // 削除成功
-				request.setAttribute("result", new Result("削除成功", "住民のデータを削除しました。", "/webapp/MenuServlet"));
-			} else { // 削除失敗
-				request.setAttribute("result", new Result("削除失敗", "住民のデータを削除できませんでした。", "/webapp/MenuServlet"));
-			}
-		}
 		
+		//対象となるid
+		int maxId= Integer.parseInt(request.getParameter("maxId"));
+		
+		//　ボタンによって処理を変える
+		if("削除".equals(action)) {
+			//削除
+			plog.delete(new Perfume_log(maxId,perfume_id, middle_note, last_note, thoughts));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+			dispatcher.forward(request, response);
+		} else if("記録".equals(action)) {
+			
+//			//　記録という名の更新処理
+//			//UPDATE perfume_log set middle_note = ?,        WHERE id=?
+//			plog.updateAdd(new Perfume_log(maxId,perfume_id, middle_note, last_note, thoughts));
+//			// カレンダー画面へ
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+//			dispatcher.forward(request, response);
+		}		
 	}
 }

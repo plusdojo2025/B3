@@ -121,6 +121,26 @@ function updateSlider(input) {
 
   display.textContent = minValue + " - " + maxValue;
 }
+
+'use strict';
+const form = document.getElementById('search');
+const error = document.getElementById('errormessage');
+const perfume_nameInput = form.perfume_name;
+const brand_nameInput = form.brand_name;
+const detailInput = form.detail;
+const complexInput = form.complex;
+const sweetInput = form.sweet;
+const heavyInput = form.heavy;
+const womenInput = form.women;
+const spicyInput = form.spicy;
+
+form.onsubmit = function() {
+	if (!perfume_nameInput.value || !brand_nameInput.value || !detailInput.value || !complexInput.value || !sweetInput.value || !heavyInput.value || !womenInput.value || !spicyInput.value) {
+    error.textContent = "※項目を入力してください";
+    return false; 
+ }
+	 error.textContent = null;
+};  
 </script>
   
 </body>

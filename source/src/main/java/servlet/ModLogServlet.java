@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Perfume_logDAO;
+import dto.Big_category;
 import dto.Perfume_log;
+import dto.Perfumes;
+import dto.Small_category;
 
 /**
  * Servlet implementation class ModLogServlet
@@ -57,11 +61,8 @@ public class ModLogServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-		int id= Integer.parseInt(request.getParameter("id"));
-				
+		
 		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
-		// 登録した香水のデータを引き継ぐために
-		request.setAttribute("perfume_id", perfume_id);
 		
 		String temperature = request.getParameter("temperature");
 		
@@ -94,39 +95,29 @@ public class ModLogServlet extends HttpServlet {
 				
 		// シンプルに更新処理を行う
 		Perfume_logDAO plog = new Perfume_logDAO();
-		plog.update(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
-			push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts));
-		
-		// ボタンによってフォワード先を変える
-		if("記録".equals(action)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+		if("香水情報呼び出し".equals(action)) {
+			// 香水情報呼び出し
+			List<Perfumes> pimgList = plog.selectImg(perfume_id);
+			List<Big_category> pbigList = plog.selectBig(perfume_id);
+			List<Small_category> psmlList = plog.selectSml(perfume_id);
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("pimgList", pimgList);
+			request.setAttribute("pbigList", pbigList);
+			request.setAttribute("psmlList", psmlList);
+			// 使用前画面へ戻る
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modlog.jsp");
 			dispatcher.forward(request, response);
-		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
-			dispatcher.forward(request, response);
-			//105,106変えてない(ボタンも消したのでjspのname="action"とかリクエストパラメータとかも全部いらなそう)
 			
+		}else if("記録".equals(action)) {
+		plog.update(new Perfume_log(perfume_id, temperature, weather, applied_time, 
+			push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts));
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+		dispatcher.forward(request, response);	
+		} else {
+			//　更新処理をせずに戻る
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.js");
+			dispatcher.forward(request, response);
 		}
-		
-//		// 更新または削除を行う	（名刺管理ver）
-//		Perfume_logDAO plog = new Perfume_logDAO();
-//		if (request.getParameter("submit").equals("更新")) {
-//			if (plog.update(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
-//					push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 更新成功
-//				request.setAttribute("result", new Result("更新成功", "住民のデータを更新しました", "/webapp/MenuServlet"));
-//			} else { // 更新失敗
-//				request.setAttribute("result", new Result("更新失敗", "住民のデータを更新できませんでした", "/webapp/MenuServlet"));
-//			}
-//			
-//		} else {
-//			if (plog.delete(new Perfume_log(id, perfume_id, temperature, weather, applied_time, 
-//				push_count, usage_scene, applied_area, top_note, middle_note, last_note, thoughts))) { // 削除成功
-//				request.setAttribute("result", new Result("削除成功", "住民のデータを削除しました。", "/webapp/MenuServlet"));
-//			} else { // 削除失敗
-//				request.setAttribute("result", new Result("削除失敗", "住民のデータを削除できませんでした。", "/webapp/MenuServlet"));
-//			}
-//		}
-	
 
 	}
 

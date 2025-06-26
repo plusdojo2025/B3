@@ -46,12 +46,17 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 //		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
+
+		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
+
 //				HttpSession session = request.getSession();
 //				if (session.getAttribute("id") == null) {
 //					response.sendRedirect("/B3/LoginServlet");
 //					return;
 //				}
+
 //		
 //		// TODO Auto-generated method stub
 //		doGet(request, response);
@@ -94,6 +99,8 @@ public class SearchServlet extends HttpServlet {
 //	dispatcher.forward(request, response);
 //	
 //	}
+
+
 		
 		// パラメータを受け取る（例: クエリ文字列などから）
         String perfumeName = request.getParameter("perfume_name");

@@ -63,8 +63,8 @@ public class LogBeforeServlet extends HttpServlet {
 	
 		
 		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
-		// 登録した香水のデータを引き継ぐために
-		request.setAttribute("perfume_id", perfume_id);
+//		// 登録した香水のデータを引き継ぐために
+//		request.setAttribute("perfume_id", perfume_id);
 		
 		String temperature = request.getParameter("temperature");
 		
@@ -88,16 +88,14 @@ public class LogBeforeServlet extends HttpServlet {
 		// どのボタンが押下されたかを取得
 		String action = request.getParameter("action");
 		
-
-		// シンプルに登録処理を行う
-		
-		// ボタンによってフォワード先を変える
+		//処理を始める
+		Perfume_logDAO plog = new Perfume_logDAO();
+		// ボタンによって処理を変える
 		if("香水情報呼び出し".equals(action)) {
-			//香水情報呼び出し
-			Perfume_logDAO pinfo = new Perfume_logDAO();
-			List<Perfumes> pimgList = pinfo.selectImg(perfume_id);
-			List<Big_category> pbigList = pinfo.selectBig(perfume_id);
-			List<Small_category> psmlList = pinfo.selectSml(perfume_id);
+			// 香水情報呼び出し
+			List<Perfumes> pimgList = plog.selectImg(perfume_id);
+			List<Big_category> pbigList = plog.selectBig(perfume_id);
+			List<Small_category> psmlList = plog.selectSml(perfume_id);
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("pimgList", pimgList);
 			request.setAttribute("pbigList", pbigList);
@@ -107,32 +105,27 @@ public class LogBeforeServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 			
 		} else if("記録".equals(action)){
-			Perfume_logDAO plog = new Perfume_logDAO();
+			//　記録
 			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
 			push_count, usage_scene, applied_area, top_note));
+			// カレンダー画面へ
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			Perfume_logDAO plog = new Perfume_logDAO();
-			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
-			push_count, usage_scene, applied_area, top_note));
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
-			dispatcher.forward(request, response);
-		}
-		
-//		// 登録処理を行う（名刺管理ver）
-//		Perfume_logDAO plog = new Perfume_logDAO();
-//		if (plog.insert(new Perfume_log(temperature, weather, applied_time, 
-//			push_count, usage_scene, applied_area, top_note))) { 
+//			//　記録
+//			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
+//			push_count, usage_scene, applied_area, top_note));
 //			
-//			// 🍥🍚🍛🍜要検討！！！！！！！！！！！！！！！！！
-//			// 登録成功↓ここから下は必要なのか
-//			request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/webapp/MenuServlet"));
-//		}
-//		else { 
-//			// 登録失敗
-//			request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/webapp/MenuServlet"));
-//		}
+////			//select max(id) from perfume_log;
+////			List<Perfume_log> idList = plog.selectId(id);
+////			plog.selectId(new Perfume_log(id));
+////			//この値をmaxIdという名前のスコープ
+////			request.setAttribute("idList", idList);
+//			// 使用後画面へ
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
+//			dispatcher.forward(request, response);
+		}
+
 	}
 
 }

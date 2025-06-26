@@ -40,8 +40,18 @@ public class PerfumesDAO {
 	        pStmt.setString(2, pf.getBrand_name() != null ? pf.getBrand_name() : "");
 	        pStmt.setInt(3, pf.getPrice()); // Assuming price is never null
 	        pStmt.setString(4, pf.getPerfume_img() != null ? pf.getPerfume_img() : "");
-	        pStmt.setDate(5, pf.getDay() != null ? java.sql.Date.valueOf(pf.getDay()) : null);
-	        pStmt.setBoolean(6, pf.getFavourite() != null && pf.getFavourite());
+//	        pStmt.setDate(5, pf.getDay() != null ? java.sql.Date.valueOf(pf.getDay()) : null);
+	        java.sql.Date date = null;
+	        try {
+	            if (pf.getDay() != null && !pf.getDay().isEmpty()) {
+	                date = java.sql.Date.valueOf(pf.getDay());  // ここでエラーが出るならcatchに飛ぶ
+	            }
+	        } catch (IllegalArgumentException e) {
+	            // 形式が違う日付文字列が来た場合にここに入る
+	            e.printStackTrace();
+	            // 必要ならエラー処理（例えばfalse返すなど）を書いてください
+	        }
+	        pStmt.setDate(5, date);pStmt.setBoolean(6, pf.getFavourite() != null && pf.getFavourite());
 	        pStmt.setString(7, pf.getColor() != null ? pf.getColor() : "");
 	        pStmt.setInt(8, pf.getStrength());
 

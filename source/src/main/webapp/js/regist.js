@@ -36,3 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 登録バリデーション関連のコードは削除しました
 });
+	
+const form = document.getElementById('imageregist');
+const error = document.getElementById('errormessage');
+const nameInput = document.getElementById('perfume_name');
+
+form.onsubmit = function () {
+  if (!nameInput.value.trim()) {
+    error.textContent = "※香水名を入力してください";
+    return false;
+  }
+
+  // エラーなしの場合はエラーメッセージを消す
+  error.textContent = null;
+};

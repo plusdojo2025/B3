@@ -30,6 +30,7 @@
         <div class="form-row">
           <label>商品名</label>
           <input type="text" name="perfume_name">
+          <div id="errormessage"></div>
         </div>
         <div class="form-row">
           <label>ブランド</label>
