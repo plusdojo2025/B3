@@ -29,7 +29,7 @@
 		<table>
 			
 		<label for="name">商品名
-		<input type="text" name="name" id="name">
+		<input type="text" name="perfume_name" id="name">
 		</label>
 				
 		<br>
@@ -37,71 +37,66 @@
 		<input type="text" name="brand_name" id="brand_name">
 		</label>
 			
-		<br>
-		<label>イメージタグ
-		<input type="text" name="image_tag" id="image_tag">
-		</label>
-			
-		<br>	
-		<label>シンプル	
-		<div class="slider-container">
-		<div class="slider-track"></div>
-		<div class="slider-range" id="sliderRange"></div>
-	  	<input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
-		<input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
-		</div>
-		<div class="values">
-		  選択範囲: <span id="rangeValue"></span>
-		</div>
-		</label>
+		
+<label>シンプル  
+  <div class="slider-container">
+    <div class="slider-track"></div>
+    <div class="slider-range"></div>
+    <input type="range" class="minRange" name="simple_minRange" min="0" max="100" value="0" oninput="updateSlider(this)">
+    <input type="range" class="maxRange" name="simple_maxRange" min="0" max="100" value="100" oninput="updateSlider(this)">
+  </div>
+  <div class="values">
+    選択範囲: <span class="rangeValue">0 - 100</span>
+  </div>
+</label>
 				
-					<label>フレッシュ	
-						<div class="slider-container">
-						  <div class="slider-track"></div>
-						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
-						</div>
-						<div class="values">
-						  選択範囲: <span id="rangeValue">0 - 100</span>
-						</div>
-					</label>
+<label>フレッシュ  
+  <div class="slider-container">
+    <div class="slider-track"></div>
+    <div class="slider-range"></div>
+    <input type="range" class="minRange" name="fresh_minRange" min="0" max="100" value="0" oninput="updateSlider(this)">
+    <input type="range" class="maxRange" name="fresh_maxRange" min="0" max="100" value="100" oninput="updateSlider(this)">
+  </div>
+  <div class="values">
+    選択範囲: <span class="rangeValue">0 - 100</span>
+  </div>
+</label>
 				
-					<label>ライト	
-						<div class="slider-container">
-						  <div class="slider-track"></div>
-						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
-						</div>
-						<div class="values">
-						  選択範囲: <span id="rangeValue">0 - 100</span>
-						</div>
-					</label>
+					<label>ライト  
+  <div class="slider-container">
+    <div class="slider-track"></div>
+    <div class="slider-range"></div>
+    <input type="range" class="minRange" name="light_minRange" min="0" max="100" value="0" oninput="updateSlider(this)">
+    <input type="range" class="maxRange" name="light_maxRange" min="0" max="100" value="100" oninput="updateSlider(this)">
+  </div>
+  <div class="values">
+    選択範囲: <span class="rangeValue">0 - 100</span>
+  </div>
+</label>
 				
-					<label>メンズ	
-						<div class="slider-container">
-						  <div class="slider-track"></div>
-						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
-						</div>
-						<div class="values">
-						  選択範囲: <span id="rangeValue">0 - 100</span>
-						</div>
-					</label>
+					<label>メンズ  
+  <div class="slider-container">
+    <div class="slider-track"></div>
+    <div class="slider-range"></div>
+    <input type="range" class="minRange" name="men_minRange" min="0" max="100" value="0" oninput="updateSlider(this)">
+    <input type="range" class="maxRange" name="men_maxRange" min="0" max="100" value="100" oninput="updateSlider(this)">
+  </div>
+  <div class="values">
+    選択範囲: <span class="rangeValue">0 - 100</span>
+  </div>
+</label>
 				
-					<label>マイルド	
-						<div class="slider-container">
-						  <div class="slider-track"></div>
-						  <div class="slider-range" id="sliderRange"></div>
-						  <input type="range" id="minRange" min="0" max="100" value="0" oninput="updateSlider()">
-						  <input type="range" id="maxRange" min="0" max="100" value="100" oninput="updateSlider()">
-						</div>
-						<div class="values">
-						  選択範囲: <span id="rangeValue">0 - 100</span>
-						</div>
-					</label>
+					<label>マイルド  
+  <div class="slider-container">
+    <div class="slider-track"></div>
+    <div class="slider-range"></div>
+    <input type="range" class="minRange" name="mild_minRange" min="0" max="100" value="0" oninput="updateSlider(this)">
+    <input type="range" class="maxRange" name="mild_maxRange" min="0" max="100" value="100" oninput="updateSlider(this)">
+  </div>
+  <div class="values">
+    選択範囲: <span class="rangeValue">0 - 100</span>
+  </div>
+</label>
 				
 					<input type="submit" value="検索">
 					<span id="error_message"></span>
@@ -111,19 +106,22 @@
 	
 
 <script>
-function updateSlider() {
-  const min = parseInt(document.getElementById("minRange").value, 10);
-  const max = parseInt(document.getElementById("maxRange").value, 10);
-  const rangeDisplay = document.getElementById("rangeValue");
+function updateSlider(input) {
+  const label = input.closest('label'); // Find the label around the input
 
-  // Ensure min is always less than or equal to max
+  const minInput = label.querySelector('.minRange');
+  const maxInput = label.querySelector('.maxRange');
+  const display = label.querySelector('.rangeValue');
+
+  const min = parseInt(minInput.value, 10);
+  const max = parseInt(maxInput.value, 10);
+
   const minValue = Math.min(min, max);
   const maxValue = Math.max(min, max);
 
-  rangeDisplay.textContent = minValue + " - " + maxValue;
-
+  display.textContent = minValue + " - " + maxValue;
 }
 </script>
-
+  
 </body>
 </html>
