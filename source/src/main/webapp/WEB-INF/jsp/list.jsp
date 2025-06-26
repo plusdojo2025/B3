@@ -111,20 +111,13 @@
 
  
 
-<div class="gallery">
-    <c:forEach var="perfume" items="${imageList}">
-        <div class="gallery-item">
-          <%--   <img src="${pageContext.request.contextPath}+'/'+{perfume.perfume_img}" alt="${perfume.name}"> --%>
-          <img src='${pageContext.request.contextPath}/${perfume.perfume_img}' alt="">
 
-     
-            <%-- <p>${perfume.name}</p> --%>
-            
+<div class="gallery">
+    <c:forEach var="perfume" items="${imageList}" varStatus="status">
+        <div class="gallery-item" <c:if test="${status.index >= 6}">style="display:none;" class="hidden-item"</c:if>>
+            <img src="${pageContext.request.contextPath}/${perfume.perfume_img}" alt="">
         </div>
-        
     </c:forEach>
-    
-     
 </div>
 
 <button id="andmore_button">さらに読み込む</button>
@@ -132,5 +125,15 @@
 	<!--　<a href="RegistServlet"><img src="img/button.png" alt="Parfüm Note" height="60" alt="Parfüm Note"></a>　-->
   	  <a href="<c:url value='/RegistServlet'/>"><img src="<c:url value='/img/button.png'/>" alt="Parfüm Note" height="60"></a>
   </div>
+  
+  <script>
+    document.getElementById('andmore_button').addEventListener('click', function () {
+        const hiddenItems = document.querySelectorAll('.gallery-item[style*="display:none"]');
+        hiddenItems.forEach(item => {
+            item.style.display = 'block';
+        });
+        this.style.display = 'none'; // Hide the button after loading
+    });
+</script>
 </body>
 </html>
