@@ -24,16 +24,29 @@
 			<option value="3">香水C</option>
 		</select>
 		<span id="error_message"></span>
-		<input type="submit" name="action" value="香水情報呼び出し">
 		
-		<c:forEach var="e" items="${pimgList}" >
-		<img src="${e.perfume_img}" alt="香水画像">
-		<!-- 商品名に基づいた画像を表示させる方法が分からない -->
-		</c:forEach>
+		<c:forEach var="img" items="${pimgList}" >
+			<img src='${pageContext.request.contextPath}/${img.perfume_img}' alt="香水画像">
+		</c:forEach><br>
+		
+		<input type="submit" name="action" value="香水情報呼び出し"><br>
+		
+
 		<div>登録済みのタグ
-			<!-- イメージタグを表示させる方法が分からない -->
+			<table>
+				<td>
+					<c:forEach var="big" items="${pbigList}" >
+						<p>${big.scent_type}　×</p>
+					</c:forEach>
+				</td>
+				<td>
+					<c:forEach var="sml" items="${psmlList}" >
+						<p>${sml.detail}</p>
+					</c:forEach>
+				</td>
+			</table>
 		</div>
-		
+			
 		<p>・使用前登録</p>
 		<hr>
 

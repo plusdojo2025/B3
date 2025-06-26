@@ -247,26 +247,26 @@ INSERT INTO scrollbar (perfume_id, simple_complex, fresh_sweet, light_heavy, mal
 INSERT INTO perfume_images (perfume_id, big_id, small_id,created_at, updated_at) VALUES
 (1, 1, 10, NOW(), NOW()),
 (1, 2, 33, NOW(), NOW()),
-(1, 2, 108, NOW(), NOW()),
-(1, 3, 115, NOW(), NOW()),
-(1, 4, 148, NOW(), NOW()),
+(1, 2, 45, NOW(), NOW()),
+(1, 3, 52, NOW(), NOW()),
+(1, 4, 85, NOW(), NOW()),
 (2, 1, 41, NOW(), NOW()),
 (2, 2, 41, NOW(), NOW()),
-(2, 3, 115, NOW(), NOW()),
-(2, 4, 125, NOW(), NOW()),
+(2, 3, 52, NOW(), NOW()),
+(2, 4, 62, NOW(), NOW()),
 (3, 1, 21, NOW(), NOW()),
 (3, 2, 21, NOW(), NOW()),
-(3, 3, 115, NOW(), NOW()),
-(3, 4, 108, NOW(), NOW()),
+(3, 3, 52, NOW(), NOW()),
+(3, 4, 45, NOW(), NOW()),
 (4, 1, 41, NOW(), NOW()),
 (4, 2, 38, NOW(), NOW()),
-(4, 3, 115, NOW(), NOW()),
-(4, 4, 125, NOW(), NOW()),
+(4, 3, 52, NOW(), NOW()),
+(4, 4, 62, NOW(), NOW()),
 (5, 1, 41, NOW(), NOW()),
 (5, 2, 38, NOW(), NOW()),
-(5, 3, 118, NOW(), NOW()),
-(5, 4, 148, NOW(), NOW()),
-(5, 4, 125, NOW(), NOW());
+(5, 3, 55, NOW(), NOW()),
+(5, 4, 85, NOW(), NOW()),
+(5, 4, 62, NOW(), NOW());
 
 /* perfume_log データ*/
 INSERT INTO perfume_log (user_id, perfume_id, applied_time,temperature, weather, push_count, applied_area, usage_scene, top_note, middle_note, last_note, thoughts, created_at, updated_at) VALUES
