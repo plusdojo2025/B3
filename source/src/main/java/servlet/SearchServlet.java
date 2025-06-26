@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.PerfumesDAO;
 import dao.ScrollbarDAO;
@@ -56,11 +55,11 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// データの入力後にもしもログインしていない場合ログインサーブレットにリダイレクト
-				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/B3/LoginServlet");
-					return;
-				}
+//				HttpSession session = request.getSession();
+//				if (session.getAttribute("id") == null) {
+//					response.sendRedirect("/B3/LoginServlet");
+//					return;
+//				}
 		
 		// TODO Auto-generated method stub
 		doGet(request, response);
