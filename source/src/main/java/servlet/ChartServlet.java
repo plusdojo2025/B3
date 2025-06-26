@@ -90,19 +90,22 @@ public class ChartServlet extends HttpServlet {
                 }
             }
 
-            // 棒グラフ：香りの種類×詳細の（TOP5）
-            // perfume_imagesに関連づいているbig_categoryとsmall_catrgoryをjoinして組み合わせをカウント
+            // 棒グラフ：香りの種類×詳細のTOP5
+            // perfume_imagesに関連づいているbig_categoryとsmall_catrgoryをjoinして組み合わせる
+            //　組み合わせた香りの種類×詳細のperfume_logの使用回数を取得
             //　使用回数上位5つを取得し、barlabels,barCountsに保存
             try (
-                PreparedStatement stmt = conn.prepareStatement(
-                    "SELECT b.scent_type, s.detail, COUNT(*) AS cnt " +
-                    "FROM perfume_images pi " +
-                    "JOIN big_category b ON pi.big_id = b.id " +
-                    "JOIN small_category s ON pi.small_id = s.id " +
-                    "GROUP BY b.scent_type, s.detail " +
-                    "ORDER BY cnt DESC " +
-                    "LIMIT 5"
-                );
+	    		PreparedStatement stmt = conn.prepareStatement(
+	    			    "SELECT b.scent_type, s.detail, COUNT(pl.id) AS cnt " +
+	    			    "FROM perfume_log pl " +
+	    			    "JOIN perfumes p ON pl.perfume_id = p.id " +
+	    			    "JOIN perfume_images pi ON p.id = pi.perfume_id " +
+	    			    "JOIN big_category b ON pi.big_id = b.id " +
+	    			    "JOIN small_category s ON pi.small_id = s.id " +
+	    			    "GROUP BY b.scent_type, s.detail " +
+	    			    "ORDER BY cnt DESC " +
+	    			    "LIMIT 5"
+	    			);
                 ResultSet rs = stmt.executeQuery()
             ) {
                 while (rs.next()) {
