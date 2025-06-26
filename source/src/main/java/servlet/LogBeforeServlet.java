@@ -63,8 +63,8 @@ public class LogBeforeServlet extends HttpServlet {
 	
 		
 		int perfume_id= Integer.parseInt(request.getParameter("perfume_id"));
-		// 登録した香水のデータを引き継ぐために
-		request.setAttribute("perfume_id", perfume_id);
+//		// 登録した香水のデータを引き継ぐために
+//		request.setAttribute("perfume_id", perfume_id);
 		
 		String temperature = request.getParameter("temperature");
 		
@@ -112,12 +112,18 @@ public class LogBeforeServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			//　記録
-			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
-			push_count, usage_scene, applied_area, top_note));
-			// 使用後画面へ
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
-			dispatcher.forward(request, response);
+//			//　記録
+//			plog.insert(new Perfume_log(perfume_id, temperature, weather, applied_time, 
+//			push_count, usage_scene, applied_area, top_note));
+//			
+////			//select max(id) from perfume_log;
+////			List<Perfume_log> idList = plog.selectId(id);
+////			plog.selectId(new Perfume_log(id));
+////			//この値をmaxIdという名前のスコープ
+////			request.setAttribute("idList", idList);
+//			// 使用後画面へ
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logafter.jsp");
+//			dispatcher.forward(request, response);
 		}
 
 	}

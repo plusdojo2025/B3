@@ -73,18 +73,24 @@ public class LogAfterServlet extends HttpServlet {
 		
 		// 更新または削除を行う	
 		Perfume_logDAO plog = new Perfume_logDAO();
+		
+		//対象となるid
+		int maxId= Integer.parseInt(request.getParameter("maxId"));
+		
 		//　ボタンによって処理を変える
 		if("削除".equals(action)) {
 			//削除
-			plog.delete(new Perfume_log(perfume_id, middle_note, last_note, thoughts));
+			plog.delete(new Perfume_log(maxId,perfume_id, middle_note, last_note, thoughts));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 			dispatcher.forward(request, response);
 		} else if("記録".equals(action)) {
-			//　記録という名の更新処理
-			plog.update(new Perfume_log(perfume_id, middle_note, last_note, thoughts));
-			// カレンダー画面へ
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
-			dispatcher.forward(request, response);
+			
+//			//　記録という名の更新処理
+//			//UPDATE perfume_log set middle_note = ?,        WHERE id=?
+//			plog.updateAdd(new Perfume_log(maxId,perfume_id, middle_note, last_note, thoughts));
+//			// カレンダー画面へ
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+//			dispatcher.forward(request, response);
 		}		
 	}
 }

@@ -19,9 +19,11 @@
 		<select name="perfume_id">
 		<!-- perfume_nameかidかわからない -->
 			<option value="">---</option>
-			<option value="1">香水A</option>
-			<option value="2">香水B</option>
-			<option value="3">香水C</option>
+			<option value="1">English Pear & Sweet Pea </option>
+			<option value="2">maison Martin Margiela</option>
+			<option value="3">DIPTYQUE</option>
+			<option value="4">ANOTHER 13</option>
+			<option value="5">BLANCHE</option>
 		</select>
 		<span id="error_message"></span>
 		
@@ -103,7 +105,7 @@
 		<p>記録すると自動的にカレンダーに戻ります</p>
 		
 		<input type="submit" name="action" value="記録">
-		<input type="submit" name="action" value="使用後へ">
+<!-- 		<input type="submit" name="action" value="使用後へ"> -->
 	</form>
 	<script src="<c:url value='/js/logbefore.js' />"></script>
 </body>

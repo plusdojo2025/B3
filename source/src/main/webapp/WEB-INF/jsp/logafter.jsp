@@ -17,9 +17,11 @@
 		<label for="perfume_id">*商品名</label>
 		<select name="perfume_id">
     		<option value="" ${empty perfume_id ? "selected" : ""}>---</option>
-    		<option value="1" ${perfume_id == '1' ? "selected" : ""}>香水A</option>
-    		<option value="2" ${perfume_id == '2' ? "selected" : ""}>香水B</option>
-    		<option value="3" ${perfume_id == '3' ? "selected" : ""}>香水C</option>
+    		<option value="1" ${perfume_id == '1' ? "selected" : ""}>English Pear & Sweet Pea </option>
+    		<option value="2" ${perfume_id == '2' ? "selected" : ""}>maison Martin Margiela</option>
+    		<option value="3" ${perfume_id == '3' ? "selected" : ""}>DIPTYQUE</option>
+    		<option value="4" ${perfume_id == '4' ? "selected" : ""}>ANOTHER 13</option>
+			<option value="5" ${perfume_id == '5' ? "selected" : ""}>BLANCHE</option>
 		</select>
 		<span id="error_message"></span>
 				
@@ -49,6 +51,8 @@
 		
 		<p>・使用後登録</p>
 		<hr>
+		<!-- 最後に入力されたid -->
+		<input type="hidden" name= "maxId" value=${maxId }>
 		
 		<label for="middle_note">ミドルノート</label>
 		<textarea name="middle_note"></textarea><br>
