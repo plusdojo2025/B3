@@ -102,7 +102,9 @@
                     r: {
                         min: 0,
                         max: 100,
-                        ticks: { stepSize: 1 }
+                        ticks: { stepSize: 25,beginAtZero:true
+                        }
+                        }
                     }
                 },
                 plugins: {
@@ -110,7 +112,6 @@
                         display: true,
                         text: '全香水の平均的な傾向'
                     }
-                }
             }
         });
     </script>
