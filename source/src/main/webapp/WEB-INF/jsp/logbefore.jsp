@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Parfüm Note | Log</title>
 <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/log.css'/>">
 
 </head>
 <body>
@@ -15,6 +16,7 @@
 	</header>
 	
 	<form method="POST" action="<c:url value='/LogBeforeServlet'/>">
+		<br>
 		<label for="perfume_id">*商品名</label>
 		<select name="perfume_id">
 		<!-- perfume_nameかidかわからない -->
@@ -29,12 +31,11 @@
 		
 		<c:forEach var="img" items="${pimgList}" >
 			<img src='${pageContext.request.contextPath}/${img.perfume_img}' alt="香水画像">
-		</c:forEach><br>
+		</c:forEach><br><br>
 		
-		<input type="submit" name="action" value="香水情報呼び出し"><br>
-		
+		<input type="submit" name="action" value="香水情報呼び出し" id="btn"><br>
 
-		<div>登録済みのタグ
+		<div class="cnt">登録済みのタグ
 			<table>
 				<td>
 					<c:forEach var="big" items="${pbigList}" >
@@ -97,14 +98,15 @@
 			<label><input type="checkbox" name="applied_area" value="clothes">服</label>
 			<label><input type="checkbox" name="applied_area" value="other parts">その他</label>
 		</p>
-		
-		<label for="top_note">トップノート</label>
-		<textarea name="top_note"></textarea>
+		<div class="cnt">
+			<label for="top_note">トップノート</label>
+			<textarea name="top_note"></textarea>
+		</div>
 		<hr>
 		
-		<p>記録すると自動的にカレンダーに戻ります</p>
+		<p class="cnt">記録すると自動的にカレンダーに戻ります</p>
 		
-		<input type="submit" name="action" value="記録">
+		<input type="submit" name="action" value="記録" id="btn">
 <!-- 		<input type="submit" name="action" value="使用後へ"> -->
 	</form>
 	<script src="<c:url value='/js/logbefore.js' />"></script>
