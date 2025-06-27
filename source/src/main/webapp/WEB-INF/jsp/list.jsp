@@ -17,12 +17,6 @@
             padding: 0;
         }
 
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 10px 0;
-        }
-
         .gallery {
             display: flex;
             flex-wrap: wrap;
