@@ -112,7 +112,7 @@ body {
         </div>
     </div>
 </div>
-<div >
+<div style="text-align: center; margin-top: 20px;" >
 	<a href="LogBeforeServlet"><img src="img/button.png" alt="Parfüm Note" height="60" alt="Parfüm Note"></a>
   	<!--  <a href="<c:url value='/LogBeforeServlet'/>"><img src="<c:url value='/img/button.png'/>" alt="Parfüm Note" height="60"></a>-->
   </div>

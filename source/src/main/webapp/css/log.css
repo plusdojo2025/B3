@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+table{
+	margin:auto;
+}
+
+form{
+	display:inline-block;
+	text-align:left;
+}
+
+.cnt{
+
+	text-align:center;
+}
+#btn{
+	display:block;
+	margin:0 auto;
+}

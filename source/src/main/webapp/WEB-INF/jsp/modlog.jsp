@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Parfüm Note | Log</title>
 <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/log.css'/>">
 </head>
 <body>
 	<header>
@@ -14,23 +15,26 @@
 	</header>
 	
 	<form method="POST" action="<c:url value='/ModLogServlet'/>">
+		<br>
 		<label for="perfume_id">*商品名</label>
 		<select name="perfume_id">
 			<option value="">---</option>
-			<option value="1">香水A</option>
-			<option value="2">香水B</option>
-			<option value="3">香水C</option>
+			<option value="1">English Pear & Sweet Pea </option>
+			<option value="2">maison Martin Margiela</option>
+			<option value="3">DIPTYQUE</option>
+			<option value="4">ANOTHER 13</option>
+			<option value="5">BLANCHE</option>
 		</select>
 		<span id="error_message"></span>
 		
 		<c:forEach var="img" items="${pimgList}" >
 			<img src='${pageContext.request.contextPath}/${img.perfume_img}' alt="香水画像">
-		</c:forEach><br>
+		</c:forEach><br><br>
 		
-		<input type="submit" name="action" value="香水情報呼び出し"><br>
+		<input type="submit" name="action" value="香水情報呼び出し" id="btn"><br>
 		
 
-		<div>登録済みのタグ
+		<div class="cnt">登録済みのタグ
 			<table>
 				<td>
 					<c:forEach var="big" items="${pbigList}" >
@@ -45,7 +49,7 @@
 			</table>
 		</div>
 <!-- 		削除ボタンを画像に -->
-		<input type="submit" name="action" value="削除">
+		<input type="submit" name="action" value="削除" id="btn">
 		
 		<p>・使用記録</p>
 		<hr>
@@ -96,6 +100,7 @@
 			<label><input type="checkbox" name="applied_area" value="other parts">その他</label>
 		</p>
 		
+		<div class="cnt">
 		<label for="top_note">トップノート</label>
 		<textarea name="top_note"></textarea><br>
 		
@@ -107,11 +112,12 @@
 		
 		<label for="thoughts">感想</label>
 		<textarea name="thoughts"></textarea>
-		
+		<hr>
 		<p>更新すると自動的にカレンダーに戻ります</p>
 		
-		<input type="submit" name="action" value="更新">
-		<input type="submit" name="action" value="戻る">
+			<input type="submit" name="action" value="更新" >
+			<input type="submit" name="action" value="戻る" >
+		</div>
 	</form>
 	<script src="<c:url value='/js/modlog.js' />"></script>
 </body>
